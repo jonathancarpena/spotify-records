@@ -3,6 +3,7 @@ import useAuth from '../../hooks/useAuth';
 import Link from 'next/link';
 import Tracks from './Tracks';
 import Artists from './Artists';
+import User from './User';
 import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
 
 type Props = {
@@ -74,17 +75,7 @@ function Dashboard({ code }: Props) {
 	if (loading) return <h1>Loading...</h1>;
 	return (
 		<div className="flex flex-col space-y-10 p-20">
-			{user && (
-				<div className="text-black ">
-					<p>{user.premium ? 'Premium User' : 'Spotify User'}</p>
-					<p>Email: {user.email}</p>
-					<p>Username: {user.name}</p>
-					<p>Followers: {user.followers}</p>
-					<Link href={user.url} target="_blank">
-						Open in Spotify
-					</Link>
-				</div>
-			)}
+			{user && <User user={user} />}
 
 			{tracks && <Tracks tracks={tracks} />}
 			{artists && <Artists artists={artists} />}

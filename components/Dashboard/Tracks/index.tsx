@@ -37,7 +37,7 @@ function Tracks({ tracks }: Props) {
 		},
 	];
 	return (
-		<div className="ml-5 flex flex-col ">
+		<div className="ml-5 flex flex-col text-secondary">
 			<h1 className="font-semibold text-lg">Top Tracks</h1>
 			<ul className="flex space-x-4 mb-2">
 				{termOptions.map((item, idx) => (

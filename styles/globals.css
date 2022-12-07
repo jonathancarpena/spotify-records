@@ -1,19 +1,16 @@
-/* 
-  Spotify Color Palette 
-    Green - #1db954
-    Darker Grey - #212121
-    Almost Black - #121212
-    Dark Grey - #535353
-    Grey- #b3b3b3  
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+	.text-secondary {
+		color: #a7a7a7;
+	}
+}
+
 body {
-	background-color: #f7f6ef;
+	background-color: #121212;
 }
 /* Box sizing rules */
 *,
