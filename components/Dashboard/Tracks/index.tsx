@@ -37,8 +37,8 @@ function Tracks({ tracks }: Props) {
 		},
 	];
 	return (
-		<div className="ml-5 flex flex-col text-secondary">
-			<h1 className="font-semibold text-lg">Top Tracks</h1>
+		<div className="ml-5 flex flex-col ">
+			<h1 className="text-black text-8xl font-black mb-2">Top Tracks</h1>
 			<ul className="flex space-x-4 mb-2">
 				{termOptions.map((item, idx) => (
 					<button
@@ -57,7 +57,7 @@ function Tracks({ tracks }: Props) {
 			</ul>
 
 			{tracks[term].length > 0 ? (
-				<ul className="flex flex-col space-y-2">
+				<ul className="flex flex-col space-y-2 text-secondary-light">
 					{tracks[term].map((item, idx) => (
 						<div
 							key={`${term}-track-${idx}`}

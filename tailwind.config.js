@@ -20,7 +20,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        main: ['Signika', 'sans-serif']
+        main: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui']
       },
       colors: {
         dark: {
@@ -29,6 +29,13 @@ module.exports = {
           mainActive: '#5A5A5A',
           menu: '#282828',
           menuHover: '#3e3e3e'
+        },
+        light: {
+          main: '#F6F6F6',
+          mainHover: '#D6D6D6',
+          mainActive: '#A5A5A5',
+          menu: '#D7D7D7',
+          menuHover: '#C3C3C3'
         },
 
         accent: {
