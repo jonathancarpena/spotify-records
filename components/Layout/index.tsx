@@ -10,7 +10,7 @@ function Layout({ children }: Props) {
 	const router = useRouter();
 	return (
 		<>
-			<div className="relative max-w-7xl mx-auto font-main">
+			<div className="relative max-w-7xl mx-auto font-main ">
 				{/* <Navbar /> */}
 				<main className="">{children}</main>
 				{/* <Footer /> */}

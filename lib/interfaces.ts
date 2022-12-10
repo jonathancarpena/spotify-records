@@ -11,6 +11,8 @@ export interface SpotifyTrack {
 	duration_ms: any;
 	external_urls: any;
 	name: string;
+	explicit: boolean;
+	preview_url?: string | null;
 }
 
 export interface SpotifyArtist {

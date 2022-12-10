@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { SpotifyTrack, Terms } from '../../../lib/interfaces';
 import { convertMsToMinutesSeconds } from '../../../lib/utils';
-import Link from 'next/link';
+import { AiOutlineClockCircle } from 'react-icons/ai';
+import SingleTrack from './SingleTrack';
 
 type Props = {
 	tracks: {
@@ -37,45 +38,67 @@ function Tracks({ tracks }: Props) {
 		},
 	];
 	return (
-		<div className="ml-5 flex flex-col ">
-			<h1 className="text-black text-8xl font-black mb-2">Top Tracks</h1>
-			<ul className="flex space-x-4 mb-2">
-				{termOptions.map((item, idx) => (
-					<button
-						key={idx}
-						onClick={() => {
-							setTerm(item.value);
-						}}
-						disabled={term === item.value}
-						className={`${
-							term === item.value ? 'bg-accent-500' : 'bg-slate-500'
-						} px-3 py-1  rounded-lg text-white`}
-					>
-						{item.placeholder}
-					</button>
-				))}
-			</ul>
-
-			{tracks[term].length > 0 ? (
-				<ul className="flex flex-col space-y-2 text-secondary-light">
-					{tracks[term].map((item, idx) => (
-						<div
-							key={`${term}-track-${idx}`}
-							className="flex space-x-1 text-xs"
+		<section>
+			<div className="flex items-end justify-between">
+				<h2 className="text-black text-8xl font-black mb-2">Top Tracks</h2>
+				{/* Term Selection */}
+				<ul className="flex space-x-4 mb-2">
+					{termOptions.map((item, idx) => (
+						<button
+							key={idx}
+							onClick={() => {
+								setTerm(item.value);
+							}}
+							disabled={term === item.value}
+							className={`${
+								term === item.value ? 'bg-accent-500' : 'bg-neutral-400'
+							} px-3 py-1  rounded-lg text-white`}
 						>
-							<span>{item.name}</span>
-							<span>- {item.artists[0].name}</span>
-							<span>{convertMsToMinutesSeconds(item.duration_ms)}</span>
-							<Link href={item.external_urls.spotify} target="_blank">
-								Open On Spotify
-							</Link>
-						</div>
+							{item.placeholder}
+						</button>
 					))}
 				</ul>
+			</div>
+
+			{/* Track Data */}
+			{tracks[term].length > 0 ? (
+				<div className="">
+					<ul className="flex flex-col  text-secondary-light h-[500px] overflow-auto relative">
+						<div className="sticky top-0 bg-light-main grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 text-sm  font-semibold uppercase border-b-2 border-b-black mb-3">
+							<span className="flex w-full justify-center items-center">#</span>
+							<span>Title</span>
+							<span>Album</span>
+
+							<AiOutlineClockCircle className="text-lg" />
+						</div>
+						{tracks[term].map((item, idx) => (
+							<SingleTrack
+								key={`${term}-track-${idx}`}
+								idx={idx + 1}
+								artists={item.artists.map((artist: any) => {
+									return {
+										name: artist.name,
+										url: artist.external_urls.spotify,
+									};
+								})}
+								album={{
+									image: item.album.images[0].url,
+									name: item.album.name,
+									url: item.album.external_urls.spotify,
+								}}
+								songTitle={item.name}
+								songDuration={convertMsToMinutesSeconds(item.duration_ms)}
+								spotifyUrl={item.external_urls.spotify}
+								previewUrl={item.preview_url}
+								explicit={item.explicit}
+							/>
+						))}
+					</ul>
+				</div>
 			) : (
-				<h1>No Track Data</h1>
+				<h3>No Track Data</h3>
 			)}
-		</div>
+		</section>
 	);
 }
 

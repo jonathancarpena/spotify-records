@@ -59,7 +59,10 @@ function Dashboard({ code }: Props) {
 			// TOP TRACKS
 			fetch('/api/top-tracks', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
-				.then((data) => setTracks(data))
+				.then((data) => {
+					console.log(data);
+					setTracks(data);
+				})
 				.catch((err) => alert(err));
 
 			// TOP ARTISTS
@@ -74,7 +77,7 @@ function Dashboard({ code }: Props) {
 
 	if (loading) return <h1>Loading...</h1>;
 	return (
-		<div className="flex flex-col space-y-10 p-20">
+		<div className="flex flex-col space-y-10 px-5 lg:px-0">
 			{user && <User user={user} />}
 
 			{tracks && <Tracks tracks={tracks} />}

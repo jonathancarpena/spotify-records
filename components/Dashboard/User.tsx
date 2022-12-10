@@ -54,7 +54,7 @@ function User({ user }: Props) {
 			onMouseEnter={handleHover}
 			onMouseLeave={() => setHover(false)}
 			onClick={handleMenuOpen}
-			className={`cursor-pointer flex space-x-2 items-center w-max absolute top-5 right-5 text-white bg-dark-menu pr-2 pl-1 py-1 rounded-full ${
+			className={`z-50 cursor-pointer flex space-x-2 items-center w-max absolute top-5 right-5 text-white bg-dark-menu pr-2 pl-1 py-1 rounded-full ${
 				menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
 			}`}
 		>
@@ -72,7 +72,7 @@ function User({ user }: Props) {
 			</div>
 
 			{/* Menu Button */}
-			<h1 className=" lowercase">{user.name}</h1>
+			<h1 className=" lowercase  select-none">{user.name}</h1>
 
 			{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
 
@@ -96,23 +96,23 @@ function User({ user }: Props) {
 						<AiOutlineMail className="inline mr-2.5" />
 						<span>{user.email}</span>
 					</p>
-					<p className=" cursor-default  px-2 py-3 text-start hover:bg-dark-menuHover flex items-center">
+					<p className=" cursor-default  px-2 py-3 text-start hover:bg-dark-menuHover flex items-center select-none">
 						<AiOutlineLineChart className="inline mr-2.5" />
 						<span>{user.followers} Followers</span>
 					</p>
-					<p className="cursor-default px-2 py-3 text-start hover:bg-dark-menuHover flex items-center">
+					<p className="cursor-default px-2 py-3 text-start hover:bg-dark-menuHover flex items-center select-none">
 						<AiOutlineThunderbolt className="inline mr-2.5" />
 						<span>{user.premium ? 'Premium User' : 'Free User'}</span>
 					</p>
 
-					<button className="px-2 py-3 text-start hover:bg-dark-menuHover flex items-center">
+					<button className="px-2 py-3 text-start hover:bg-dark-menuHover flex items-center  select-none">
 						<Link href={user.url} target="_blank">
 							<SlSocialSpotify className="inline mr-2.5" />
 							<span>View On Spotify</span>
 						</Link>
 					</button>
 
-					<button className="px-2 py-3 text-start hover:bg-dark-menuHover flex items-center">
+					<button className="px-2 py-3 text-start hover:bg-dark-menuHover flex items-center  select-none">
 						<Link href={user.url} target="_blank">
 							<AiOutlinePoweroff className="inline mr-2.5" />
 							<span>Logout</span>
