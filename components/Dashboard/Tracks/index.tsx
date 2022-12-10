@@ -62,15 +62,15 @@ function Tracks({ tracks }: Props) {
 
 			{/* Track Data */}
 			{tracks[term].length > 0 ? (
-				<div className="">
-					<ul className="flex flex-col  text-secondary-light h-[500px] overflow-auto relative">
-						<div className="sticky top-0 bg-light-main grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 text-sm  font-semibold uppercase border-b-2 border-b-black mb-3">
-							<span className="flex w-full justify-center items-center">#</span>
-							<span>Title</span>
-							<span>Album</span>
+				<div>
+					<div className=" bg-light-main grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 text-sm  font-semibold uppercase border-b-2 border-b-black ">
+						<span className="flex w-full justify-center items-center">#</span>
+						<span>Title</span>
+						<span>Album</span>
 
-							<AiOutlineClockCircle className="text-lg" />
-						</div>
+						<AiOutlineClockCircle className="text-lg" />
+					</div>
+					<ul className="mt-3 flex flex-col  text-secondary-light h-[500px] overflow-auto  scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-neutral-300  scrollbar-track-transparent relative ">
 						{tracks[term].map((item, idx) => (
 							<SingleTrack
 								key={`${term}-track-${idx}`}

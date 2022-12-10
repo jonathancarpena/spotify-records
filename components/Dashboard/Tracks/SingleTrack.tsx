@@ -99,7 +99,7 @@ function SingleTrack({
 			<Link
 				href={spotifyUrl}
 				target="_blank"
-				className="justify-self-end mx-4  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
+				className="justify-self-end mr-7  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
 			>
 				<button className=" px-4 bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
 					<span>Open</span>
