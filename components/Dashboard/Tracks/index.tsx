@@ -70,7 +70,7 @@ function Tracks({ tracks }: Props) {
 
 						<AiOutlineClockCircle className="text-lg" />
 					</div>
-					<ul className="mt-3 flex flex-col  text-secondary-light h-[500px] overflow-auto  scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-neutral-300  scrollbar-track-transparent relative ">
+					<ul className="mt-3 flex flex-col  text-secondary-light h-[500px] overflow-auto  scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-black  scrollbar-track-transparent relative ">
 						{tracks[term].map((item, idx) => (
 							<SingleTrack
 								key={`${term}-track-${idx}`}
