@@ -37,13 +37,17 @@ function SingleTrack({
 		>
 			{/* Index, Preview Button*/}
 			<span className="flex justify-center items-center w-full h-full  ">
-				{previewUrl && hover && (
-					<Link href={previewUrl} target="_blank">
-						<BsPlayFill className="text-2xl text-black hover:text-3xl active:text-2xl transition-all duration-150" />
-					</Link>
+				{previewUrl ? (
+					hover ? (
+						<Link href={previewUrl} target="_blank">
+							<BsPlayFill className="text-2xl text-black hover:text-3xl active:text-2xl transition-all duration-150" />
+						</Link>
+					) : (
+						idx
+					)
+				) : (
+					idx
 				)}
-				{!hover && idx}
-				{!previewUrl && !hover && idx}
 			</span>
 
 			{/* Image, Song Title, Artist(s) Name */}

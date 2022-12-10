@@ -38,9 +38,9 @@ function Tracks({ tracks }: Props) {
 		},
 	];
 	return (
-		<section>
+		<section className="select-none">
 			<div className="flex items-end justify-between">
-				<h2 className="text-black text-8xl font-black mb-2">Top Tracks</h2>
+				<h2 className="text-black text-8xl font-black mb-2  ">Top Tracks</h2>
 				{/* Term Selection */}
 				<ul className="flex space-x-4 mb-2">
 					{termOptions.map((item, idx) => (
