@@ -30,29 +30,14 @@ type Props = {
 };
 
 function User({ user }: Props) {
-	const [hover, setHover] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
 
-	function handleHover() {
-		if (!menuOpen) {
-			setTimeout(() => {
-				setHover(true);
-			}, 300);
-		}
-	}
-
 	function handleMenuOpen() {
-		if (hover) {
-			setHover(false);
-		}
-
 		setMenuOpen(!menuOpen);
 	}
 
 	return (
 		<div
-			onMouseEnter={handleHover}
-			onMouseLeave={() => setHover(false)}
 			onClick={handleMenuOpen}
 			className={`z-50 cursor-pointer flex space-x-2 items-center w-max absolute top-5 right-5 text-white bg-dark-menu pr-2 pl-1 py-1 rounded-full ${
 				menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
@@ -75,17 +60,6 @@ function User({ user }: Props) {
 			<h1 className=" lowercase  select-none">{user.name}</h1>
 
 			{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
-
-			{/* Hover Name Popup */}
-			{!menuOpen && (
-				<span
-					className={`${
-						hover ? 'opacity-100' : 'opacity-0'
-					} cursor-default select-none transition-opacity duration-150 lowercase rounded-md py-1 px-2 drop-shadow-xl bg-dark-menu  text-white absolute top-[120%] left-1/2 -translate-x-1/2`}
-				>
-					{user.name}
-				</span>
-			)}
 
 			{/* Menu */}
 			{menuOpen && (
