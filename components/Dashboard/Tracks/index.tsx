@@ -9,7 +9,7 @@ type Props = {
 		shortTerm: SpotifyTrack[] | [];
 		mediumTerm: SpotifyTrack[] | [];
 		longTerm: SpotifyTrack[] | [];
-	};
+	} | null;
 };
 
 type State = {
@@ -38,11 +38,12 @@ function Tracks({ tracks }: Props) {
 		},
 	];
 	return (
-		<section className="select-none">
-			<div className="flex items-end justify-between">
-				<h2 className="text-black text-8xl font-black mb-2  ">Top Tracks</h2>
+		<section className="select-none bg-gradient-to-b from-stone-300 to-white w-full">
+			<div className="max-w-7xl flex items-end justify-between h-96  rounded-t-xl p-10 relative ">
+				{/* <div className="absolute w-full rounded-t-xl h-[120%] bg-stone-400 left-0 top-0 z-10"></div> */}
+				<h2 className="text-black text-8xl font-black z-30">Top Tracks</h2>
 				{/* Term Selection */}
-				<ul className="flex space-x-4 mb-2">
+				<ul className="flex space-x-4 mb-2 z-30">
 					{termOptions.map((item, idx) => (
 						<button
 							key={idx}
@@ -61,9 +62,9 @@ function Tracks({ tracks }: Props) {
 			</div>
 
 			{/* Track Data */}
-			{tracks[term].length > 0 ? (
-				<div>
-					<div className=" bg-light-main grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 text-sm  font-semibold uppercase border-b-2 border-b-black ">
+			{tracks && tracks[term].length > 0 ? (
+				<div className="max-w-7xl ">
+					<div className=" grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 text-sm  font-semibold uppercase border-b-2 border-b-black ">
 						<span className="flex w-full justify-center items-center">#</span>
 						<span>Title</span>
 						<span>Album</span>

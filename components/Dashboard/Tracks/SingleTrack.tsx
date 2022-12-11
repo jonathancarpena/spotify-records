@@ -32,7 +32,7 @@ function SingleTrack({
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			className={`${
-				hover ? 'bg-light-mainHover' : 'bg-light-main'
+				hover ? 'bg-light-mainHover' : ''
 			} active:bg-light-mainActive grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 rounded-md  select-none`}
 		>
 			{/* Index, Preview Button*/}

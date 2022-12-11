@@ -11,7 +11,6 @@ function Home() {
 
 	return (
 		<div>
-			<h1>Swaddle</h1>
 			{router.query.code ? (
 				<Dashboard code={router.query.code.toString()} />
 			) : (

@@ -19,6 +19,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 		const userData = await spotifyApi.getMe();
 
 		response = {
+			user_id: userData.body.id,
 			name: userData.body.display_name,
 			country: userData.body.country,
 			email: userData.body.email,

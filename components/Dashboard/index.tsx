@@ -5,10 +5,13 @@ import Tracks from './Tracks';
 import Artists from './Artists';
 import User from './User';
 import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
+import Sidebar from './Sidebar';
 
 type Props = {
 	code: string;
 };
+
+export type MenuOptions = 'tracks' | 'artists' | 'create playlist';
 
 type State = {
 	user: {
@@ -23,7 +26,7 @@ type State = {
 			height: number;
 			width: number;
 		};
-	};
+	} | null;
 	tracks: {
 		shortTerm: SpotifyTrack[] | [];
 		mediumTerm: SpotifyTrack[] | [];
@@ -34,13 +37,15 @@ type State = {
 		mediumTerm: SpotifyArtist[] | [];
 		longTerm: SpotifyArtist[] | [];
 	} | null;
+	menuOptions: MenuOptions;
 };
 function Dashboard({ code }: Props) {
 	const accessToken = useAuth(code);
-	const [user, setUser] = useState<State['user']>();
+	const [user, setUser] = useState<State['user']>(null);
 	const [tracks, setTracks] = useState<State['tracks']>(null);
-	const [artists, setArtists] = useState<State['artists']>();
+	const [artists, setArtists] = useState<State['artists']>(null);
 	const [loading, setLoading] = useState(true);
+	const [menu, setMenu] = useState<State['menuOptions']>('tracks');
 
 	// USER PROFILE
 	useEffect(() => {
@@ -75,13 +80,22 @@ function Dashboard({ code }: Props) {
 		}
 	}, [accessToken]);
 
-	if (loading) return <h1>Loading...</h1>;
-	return (
-		<div className="flex flex-col space-y-10 px-5 lg:px-0">
-			{user && <User user={user} />}
+	function handleMenuChange(option: MenuOptions) {
+		setMenu(option);
+	}
 
-			{tracks && <Tracks tracks={tracks} />}
-			{artists && <Artists artists={artists} />}
+	return (
+		<div className=" flex px-5 lg:px-0">
+			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
+			{loading ? (
+				<h1>Loading</h1>
+			) : (
+				<>
+					{user && <User user={user} />}
+					{tracks && <Tracks tracks={tracks} />}
+					{/* {artists && <Artists artists={artists} />} */}
+				</>
+			)}
 		</div>
 	);
 }
