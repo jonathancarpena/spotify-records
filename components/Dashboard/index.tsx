@@ -87,15 +87,11 @@ function Dashboard({ code }: Props) {
 	return (
 		<div className=" flex px-5 lg:px-0">
 			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
-			{loading ? (
-				<h1>Loading</h1>
-			) : (
-				<>
-					{user && <User user={user} />}
-					{tracks && <Tracks tracks={tracks} />}
-					{/* {artists && <Artists artists={artists} />} */}
-				</>
-			)}
+			<Tracks tracks={tracks} loading={loading} />
+
+			{user && <User user={user} />}
+
+			{/* {artists && <Artists artists={artists} />} */}
 		</div>
 	);
 }

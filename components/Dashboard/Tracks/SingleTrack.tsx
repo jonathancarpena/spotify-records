@@ -33,7 +33,7 @@ function SingleTrack({
 			onMouseLeave={() => setHover(false)}
 			className={`${
 				hover ? 'bg-light-mainHover' : ''
-			} active:bg-light-mainActive grid grid-cols-[50px_500px_500px_auto_auto]  place-items-center justify-items-start  py-2 rounded-md  select-none`}
+			} active:bg-light-mainActive grid grid-cols-[50px_minmax(350px,1fr)_1fr_0.5fr]  place-items-center justify-items-start  py-2 rounded-md  select-none`}
 		>
 			{/* Index, Preview Button*/}
 			<span className="flex justify-center items-center w-full h-full  ">
@@ -93,19 +93,21 @@ function SingleTrack({
 			</Link>
 
 			{/* Song Duration */}
-			<span className="">{songDuration}</span>
+			<div className="flex justify-between w-full">
+				<span className="">{songDuration}</span>
 
-			{/* External Link to Spotify */}
-			<Link
-				href={spotifyUrl}
-				target="_blank"
-				className="justify-self-end mr-7  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
-			>
-				<button className=" px-4 bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
-					<span>Open</span>
-					<SiSpotify />
-				</button>
-			</Link>
+				{/* External Link to Spotify */}
+				<Link
+					href={spotifyUrl}
+					target="_blank"
+					className="justify-self-end mr-7  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
+				>
+					<button className=" px-4 bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
+						<span>Open</span>
+						<SiSpotify />
+					</button>
+				</Link>
+			</div>
 		</div>
 	);
 }
