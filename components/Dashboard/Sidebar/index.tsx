@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
 	AiOutlinePlusSquare,
@@ -64,7 +65,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 
 			<Link href="/">
 				<button
-					className={` text-white drop-shadow-md bg-accent-500 hover:brightness-110 active:brightness-90 w-full cursor-pointer px-2 py-3 flex items-center space-x-3  mb-3 transition-all duration-200 rounded-md border-[1px]`}
+					className={` sticky bottom-0 text-white drop-shadow-md bg-accent-500 hover:brightness-110 active:brightness-90 w-full cursor-pointer px-2 py-3 flex items-center space-x-3  mb-3 transition-all duration-200 rounded-md border-[1px]`}
 				>
 					<AiOutlineLogout className="text-3xl" />
 					<span className={` text-sm  font-bold capitalize  `}>Logout</span>
