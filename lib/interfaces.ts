@@ -29,3 +29,8 @@ export interface SpotifyArtist {
 }
 
 export type Terms = 'shortTerm' | 'mediumTerm' | 'longTerm';
+
+export interface TermOptions {
+	value: Terms;
+	placeholder: string;
+}

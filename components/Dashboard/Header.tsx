@@ -56,6 +56,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 				.filter((option) => option.value !== active)
 				.map((item, idx) => (
 					<button
+						key={item.value}
 						onClick={() => handleButtonClick(item.value)}
 						className="font-light"
 					>
@@ -67,14 +68,15 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 }
 function Header({ term, setTerm, title, banner }: Props) {
 	return (
-		<header className="flex-1">
+		<header className="flex-1 ">
 			<div className=" flex flex-col justify-end h-[25rem] px-10 pt-10 pb-8 relative overflow-hidden">
-				<div className="opacity-80">
+				<div className="opacity-80 inset-0 absolute w-full h-full">
 					<Image
 						src={banner}
 						fill
 						alt={`${title}-banner`}
 						style={{ objectFit: 'cover' }}
+						priority
 					/>
 				</div>
 

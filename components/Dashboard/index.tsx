@@ -54,29 +54,41 @@ function Dashboard({ code }: Props) {
 
 		if (!ignore) {
 			ignore = true;
+			let ready = false;
 
 			// USER PROFILE
+			ready = false;
 			fetch('/api/users-profile', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
-				.then((data) => setUser(data))
+				.then((data) => {
+					ready = true;
+					setUser(data);
+				})
 				.catch((err) => alert(err));
 
 			// TOP TRACKS
+			ready = false;
 			fetch('/api/top-tracks', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
+					ready = true;
 					setTracks(data);
 				})
 				.catch((err) => alert(err));
 
 			// TOP ARTISTS
+			ready = false;
 			fetch('/api/top-artists', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
-				.then((data) => setArtists(data))
+				.then((data) => {
+					ready = true;
+					setArtists(data);
+				})
 				.catch((err) => alert(err));
 
-			setLoading(false);
+			if (ready) {
+				setLoading(false);
+			}
 		}
 	}, [accessToken]);
 
@@ -87,7 +99,8 @@ function Dashboard({ code }: Props) {
 	return (
 		<div className=" flex px-5 lg:px-0">
 			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
-			<Tracks tracks={tracks} loading={loading} />
+			{/* <Tracks tracks={tracks} loading={loading} /> */}
+			<Artists artists={artists} loading={loading} />
 
 			{user && <User user={user} />}
 
