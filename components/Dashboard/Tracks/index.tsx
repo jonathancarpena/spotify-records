@@ -23,7 +23,7 @@ function Tracks({ tracks, loading }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
 
 	return (
-		<section className="select-none bg-light-main w-full">
+		<section className="select-none bg-light-main w-full flex flex-col  max-h-screen overflow-hidden">
 			<Header
 				term={term}
 				setTerm={setTerm}
@@ -36,15 +36,22 @@ function Tracks({ tracks, loading }: Props) {
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className="max-w-[1500px]   p-8  ">
-						<div className=" grid grid-cols-[50px_minmax(350px,1fr)_1fr_0.5fr]  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-2 border-b-black ">
-							<span className="flex w-full justify-center items-center">#</span>
-							<span>Title</span>
-							<span>Album</span>
-
-							<AiOutlineClockCircle className="text-lg" />
+					<div className=" flex-0  pb-7 relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
+						{/* Table Header */}
+						<div className=" sticky top-0   flex-col">
+							<div className=" pt-6 bg-white px-5 grid grid-cols-[50px_minmax(350px,1fr)_1fr_0.5fr]  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-2 border-b-black  ">
+								<span className="flex w-full justify-center items-center">
+									#
+								</span>
+								<span>Title</span>
+								<span>Album</span>
+								<AiOutlineClockCircle className="text-lg" />
+							</div>
+							<div className="bg-gradient-to-b from-white to-transparent  w-full h-[50px]"></div>
 						</div>
-						<ul className="mt-3 flex flex-col h-[500px] text-secondary-light  overflow-scroll  scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-black  scrollbar-track-transparent relative  w-full ">
+
+						{/* Tracks */}
+						<ul className=" -mt-6 flex flex-col text-secondary-light w-full px-5">
 							{tracks[term].map((item, idx) => (
 								<SingleTrack
 									key={`${term}-track-${idx}`}

@@ -67,7 +67,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 }
 function Header({ term, setTerm, title, banner }: Props) {
 	return (
-		<header>
+		<header className="flex-1">
 			<div className=" flex flex-col justify-end h-[25rem] px-10 pt-10 pb-8 relative overflow-hidden">
 				<div className="opacity-80">
 					<Image

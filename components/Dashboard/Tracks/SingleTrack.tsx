@@ -93,7 +93,7 @@ function SingleTrack({
 			</Link>
 
 			{/* Song Duration */}
-			<div className="flex justify-between w-full">
+			<div className="flex space-x-5 w-full">
 				<span className="">{songDuration}</span>
 
 				{/* External Link to Spotify */}
