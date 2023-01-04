@@ -59,9 +59,11 @@ function SingleTrack({
 					alt={`top-track-${songTitle}-${idx}`}
 				/>
 				<div className="flex flex-col justify-between">
-					<p className="cursor-default text-black font-bold max-w-[400px] truncate text-ellipsis">
-						{songTitle}
-					</p>
+					<Link href={spotifyUrl} target="_blank">
+						<p className="cursor-pointer text-black font-bold max-w-[400px] truncate text-ellipsis hover:underline">
+							{songTitle}
+						</p>
+					</Link>
 					<div className="max-w-[400px] truncate text-ellipsis">
 						{explicit && (
 							<span className="mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5 text-white rounded-sm text-xs">
