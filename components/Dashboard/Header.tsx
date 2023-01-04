@@ -49,7 +49,12 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 	}
 	return (
 		<ul className=" text-white z-50 w-max  flex items-center justify-center space-x-2 ">
-			<button className="font-bold">{termPlaceholders[active]}</button>
+			<button
+				disabled
+				className="font-bold bg-white bg-opacity-25 rounded-md px-2"
+			>
+				{termPlaceholders[active]}
+			</button>
 			<span>|</span>
 			{termOptions
 				.filter((option) => option.value !== active)
@@ -57,7 +62,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 					<button
 						key={item.value}
 						onClick={() => handleButtonClick(item.value)}
-						className="font-light"
+						className="font-light hover:underline"
 					>
 						{`${item.placeholder}${idx === 0 ? ',' : ''}`}
 					</button>
@@ -79,7 +84,7 @@ function Header({ term, setTerm, title, banner }: Props) {
 					/>
 				</div>
 
-				<h2 className="text-white text-8xl font-black z-30 capitalize mb-8">
+				<h2 className="text-white text-8xl font-black z-30 capitalize mb-8 drop-shadow-sm">
 					{title}
 				</h2>
 
