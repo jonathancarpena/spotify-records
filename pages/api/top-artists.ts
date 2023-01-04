@@ -17,7 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	// Short Term - Last 4 Weeks
 	try {
 		const shortRes = await spotifyApi.getMyTopArtists({
-			limit: 12,
+			limit: 18,
 			time_range: 'short_term',
 		});
 		response = {
@@ -31,7 +31,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	// Medium Term - Last 6 months
 	try {
 		const mediumRes = await spotifyApi.getMyTopArtists({
-			limit: 12,
+			limit: 18,
 			time_range: 'medium_term',
 		});
 		response = {
@@ -45,7 +45,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	// Long Term - Last 12 months
 	try {
 		const longRes = await spotifyApi.getMyTopArtists({
-			limit: 12,
+			limit: 18,
 			time_range: 'long_term',
 		});
 		response = {
