@@ -26,7 +26,6 @@ const termPlaceholders = {
 };
 
 function TermDropdown({ term, setTerm }: TermDropdownProps) {
-	const [open, setOpen] = useState(false);
 	const [active, setActive] = useState(term);
 
 	const termOptions: TermOptions[] = [
@@ -49,7 +48,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 		setTerm(value);
 	}
 	return (
-		<ul className=" z-50 w-max  flex items-center justify-center space-x-2 ">
+		<ul className=" text-white z-50 w-max  flex items-center justify-center space-x-2 ">
 			<button className="font-bold">{termPlaceholders[active]}</button>
 			<span>|</span>
 			{termOptions
@@ -68,7 +67,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 }
 function Header({ term, setTerm, title, banner }: Props) {
 	return (
-		<header className="flex-1 ">
+		<header>
 			<div className=" flex flex-col justify-end h-[25rem] px-10 pt-10 pb-8 relative overflow-hidden">
 				<div className="opacity-80 inset-0 absolute w-full h-full">
 					<Image
@@ -80,7 +79,7 @@ function Header({ term, setTerm, title, banner }: Props) {
 					/>
 				</div>
 
-				<h2 className="text-black text-8xl font-black z-30 capitalize mb-8">
+				<h2 className="text-white text-8xl font-black z-30 capitalize mb-8">
 					{title}
 				</h2>
 

@@ -69,8 +69,9 @@ function SingleTrack({
 							</span>
 						)}
 						<ul className=" space-x-1 inline-flex">
-							{artists.map((artist) => (
+							{artists.map((artist, idx) => (
 								<Link
+									key={`${songTitle}-artist-${idx}`}
 									href={artist.url}
 									target="_blank"
 									className="after:content-[','] last:after:content-none"
