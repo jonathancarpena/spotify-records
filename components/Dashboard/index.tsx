@@ -6,6 +6,7 @@ import Artists from './Artists';
 import User from './User';
 import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
 import Sidebar from './Sidebar';
+import CreatePlaylist from './CreatePlaylist';
 
 type Props = {
 	code: string;
@@ -95,7 +96,9 @@ function Dashboard({ code }: Props) {
 			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
 			{menu === 'tracks' && <Tracks tracks={tracks} loading={loading} />}
 			{menu === 'artists' && <Artists artists={artists} loading={loading} />}
-
+			{menu === 'create playlist' && (
+				<CreatePlaylist tracks={tracks} loading={loading} />
+			)}
 			{user && <User user={user} />}
 
 			{/* {artists && <Artists artists={artists} />} */}

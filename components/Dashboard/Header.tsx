@@ -4,8 +4,9 @@ import { Terms } from '../../lib/interfaces';
 import { AiFillCaretRight, AiFillCaretLeft } from 'react-icons/ai';
 
 type Props = {
-	term: Terms;
-	setTerm: React.Dispatch<React.SetStateAction<Terms>>;
+	term?: Terms;
+	setTerm?: React.Dispatch<React.SetStateAction<Terms>>;
+	subheader?: string;
 	title: string;
 	banner: string;
 };
@@ -70,7 +71,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 		</ul>
 	);
 }
-function Header({ term, setTerm, title, banner }: Props) {
+function Header({ term, setTerm, title, banner, subheader }: Props) {
 	return (
 		<header>
 			<div className=" flex flex-col justify-end h-[25rem] px-10 pt-10 pb-8 relative overflow-hidden">
@@ -87,8 +88,12 @@ function Header({ term, setTerm, title, banner }: Props) {
 				<h2 className="text-white text-8xl font-black z-30 capitalize mb-8 drop-shadow-sm">
 					{title}
 				</h2>
-
-				<TermDropdown term={term} setTerm={setTerm} />
+				{subheader && (
+					<p className="z-50 text-white font-bold relative bg-white bg-opacity-25 px-2 w-max rounded-md">
+						{subheader}
+					</p>
+				)}
+				{term && setTerm && <TermDropdown term={term} setTerm={setTerm} />}
 			</div>
 		</header>
 	);

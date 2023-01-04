@@ -18,7 +18,6 @@ function SingleArtist({
 	popularity,
 	idx,
 }: Props) {
-	console.log(genres, external_urls);
 	return (
 		<Link
 			href={
