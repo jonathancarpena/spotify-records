@@ -13,6 +13,7 @@ export interface SpotifyTrack {
 	name: string;
 	explicit: boolean;
 	preview_url?: string | null;
+	uri: string;
 }
 
 export interface SpotifyArtist {

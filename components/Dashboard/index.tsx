@@ -57,7 +57,6 @@ function Dashboard({ code }: Props) {
 			ignore = true;
 
 			// USER PROFILE
-
 			fetch('/api/users-profile', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
 				.then((data) => {
@@ -66,7 +65,6 @@ function Dashboard({ code }: Props) {
 				.catch((err) => alert(err));
 
 			// TOP TRACKS
-
 			fetch('/api/top-tracks', { method: 'POST', body: accessToken })
 				.then((res) => res.json())
 				.then((data) => {
@@ -97,7 +95,11 @@ function Dashboard({ code }: Props) {
 			{menu === 'tracks' && <Tracks tracks={tracks} loading={loading} />}
 			{menu === 'artists' && <Artists artists={artists} loading={loading} />}
 			{menu === 'create playlist' && (
-				<CreatePlaylist tracks={tracks} loading={loading} />
+				<CreatePlaylist
+					tracks={tracks}
+					loading={loading}
+					accessToken={accessToken}
+				/>
 			)}
 			{user && <User user={user} />}
 
