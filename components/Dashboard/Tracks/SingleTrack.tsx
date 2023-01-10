@@ -6,13 +6,14 @@ import { BsPlayFill } from 'react-icons/bs';
 
 type Props = {
 	idx: number;
-	album: { image: string; name: string; url: string };
+	album?: { name: string; url: string };
 	artists: { name: string; url: string }[];
 	songTitle: string;
 	explicit: boolean;
 	songDuration: string;
 	spotifyUrl: string;
 	previewUrl?: string | null;
+	image?: string | null;
 };
 
 function SingleTrack({
@@ -20,6 +21,7 @@ function SingleTrack({
 	album,
 	songTitle,
 	artists,
+	image,
 	explicit,
 	spotifyUrl,
 	songDuration,
@@ -52,12 +54,17 @@ function SingleTrack({
 
 			{/* Image, Song Title, Artist(s) Name */}
 			<div className="flex space-x-4 ">
-				<Image
-					src={album.image}
-					width={50}
-					height={50}
-					alt={`top-track-${songTitle}-${idx}`}
-				/>
+				{image ? (
+					<Image
+						src={image}
+						width={50}
+						height={50}
+						alt={`top-track-${songTitle}-${idx}`}
+					/>
+				) : (
+					<div></div>
+				)}
+
 				<div className="flex flex-col justify-between">
 					<Link href={spotifyUrl} target="_blank">
 						<p className="cursor-pointer text-black font-bold max-w-[400px] truncate text-ellipsis hover:underline">
@@ -89,11 +96,13 @@ function SingleTrack({
 			</div>
 
 			{/* Album  */}
-			<Link href={album.url} target="_blank">
-				<p className="max-w-[400px] truncate text-ellipsis font-medium cursor-pointer hover:underline">
-					{album.name}
-				</p>
-			</Link>
+			{album && (
+				<Link href={album.url} target="_blank">
+					<p className="max-w-[400px] truncate text-ellipsis font-medium cursor-pointer hover:underline">
+						{album.name}
+					</p>
+				</Link>
+			)}
 
 			{/* Song Duration */}
 			<div className="flex space-x-5 w-full">

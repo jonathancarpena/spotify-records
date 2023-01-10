@@ -63,10 +63,10 @@ function Tracks({ tracks, loading }: Props) {
 										};
 									})}
 									album={{
-										image: item.album.images[0].url,
 										name: item.album.name,
 										url: item.album.external_urls.spotify,
 									}}
+									image={item.album.images[0].url}
 									songTitle={item.name}
 									songDuration={convertMsToMinutesSeconds(item.duration_ms)}
 									spotifyUrl={item.external_urls.spotify}

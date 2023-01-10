@@ -109,22 +109,6 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 									))}
 								</div>
 
-								{/* Name */}
-								{/* <div>
-								<label htmlFor="playlist-name">Name</label>
-								<input id="playlist-name" />
-							</div> */}
-
-								{/* Description */}
-								<label htmlFor="playlist-description">Description</label>
-								<textarea
-									id="playlist-description"
-									value={description}
-									onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-										setDescription(e.target.value)
-									}
-								/>
-
 								{/* Public */}
 								<div>
 									<label htmlFor="playlist-visible">Public</label>
@@ -158,11 +142,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 												url: artist.external_urls.spotify,
 											};
 										})}
-										album={{
-											image: item.album.images[0].url,
-											name: item.album.name,
-											url: item.album.external_urls.spotify,
-										}}
+										image={item.album.images[0].url}
 										songTitle={item.name}
 										songDuration={convertMsToMinutesSeconds(item.duration_ms)}
 										spotifyUrl={item.external_urls.spotify}
