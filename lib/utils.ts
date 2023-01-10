@@ -36,3 +36,24 @@ export function convertMsToMinutesSeconds(ms: number) {
 		? `${minutes + 1}:00`
 		: `${minutes}:${padTo2Digits(seconds)}`;
 }
+
+// export const toBase64 = (file: any) =>
+// 	new Promise((resolve, reject) => {
+// 		const reader = new FileReader();
+// 		reader.readAsDataURL(file);
+// 		reader.onload = () => resolve(reader.result);
+// 		reader.onerror = (error) => reject(error);
+// 	});
+
+export function toBase64(file: File) {
+	console.log('converting');
+	const reader = new FileReader();
+	let base64String = '';
+	reader.onloadend = () => {
+		if (typeof reader.result === 'string') {
+			base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+		}
+		console.log(base64String);
+		reader.readAsDataURL(file);
+	};
+}

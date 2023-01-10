@@ -6,7 +6,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { accessToken, name, description, visible, tracks } = JSON.parse(
 		req.body
 	);
-
+	console.log(visible);
 	const spotifyApi = new SpotifyWebApi({
 		redirectUri: process.env.NEXT_PUBLIC_REDIRECT_URI,
 		clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
@@ -17,6 +17,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	let status = 200;
 	let message = '';
 
+	// Create Playlist
 	try {
 		const createRes = await spotifyApi.createPlaylist(name, {
 			description: description,
@@ -30,6 +31,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 					return item.uri;
 				}
 			});
+
+			// Adding Tracks to Playlist
 			try {
 				const addTracksRes = await spotifyApi.addTracksToPlaylist(
 					playlistId,
