@@ -1,10 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import SpotifyWebApi from 'spotify-web-api-node';
 import { SpotifyTrack } from '../../lib/interfaces';
+import moment from 'moment';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-	const { accessToken, name, description, tracks } = JSON.parse(req.body);
+	const { accessToken, name, tracks } = JSON.parse(req.body);
+	let description = name;
 
+	if (name.includes('All Time')) {
+		description += ` (as of ${moment().format('MMM YYYY')})`;
+	}
 	const spotifyApi = new SpotifyWebApi({
 		redirectUri: process.env.NEXT_PUBLIC_REDIRECT_URI,
 		clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
@@ -18,7 +23,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	// Create Playlist
 	try {
 		const createRes = await spotifyApi.createPlaylist(name, {
-			description: description,
+			description: `${description} - Generated with Spotify Swaddle`,
 			public: true,
 		});
 

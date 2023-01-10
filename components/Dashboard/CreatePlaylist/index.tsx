@@ -26,7 +26,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 			.subtract(4, 'weeks')
 			.format('MMM YYYY')} - ${moment().format('MMM YYYY')}`
 	);
-	const [description, setDescription] = useState('');
+
 	const prevTerm = useRef(term);
 	const today = moment(Date.now());
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -38,7 +38,6 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				body: JSON.stringify({
 					accessToken,
 					name,
-					description,
 					tracks: tracks[term],
 				}),
 			})
@@ -55,6 +54,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 			prevTerm.current = term;
 			let newName = 'Top Songs ';
 			let timeframe = '';
+
 			if (term === 'shortTerm') {
 				const before = moment().subtract(4, 'weeks');
 				timeframe = `from ${before.format('MMM YYYY')} - ${today.format(
