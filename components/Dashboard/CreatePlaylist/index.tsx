@@ -22,12 +22,11 @@ type State = {
 function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
 	const [name, setName] = useState(
-		`Your Top Songs from ${moment()
+		`Top Songs from ${moment()
 			.subtract(4, 'weeks')
 			.format('MMM YYYY')} - ${moment().format('MMM YYYY')}`
 	);
 	const [description, setDescription] = useState('');
-	const [visible, setVisible] = useState(false);
 	const prevTerm = useRef(term);
 	const today = moment(Date.now());
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -40,7 +39,6 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 					accessToken,
 					name,
 					description,
-					visible,
 					tracks: tracks[term],
 				}),
 			})
@@ -107,17 +105,6 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 											alt={`top-track-${item.name}-${idx}`}
 										/>
 									))}
-								</div>
-
-								{/* Public */}
-								<div>
-									<label htmlFor="playlist-visible">Public</label>
-									<input
-										id="playlist-visible"
-										onChange={() => setVisible(!visible)}
-										type="checkbox"
-										checked={visible}
-									/>
 								</div>
 
 								<button

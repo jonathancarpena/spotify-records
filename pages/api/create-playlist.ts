@@ -3,10 +3,8 @@ import SpotifyWebApi from 'spotify-web-api-node';
 import { SpotifyTrack } from '../../lib/interfaces';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-	const { accessToken, name, description, visible, tracks } = JSON.parse(
-		req.body
-	);
-	console.log(visible);
+	const { accessToken, name, description, tracks } = JSON.parse(req.body);
+
 	const spotifyApi = new SpotifyWebApi({
 		redirectUri: process.env.NEXT_PUBLIC_REDIRECT_URI,
 		clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
@@ -21,7 +19,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const createRes = await spotifyApi.createPlaylist(name, {
 			description: description,
-			public: visible,
+			public: true,
 		});
 
 		if (createRes.statusCode === 201) {

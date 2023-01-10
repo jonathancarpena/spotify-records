@@ -39,13 +39,17 @@ function Tracks({ tracks, loading }: Props) {
 					<div className=" flex-0  pb-7 relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
 						{/* Table Header */}
 						<div className=" sticky top-0   flex-col">
-							<div className=" pt-6 bg-white px-5 grid grid-cols-[50px_minmax(350px,1fr)_1fr_0.5fr]  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-2 border-b-black  ">
-								<span className="flex w-full justify-center items-center">
-									#
-								</span>
-								<span>Title</span>
+							<div className=" pt-6 bg-white px-5 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-2 border-b-black  ">
+								<div className="flex">
+									<span className="flex w-[55px] justify-center items-center">
+										#
+									</span>
+									<span>Title</span>
+								</div>
+
 								<span>Album</span>
-								<AiOutlineClockCircle className="text-lg" />
+
+								<AiOutlineClockCircle className="text-lg justify-self-end mr-12" />
 							</div>
 							<div className="bg-gradient-to-b from-white to-transparent  w-full h-[50px]"></div>
 						</div>

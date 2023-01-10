@@ -35,90 +35,90 @@ function SingleTrack({
 			onMouseLeave={() => setHover(false)}
 			className={`${
 				hover ? 'bg-light-mainHover' : ''
-			} active:bg-light-mainActive grid grid-cols-[50px_minmax(350px,1fr)_1fr_0.5fr]  place-items-center justify-items-start  py-2 rounded-md  select-none`}
+			} active:bg-light-mainActive grid grid-flow-col gap-5 auto-cols-fr w-full  place-items-center justify-items-start  py-2 rounded-md  select-none`}
 		>
-			{/* Index, Preview Button*/}
-			<span className="flex justify-center items-center w-full h-full  ">
-				{previewUrl ? (
-					hover ? (
-						<Link href={previewUrl} target="_blank">
-							<BsPlayFill className="text-2xl text-black hover:text-3xl active:text-2xl transition-all duration-150" />
-						</Link>
+			{/* Index, Song Title*/}
+			<div className="flex items-center truncate w-full  ">
+				<span className="flex justify-center items-center  min-w-[55px]   ">
+					{previewUrl ? (
+						hover ? (
+							<Link href={previewUrl} target="_blank">
+								<BsPlayFill className="text-2xl text-black hover:text-3xl active:text-2xl transition-all duration-150" />
+							</Link>
+						) : (
+							idx
+						)
 					) : (
 						idx
-					)
-				) : (
-					idx
-				)}
-			</span>
+					)}
+				</span>
 
-			{/* Image, Song Title, Artist(s) Name */}
-			<div className="flex space-x-4 ">
-				{image ? (
-					<Image
-						src={image}
-						width={50}
-						height={50}
-						alt={`top-track-${songTitle}-${idx}`}
-					/>
-				) : (
-					<div></div>
-				)}
+				<div className="flex flex-1  overflow-auto">
+					{image ? (
+						<Image
+							src={image}
+							width={50}
+							height={50}
+							alt={`top-track-${songTitle}-${idx}`}
+						/>
+					) : (
+						<div></div>
+					)}
 
-				<div className="flex flex-col justify-between">
-					<Link href={spotifyUrl} target="_blank">
-						<p className="cursor-pointer text-black font-bold max-w-[400px] truncate text-ellipsis hover:underline">
-							{songTitle}
-						</p>
-					</Link>
-					<div className="max-w-[400px] truncate text-ellipsis">
-						{explicit && (
-							<span className="mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5 text-white rounded-sm text-xs">
-								E
-							</span>
-						)}
-						<ul className=" space-x-1 inline-flex">
-							{artists.map((artist, idx) => (
-								<Link
-									key={`${songTitle}-artist-${idx}`}
-									href={artist.url}
-									target="_blank"
-									className="after:content-[','] last:after:content-none"
-								>
-									<span className="text-secondary-light font-medium cursor-pointer hover:underline">
-										{artist.name}
-									</span>
-								</Link>
-							))}
-						</ul>
+					<div className="ml-4 flex flex-col justify-between flex-1 overflow-auto  ">
+						<Link href={spotifyUrl} target="_blank">
+							<p className="cursor-pointer text-black font-bold  truncate  hover:underline">
+								{songTitle}
+							</p>
+						</Link>
+						<div className="  truncate overflow-auto flex items-center">
+							{explicit && (
+								<span className="mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5 text-white rounded-sm text-xs">
+									E
+								</span>
+							)}
+							<ul className=" space-x-1 inline-flex  flex-1  truncate">
+								{artists.map((artist, idx) => (
+									<Link
+										key={`${songTitle}-artist-${idx}`}
+										href={artist.url}
+										target="_blank"
+										className="after:content-[','] last:after:content-none  inline-block  truncate  "
+									>
+										<span className=" text-secondary-light font-medium cursor-pointer hover:underline  ">
+											{artist.name}
+										</span>
+									</Link>
+								))}
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 
 			{/* Album  */}
 			{album && (
-				<Link href={album.url} target="_blank">
-					<p className="max-w-[400px] truncate text-ellipsis font-medium cursor-pointer hover:underline">
+				<Link href={album.url} target="_blank" className=" w-full  ">
+					<p className=" truncate font-medium cursor-pointer hover:underline  ">
 						{album.name}
 					</p>
 				</Link>
 			)}
 
 			{/* Song Duration */}
-			<div className="flex space-x-5 w-full">
-				<span className="">{songDuration}</span>
-
+			<div className="flex space-x-3  items-center w-full justify-end pr-5">
 				{/* External Link to Spotify */}
 				<Link
 					href={spotifyUrl}
 					target="_blank"
-					className="justify-self-end mr-7  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
+					className="  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
 				>
-					<button className=" px-4 bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
-						<span>Open</span>
+					<button className=" px-3  bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
 						<SiSpotify />
+						<span className="text-sm">Open</span>
 					</button>
 				</Link>
+				<span className="w-[55px]  text-center">{songDuration}</span>
 			</div>
 		</div>
 	);
