@@ -96,7 +96,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 	}, [term]);
 
 	return (
-		<section className="select-none bg-light-main w-full flex flex-col  max-h-screen overflow-hidden">
+		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen overflow-hidden">
 			<Header
 				title="Create Playlist"
 				term={term}
@@ -110,23 +110,25 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				) : tracks && tracks[term].length > 0 ? (
 					<div className=" mx-5 mt-6 pb-6 flex-0 space-x-5 flex relative h-full  overflow-hidden">
 						{/* Form */}
-						<div className="  bg-white  p-7 rounded-lg drop-shadow-md  min-w-[400px] ">
+						<div className=" text-black dark:text-white bg-white dark:bg-[#181818]  p-7 rounded-lg drop-shadow-md  min-w-[400px] ">
 							<form
 								onSubmit={handleSubmit}
 								className="flex flex-col items-center h-full justify-between"
 							>
 								{/* Playlist Name */}
 								<div className=" flex flex-col items-center">
-									<h2 className="text-2xl font-black  flex flex-col items-center text-center mb-2">
+									<h2 className="text-2xl font-black  flex flex-col items-center text-center mb-2 tracking-tight">
 										<span>{name.substring(0, 14)}</span>
 										<span>{name.substring(14)}</span>
 									</h2>
 									{/* Playlist Details */}
-									<div className="flex space-x-1 text-sm">
+									<div className="flex space-x-1.5 text-sm bg-neutral-500 px-3 py-1 rounded-md bg-opacity-10">
 										<span className="font-semibold">
 											{tracks[term].length} songs,
 										</span>
-										<span>{duration}</span>
+										<span className="text-light-secondary dark:text-dark-secondary">
+											{duration}
+										</span>
 									</div>
 								</div>
 
@@ -144,7 +146,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 								</div>
 
 								<button
-									className="bg-accent-500 w-full text-white py-2.5 rounded-md hover:brightness-110 hover:scale-105 active:brightness-90 transition-all duration-200  border-[1px]  drop-shadow-md "
+									className="bg-accent-500 w-full text-white py-2.5 rounded-md hover:brightness-110 hover:scale-105 active:brightness-90 transition-all duration-200   drop-shadow-md "
 									type="submit"
 								>
 									{createLoading ? (
@@ -157,8 +159,8 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 						</div>
 
 						{/* Tracklist */}
-						<div className="py-3 px-2 bg-white drop-shadow-md rounded-lg ">
-							<div className="pr-4 pl-1 bg-white  h-full  overflow-y-auto  scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
+						<div className="py-3 px-2 bg-white dark:bg-[#181818] drop-shadow-md rounded-lg ">
+							<div className="pr-4 pl-1  h-full  overflow-y-auto  scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 								{tracks[term].map((item, idx) => (
 									<SingleTrack
 										key={`${term}-track-${idx}`}

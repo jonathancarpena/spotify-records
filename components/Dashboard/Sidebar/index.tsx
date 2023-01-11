@@ -38,8 +38,8 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<div className=" h-screen bg-white dark:bg-black py-6 px-5 w-64 min-w-[16rem] relative flex flex-col justify-between">
-			<div>
+		<div className=" h-screen bg-white dark:bg-black pt-6 w-64 min-w-[16rem] relative flex flex-col justify-between">
+			<div className="px-5 ">
 				<h1 className="select-none ml-1.5 mb-7  text-black dark:text-white flex space-x-2 items-center">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
@@ -88,9 +88,9 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 
 			<Link href="/">
 				<button
-					className={` sticky bottom-0 text-white drop-shadow-md bg-accent-500 hover:brightness-110 hover:scale-105 active:brightness-90 w-full cursor-pointer px-2 py-3 flex items-center space-x-3  mb-3 transition-all duration-200 rounded-md `}
+					className={` text-white bg-accent-500 hover:brightness-110 hover:scale-105 active:brightness-90 w-10/12 mx-auto cursor-pointer px-2 py-3 flex items-center space-x-3  mb-[3.25rem] transition-all duration-200 rounded-md `}
 				>
-					<AiOutlineLogout className="text-3xl" />
+					<AiOutlineLogout className="text-xl" />
 					<span className={` text-sm  font-bold capitalize  `}>Logout</span>
 				</button>
 			</Link>
