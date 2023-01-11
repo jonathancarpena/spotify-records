@@ -4,7 +4,11 @@ import Header from '../Header';
 import Image from 'next/image';
 import moment from 'moment';
 import SingleTrack from '../Tracks/SingleTrack';
-import { convertMsToMinutesSeconds } from '../../../lib/utils';
+import {
+	convertMsToMinutesSeconds,
+	generatePlaylistDuration,
+} from '../../../lib/utils';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 type Props = {
 	tracks: {
@@ -22,15 +26,26 @@ type State = {
 function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
 	const [name, setName] = useState(
-		`Top Songs from ${moment()
+		`Your Top Songs ${moment()
 			.subtract(4, 'weeks')
 			.format('MMM YYYY')} - ${moment().format('MMM YYYY')}`
 	);
+	const [duration, setDuration] = useState(() => {
+		if (tracks) {
+			if (tracks[term].length > 0) {
+				return generatePlaylistDuration(tracks[term]);
+			} else {
+				return '0:00';
+			}
+		}
+	});
+	const [createLoading, setCreateLoading] = useState(false);
 
 	const prevTerm = useRef(term);
-	const today = moment(Date.now());
+	const today = moment();
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
+		setCreateLoading(true);
 		// TOP TRACKS
 		if (tracks) {
 			fetch('/api/create-playlist', {
@@ -44,31 +59,39 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				.then((res) => res.json())
 				.then((data) => {
 					alert(data);
+					setCreateLoading(false);
 				})
-				.catch((err) => alert(err));
+				.catch((err) => {
+					alert(err);
+					setCreateLoading(false);
+				});
 		}
+		// setCreateLoading(false);
 	}
 
 	useEffect(() => {
 		if (prevTerm.current !== term) {
 			prevTerm.current = term;
-			let newName = 'Top Songs ';
+			let newName = 'Your Top Songs ';
 			let timeframe = '';
 
 			if (term === 'shortTerm') {
 				const before = moment().subtract(4, 'weeks');
-				timeframe = `from ${before.format('MMM YYYY')} - ${today.format(
+				timeframe = ` ${before.format('MMM YYYY')} - ${today.format(
 					'MMM YYYY'
 				)}`;
 			} else if (term === 'mediumTerm') {
 				const before = moment().subtract(6, 'months');
-				timeframe = `from ${before.format('MMM YYYY')} - ${today.format(
+				timeframe = ` ${before.format('MMM YYYY')} - ${today.format(
 					'MMM YYYY'
 				)}`;
 			} else {
 				timeframe = 'of All Time';
 			}
 			setName(newName + timeframe);
+			if (tracks) {
+				setDuration(generatePlaylistDuration(tracks[term]));
+			}
 		}
 	}, [term]);
 
@@ -85,40 +108,57 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className=" m-7 flex-0 space-x-3 flex pb-7 relative h-full  overflow-hidden ">
+					<div className=" mx-5 mt-6 pb-6 flex-0 space-x-5 flex relative h-full  overflow-hidden">
 						{/* Form */}
-						<div className=" max-w-4xl bg-white  p-7 rounded-xl drop-shadow-md   ">
+						<div className="  bg-white  p-7 rounded-lg drop-shadow-md  min-w-[400px] ">
 							<form
 								onSubmit={handleSubmit}
-								className="flex flex-col items-center justify-evenly"
+								className="flex flex-col items-center h-full justify-between"
 							>
-								{/* Playlist Cover */}
+								{/* Playlist Name */}
+								<div className=" flex flex-col items-center">
+									<h2 className="text-2xl font-black  flex flex-col items-center text-center mb-2">
+										<span>{name.substring(0, 14)}</span>
+										<span>{name.substring(14)}</span>
+									</h2>
+									{/* Playlist Details */}
+									<div className="flex space-x-1 text-sm">
+										<span className="font-semibold">
+											{tracks[term].length} songs,
+										</span>
+										<span>{duration}</span>
+									</div>
+								</div>
 
-								<h2 className="text-4xl font-bold mb-5">{name}</h2>
+								{/* Playlist Cover */}
 								<div className="grid grid-cols-2">
 									{tracks[term].slice(0, 4).map((item, idx) => (
 										<Image
 											key={`playlist-cover-${term}-${idx}`}
 											src={item.album.images[0].url}
-											width={125}
-											height={125}
+											width={150}
+											height={150}
 											alt={`top-track-${item.name}-${idx}`}
 										/>
 									))}
 								</div>
 
 								<button
-									className="bg-accent-500 w-1/2 text-white py-5 rounded-md"
+									className="bg-accent-500 w-full text-white py-2.5 rounded-md hover:brightness-110 hover:scale-105 active:brightness-90 transition-all duration-200  border-[1px]  drop-shadow-md "
 									type="submit"
 								>
-									Create
+									{createLoading ? (
+										<AiOutlineLoading3Quarters className="mx-auto text-2xl animate-spin" />
+									) : (
+										<span className="text-sm font-bold">Create</span>
+									)}
 								</button>
 							</form>
 						</div>
 
 						{/* Tracklist */}
-						<div className="py-7 bg-white drop-shadow-md rounded-xl max-w-4xl">
-							<div className=" px-7 bg-white  h-full  overflow-y-auto overflow-x-hidden scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
+						<div className="py-3 px-2 bg-white drop-shadow-md rounded-lg ">
+							<div className="pr-4 pl-1 bg-white  h-full  overflow-y-auto  scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
 								{tracks[term].map((item, idx) => (
 									<SingleTrack
 										key={`${term}-track-${idx}`}

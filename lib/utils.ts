@@ -1,3 +1,5 @@
+import { SpotifyTrack } from './interfaces';
+
 export function openInNewTab(url: string) {
 	const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
 	if (newWindow) newWindow.opener = null;
@@ -24,17 +26,40 @@ export function getCode(str: string): [string, string] {
 	return [code, state];
 }
 
-function padTo2Digits(num: number) {
-	return num.toString().padStart(2, '0');
+export function convertMsToMinutesSeconds(ms: number) {
+	type StrNum = string | number;
+
+	let seconds: StrNum = Math.floor((ms / 1000) % 60);
+	let minutes: StrNum = Math.floor((ms / (1000 * 60)) % 60);
+	let hours: StrNum = Math.floor((ms / (1000 * 60 * 60)) % 24);
+
+	if (hours > 0) {
+		minutes = minutes < 10 ? '0' + minutes : minutes;
+		seconds = seconds < 10 ? '0' + seconds : seconds;
+		return hours + ':' + minutes + ':' + seconds;
+	} else {
+		seconds = seconds < 10 ? '0' + seconds : seconds;
+		return minutes + ':' + seconds;
+	}
 }
 
-export function convertMsToMinutesSeconds(ms: number) {
-	const minutes = Math.floor(ms / 60000);
-	const seconds = Math.round((ms % 60000) / 1000);
+export function generatePlaylistDuration(tracks: SpotifyTrack[]) {
+	let total = tracks.reduce(
+		(accumulator, currentValue) => accumulator + currentValue.duration_ms,
+		0
+	);
 
-	return seconds === 60
-		? `${minutes + 1}:00`
-		: `${minutes}:${padTo2Digits(seconds)}`;
+	const time = convertMsToMinutesSeconds(total);
+	const timeUnits = time.split(':');
+	if (timeUnits.length === 3) {
+		return `${timeUnits[0]} hour ${timeUnits[1]} min`;
+	} else if (timeUnits.length === 2) {
+		return `${timeUnits[0]} min ${timeUnits[1]} sec`;
+	} else if (timeUnits.length === 1) {
+		return `${timeUnits[0]} sec`;
+	} else {
+		return '0 sec';
+	}
 }
 
 // export const toBase64 = (file: any) =>
@@ -44,16 +69,3 @@ export function convertMsToMinutesSeconds(ms: number) {
 // 		reader.onload = () => resolve(reader.result);
 // 		reader.onerror = (error) => reject(error);
 // 	});
-
-export function toBase64(file: File) {
-	console.log('converting');
-	const reader = new FileReader();
-	let base64String = '';
-	reader.onloadend = () => {
-		if (typeof reader.result === 'string') {
-			base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-		}
-		console.log(base64String);
-		reader.readAsDataURL(file);
-	};
-}
