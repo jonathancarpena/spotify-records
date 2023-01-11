@@ -25,7 +25,7 @@ function SingleArtist({
 			}
 			target="_blank"
 		>
-			<div className="bg-white hover:bg-light-mainHover transition-all duration-200 p-5 rounded-lg h-full pb-10">
+			<div className="bg-white hover:bg-light-mainHover transition-all duration-200 p-5 rounded-lg h-full pb-10 drop-shadow-md">
 				<div className="drop-shadow-xl">
 					<div className="relative rounded-full overflow-hidden h-[200px] w-[200px] mx-auto bg-neutral-300 flex justify-center items-center">
 						{images[0] ? (

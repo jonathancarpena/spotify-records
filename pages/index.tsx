@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
-import SpotifyOAuthButton from '../components/SpotifyOAuthButton';
+
 import Dashboard from '../components/Dashboard';
+import Landing from '../components/Landing';
 
 function Home() {
 	const router = useRouter();
@@ -14,7 +15,7 @@ function Home() {
 			{router.query.code ? (
 				<Dashboard code={router.query.code.toString()} />
 			) : (
-				<SpotifyOAuthButton />
+				<Landing />
 			)}
 		</div>
 	);

@@ -19,7 +19,7 @@ function SidebarItem({
 	return (
 		<li
 			onClick={() => handleMenuChange(value)}
-			className={`cursor-pointer p-1 flex items-center space-x-3  ${
+			className={`select-none cursor-pointer p-1 flex items-center space-x-3  ${
 				menu === value ? 'text-black' : 'text-secondary-light'
 			}`}
 		>

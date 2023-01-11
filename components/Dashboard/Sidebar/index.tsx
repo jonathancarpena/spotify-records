@@ -8,9 +8,15 @@ import {
 	AiOutlineHeart,
 	AiFillHeart,
 	AiOutlineLogout,
+	AiFillBulb,
+	AiOutlineBulb,
 } from 'react-icons/ai';
+import { BsSun, BsSunFill } from 'react-icons/bs';
+
 import { MenuOptions } from '..';
 import SidebarItem from './SidebarItem';
+import useLightMode from '../../../hooks/useLightMode';
+import useToggleLightMode from '../../../hooks/useToggleLightMode';
 
 type Props = {
 	menu: string;
@@ -31,10 +37,12 @@ type Props = {
 };
 
 function Sidebar({ menu, handleMenuChange, user }: Props) {
+	const lightMode = useLightMode();
+	const toggleLightMode = useToggleLightMode();
 	return (
 		<div className="  h-screen bg-white py-6 px-5 w-64 min-w-[16rem] relative flex flex-col justify-between">
 			<div>
-				<h1 className="font-black text-3xl block mb-6 tracking-tight">
+				<h1 className="select-none font-black text-3xl block mb-6 tracking-tight">
 					Swaddle
 				</h1>
 				<ul className="flex flex-col space-y-1 border-b-2 pb-3">
@@ -59,6 +67,25 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 						inactive={<AiOutlinePlusSquare className="text-3xl" />}
 						active={<AiFillPlusSquare className="text-3xl" />}
 					/>
+
+					<li
+						onClick={toggleLightMode}
+						className={`select-none cursor-pointer p-1 flex items-center space-x-3  ${
+							lightMode ? 'text-black' : 'text-secondary-light'
+						}`}
+					>
+						{lightMode ? (
+							<BsSunFill className="text-3xl" />
+						) : (
+							<BsSun className="text-3xl" />
+						)}
+
+						<span
+							className={` text-sm flex-1  font-bold capitalize hover:text-black transition-colors duration-200`}
+						>
+							Light Mode: {lightMode ? 'on' : 'off'}
+						</span>
+					</li>
 				</ul>
 			</div>
 
