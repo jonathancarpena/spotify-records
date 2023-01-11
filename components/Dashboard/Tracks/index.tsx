@@ -36,7 +36,7 @@ function Tracks({ tracks, loading }: Props) {
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className=" flex-0  pb-7 relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
+					<div className=" flex-0  pb-7 relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 						{/* Table Header */}
 						<div className=" sticky top-0   flex-col">
 							<div className=" pt-6 text-light-secondary bg-white dark:text-dark-secondary dark:bg-[#090909] px-5 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-[1px] border-b-light-secondary dark:border-b-dark-secondary  ">

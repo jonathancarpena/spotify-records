@@ -25,9 +25,13 @@ function SingleArtist({
 			}
 			target="_blank"
 		>
-			<div className="bg-white hover:bg-light-mainHover transition-all duration-200 p-5 rounded-lg h-full pb-10 drop-shadow-md">
+			<div className="bg-white hover:bg-light-mainHover  dark:bg-[#181818]  dark:hover:bg-dark-menu  transition-all duration-200 p-5 rounded-lg h-full pb-10 drop-shadow-md">
 				<div className="drop-shadow-xl">
-					<div className="relative rounded-full overflow-hidden h-[200px] w-[200px] mx-auto bg-neutral-300 flex justify-center items-center">
+					<div
+						className={`${
+							!images[0] ? 'bg-neutral-300' : ''
+						} relative rounded-full overflow-hidden h-[200px] w-[200px] mx-auto  flex justify-center items-center`}
+					>
 						{images[0] ? (
 							<Image
 								src={images[0].url}
@@ -45,12 +49,16 @@ function SingleArtist({
 				</div>
 
 				<div className="flex flex-col space-y-1">
-					<p className="font-black text-lg mt-5 text-start">{name}</p>
-					<p className="capitalize text-xs">
+					<p className="font-black text-lg mt-5 text-start text-black dark:text-white">
+						{name}
+					</p>
+					<p className="capitalize text-xs text-light-secondary dark:text-dark-secondary">
 						{followers.total.toLocaleString('en-US')} followers
 					</p>
 					{genres.length > 0 && (
-						<p className="capitalize text-xs italic">{genres[0]}</p>
+						<p className="capitalize text-xs italic text-light-secondary dark:text-dark-secondary">
+							{genres[0]}
+						</p>
 					)}
 				</div>
 			</div>
