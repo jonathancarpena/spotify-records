@@ -38,7 +38,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<div className="  h-screen bg-white dark:bg-black py-6 px-5 w-64 min-w-[16rem] relative flex flex-col justify-between">
+		<div className=" h-screen bg-white dark:bg-black py-6 px-5 w-64 min-w-[16rem] relative flex flex-col justify-between">
 			<div>
 				<h1 className="select-none ml-1.5 mb-7  text-black dark:text-white flex space-x-2 items-center">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
@@ -70,7 +70,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					<li
 						onClick={toggleLightMode}
 						className={`select-none cursor-pointer p-1 flex items-center space-x-3 transition-colors duration-200 ${
-							lightMode ? 'text-black' : 'text-secondary-dark hover:text-white '
+							lightMode ? 'text-black' : 'text-dark-secondary hover:text-white '
 						}`}
 					>
 						{lightMode ? (

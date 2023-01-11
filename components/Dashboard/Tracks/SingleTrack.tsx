@@ -34,8 +34,8 @@ function SingleTrack({
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			className={`${
-				hover ? 'bg-light-mainHover' : ''
-			} active:bg-light-mainActive grid grid-flow-col gap-5 auto-cols-fr w-full  place-items-center justify-items-start  py-2 rounded-md  select-none`}
+				hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''
+			} active:bg-light-mainActive grid grid-flow-col gap-5 auto-cols-fr w-full  place-items-center justify-items-start  py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary`}
 		>
 			{/* Index, Song Title*/}
 			<div className="flex items-center truncate w-full  ">
@@ -43,7 +43,7 @@ function SingleTrack({
 					{previewUrl ? (
 						hover ? (
 							<Link href={previewUrl} target="_blank">
-								<BsPlayFill className="text-2xl text-black hover:text-3xl active:text-2xl transition-all duration-150" />
+								<BsPlayFill className="text-2xl text-black dark:text-white hover:text-3xl active:text-2xl transition-all duration-150" />
 							</Link>
 						) : (
 							idx
@@ -67,7 +67,7 @@ function SingleTrack({
 
 					<div className="ml-4 flex flex-col justify-between flex-1 overflow-auto  ">
 						<Link href={spotifyUrl} target="_blank">
-							<p className="cursor-pointer text-black font-bold  truncate  hover:underline">
+							<p className="cursor-pointer text-black dark:text-white font-semibold  truncate  ">
 								{songTitle}
 							</p>
 						</Link>
@@ -85,7 +85,11 @@ function SingleTrack({
 										target="_blank"
 										className="after:content-[','] last:after:content-none  inline-block  truncate  "
 									>
-										<span className=" text-secondary-light font-medium cursor-pointer hover:underline  ">
+										<span
+											className={`${
+												hover ? 'text-white' : ''
+											} cursor-pointer hover:underline`}
+										>
 											{artist.name}
 										</span>
 									</Link>
@@ -99,7 +103,11 @@ function SingleTrack({
 			{/* Album  */}
 			{album && (
 				<Link href={album.url} target="_blank" className=" w-full  ">
-					<p className=" truncate font-medium cursor-pointer hover:underline  ">
+					<p
+						className={`${
+							hover ? 'text-white' : ''
+						} truncate font-medium cursor-pointer hover:underline`}
+					>
 						{album.name}
 					</p>
 				</Link>
@@ -111,11 +119,11 @@ function SingleTrack({
 				<Link
 					href={spotifyUrl}
 					target="_blank"
-					className="  hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
+					className="  text-black dark:text-white hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
 				>
 					<button className=" px-3  bg-accent-500 w-full py-1 font-semibold rounded-lg flex space-x-2 items-center justify-center">
 						<SiSpotify />
-						<span className="text-sm">Open</span>
+						<span className="text-sm ">Open</span>
 					</button>
 				</Link>
 				<span className="w-[55px]  text-center">{songDuration}</span>

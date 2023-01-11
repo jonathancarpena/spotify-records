@@ -29,14 +29,16 @@ module.exports = {
           mainHover: '#2A2A2A',
           mainActive: '#5A5A5A',
           menu: '#282828',
-          menuHover: '#3e3e3e'
+          menuHover: '#3e3e3e',
+          secondary: '#a7a7a7'
         },
         light: {
           main: '#F6F6F6',
           mainHover: '#D6D6D6',
           mainActive: '#A5A5A5',
           menu: '#D7D7D7',
-          menuHover: '#C3C3C3'
+          menuHover: '#C3C3C3',
+          secondary: '#595959'
         },
 
         accent: {

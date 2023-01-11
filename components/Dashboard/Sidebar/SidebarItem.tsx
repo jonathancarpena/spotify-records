@@ -22,7 +22,7 @@ function SidebarItem({
 			className={`select-none cursor-pointer p-1 flex items-center space-x-3 hover:text-black dark:hover:text-white transition-colors duration-200 ${
 				menu === value
 					? 'text-black dark:text-white'
-					: 'text-secondary-light dark:text-secondary-dark'
+					: 'text-light-secondary dark:text-dark-secondary'
 			}`}
 		>
 			{menu === value ? active : inactive}

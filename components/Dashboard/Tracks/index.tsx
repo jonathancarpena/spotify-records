@@ -23,7 +23,7 @@ function Tracks({ tracks, loading }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
 
 	return (
-		<section className="select-none bg-light-main w-full flex flex-col  max-h-screen overflow-hidden">
+		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen overflow-hidden">
 			<Header
 				term={term}
 				setTerm={setTerm}
@@ -39,7 +39,7 @@ function Tracks({ tracks, loading }: Props) {
 					<div className=" flex-0  pb-7 relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  scrollbar-thumb-dark-main  scrollbar-track-transparent">
 						{/* Table Header */}
 						<div className=" sticky top-0   flex-col">
-							<div className=" pt-6 bg-white px-5 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-2 border-b-black  ">
+							<div className=" pt-6 text-light-secondary bg-white dark:text-dark-secondary dark:bg-[#090909] px-5 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase border-b-[1px] border-b-light-secondary dark:border-b-dark-secondary  ">
 								<div className="flex">
 									<span className="flex w-[55px] justify-center items-center">
 										#
@@ -51,7 +51,7 @@ function Tracks({ tracks, loading }: Props) {
 
 								<AiOutlineClockCircle className="text-lg justify-self-end mr-12" />
 							</div>
-							<div className="bg-gradient-to-b from-white to-transparent  w-full h-[50px]"></div>
+							<div className="bg-gradient-to-b from-white dark:from-[#090909] to-transparent  w-full h-[50px]"></div>
 						</div>
 
 						{/* Tracks */}
