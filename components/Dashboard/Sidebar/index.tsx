@@ -44,7 +44,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
 				</h1>
-				<ul className="flex flex-col space-y-1 border-b-[1px] pb-3 ">
+				<ul className="flex flex-col space-y-1 border-b-[1px] pb-3 border-b-light-secondary ">
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}

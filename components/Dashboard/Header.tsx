@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import Image from 'next/image';
 import { Terms } from '../../lib/interfaces';
-import { AiFillCaretRight, AiFillCaretLeft } from 'react-icons/ai';
 
 type Props = {
 	term?: Terms;
 	setTerm?: React.Dispatch<React.SetStateAction<Terms>>;
-	subheader?: string;
 	title: string;
 	banner: string;
 };
@@ -15,7 +12,7 @@ type TermOptions = {
 	placeholder: string;
 };
 
-type TermDropdownProps = {
+type ListOfTermsProps = {
 	term: Terms;
 	setTerm: React.Dispatch<React.SetStateAction<Terms>>;
 };
@@ -26,7 +23,7 @@ const termPlaceholders = {
 	longTerm: 'All Time',
 };
 
-function TermDropdown({ term, setTerm }: TermDropdownProps) {
+function ListOfTerms({ term, setTerm }: ListOfTermsProps) {
 	const [active, setActive] = useState(term);
 
 	const termOptions: TermOptions[] = [
@@ -52,7 +49,7 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 		<ul className=" text-white z-50 w-max  flex items-center justify-center space-x-2 ">
 			<button
 				disabled
-				className="font-bold bg-white bg-opacity-25 rounded-md px-2"
+				className="font-semibold bg-white bg-opacity-25 rounded-md px-2"
 			>
 				{termPlaceholders[active]}
 			</button>
@@ -71,29 +68,21 @@ function TermDropdown({ term, setTerm }: TermDropdownProps) {
 		</ul>
 	);
 }
-function Header({ term, setTerm, title, banner, subheader }: Props) {
+function Header({ term, setTerm, title, banner }: Props) {
 	return (
 		<header>
-			<div className=" flex flex-col justify-end h-[25rem] px-10 pt-10 pb-8 relative overflow-hidden">
-				<div className="opacity-80 inset-0 absolute w-full h-full">
-					<Image
-						src={banner}
-						fill
-						alt={`${title}-banner`}
-						style={{ objectFit: 'cover' }}
-						priority
-					/>
+			<div className=" flex flex-col justify-end h-[25.5rem] px-10 pt-10 pb-8 relative  bg-gradient-to-b from-accent-500">
+				<div
+					className={`absolute w-full h-[120%]  bg-cover bg-center left-0 top-0  z-10 ${banner}`}
+				>
+					<div className=" -z-10 w-full h-[100px] dark:h-[200px]  absolute bottom-0 bg-gradient-to-b from-transparent dark:to-dark-main to-light-main"></div>
 				</div>
 
 				<h2 className="text-white text-8xl font-black z-30 capitalize mb-8 drop-shadow-sm">
 					{title}
 				</h2>
-				{subheader && (
-					<p className="z-50 text-white font-bold relative bg-white bg-opacity-25 px-2 w-max rounded-md">
-						{subheader}
-					</p>
-				)}
-				{term && setTerm && <TermDropdown term={term} setTerm={setTerm} />}
+
+				{term && setTerm && <ListOfTerms term={term} setTerm={setTerm} />}
 			</div>
 		</header>
 	);

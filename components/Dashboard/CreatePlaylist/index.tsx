@@ -101,14 +101,14 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				title="Create Playlist"
 				term={term}
 				setTerm={setTerm}
-				banner="/images/create-playlist.jpg"
+				banner="bg-create-playlist"
 			/>
 			{/* Track Data */}
 			<>
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className=" mx-5 mt-6 pb-6 flex-0 space-x-5 flex relative h-full  overflow-hidden">
+					<div className=" z-50 mx-5 mt-6 pb-6 flex-0 space-x-5 flex relative h-full  overflow-hidden">
 						{/* Form */}
 						<div className=" text-black dark:text-white bg-white dark:bg-[#181818]  p-7 rounded-lg drop-shadow-md  min-w-[400px] ">
 							<form
