@@ -7,6 +7,7 @@ import User from './User';
 import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
 import Sidebar from './Sidebar';
 import CreatePlaylist from './CreatePlaylist';
+import MobileNavbar from './MobileNavbar';
 
 type Props = {
 	code: string;
@@ -90,7 +91,7 @@ function Dashboard({ code }: Props) {
 	}
 
 	return (
-		<div className=" flex px-5 lg:px-0">
+		<div className=" flex lg:px-0">
 			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
 			{menu === 'tracks' && <Tracks tracks={tracks} loading={loading} />}
 			{menu === 'artists' && <Artists artists={artists} loading={loading} />}
@@ -103,7 +104,7 @@ function Dashboard({ code }: Props) {
 			)}
 			{user && <User user={user} />}
 
-			{/* {artists && <Artists artists={artists} />} */}
+			<MobileNavbar />
 		</div>
 	);
 }

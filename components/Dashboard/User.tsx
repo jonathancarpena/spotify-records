@@ -39,7 +39,7 @@ function User({ user }: Props) {
 	return (
 		<div
 			onClick={handleMenuOpen}
-			className={`z-50 cursor-pointer flex space-x-2 items-center w-max fixed top-5 right-5 text-black bg-light-menu dark:bg-dark-menu dark:text-white pr-2 pl-1 py-1 rounded-full ${
+			className={`hidden z-50 cursor-pointer md:flex space-x-2 items-center w-max fixed top-5 right-5 text-black bg-light-menu dark:bg-dark-menu dark:text-white pr-2 pl-1 py-1 rounded-full ${
 				menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
 			}`}
 		>

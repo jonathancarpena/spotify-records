@@ -38,13 +38,13 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<div className=" h-screen bg-white dark:bg-black pt-6 w-64 min-w-[16rem] relative flex flex-col justify-between">
-			<div className="px-5 ">
-				<h1 className="select-none ml-1.5 mb-7  text-black dark:text-white flex space-x-2 items-center">
+		<div className="z-[60] w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen md:px-5">
+			<div className="flex-1 md:w-52 md:pt-6 h-full ">
+				<h1 className="hidden  select-none ml-1.5 mb-7  text-black dark:text-white  space-x-2 items-center md:flex">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
 				</h1>
-				<ul className="flex flex-col space-y-1 border-b-[1px] pb-3 border-b-light-secondary ">
+				<ul className="flex justify-around h-full items-center md:flex-col md:justify-start md:h-max md:items-start  md:space-y-1 md:border-b-[1px]  md:pb-3 md:border-b-light-secondary ">
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}
@@ -67,9 +67,10 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 						active={<AiFillPlusSquare className="text-3xl" />}
 					/>
 
+					{/* Light Mode Toggle */}
 					<li
 						onClick={toggleLightMode}
-						className={`select-none cursor-pointer p-1 flex items-center space-x-3 transition-colors duration-200 ${
+						className={`hidden md:flex select-none cursor-pointer p-1  items-center space-x-3 transition-colors duration-200 ${
 							lightMode ? 'text-black' : 'text-dark-secondary hover:text-white '
 						}`}
 					>
@@ -79,16 +80,18 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 							<BsSun className="text-3xl" />
 						)}
 
-						<span className={` text-sm flex-1  font-black capitalize `}>
+						<span
+							className={` hidden md:inline text-sm flex-1  font-black capitalize `}
+						>
 							Light Mode: {lightMode ? 'on' : 'off'}
 						</span>
 					</li>
 				</ul>
 			</div>
 
-			<Link href="/">
+			<Link href="/" className="hidden md:inline">
 				<button
-					className={` text-white bg-accent-500 hover:brightness-110 hover:scale-105 active:brightness-90 w-10/12 mx-auto cursor-pointer px-2 py-3 flex items-center space-x-3  mb-[3.25rem] transition-all duration-200 rounded-md `}
+					className={` text-white bg-accent-500 hover:brightness-110 hover:scale-105 active:brightness-90 w-full mx-auto cursor-pointer px-2 py-3 flex items-center space-x-3  mb-[3.25rem] transition-all duration-200 rounded-md `}
 				>
 					<AiOutlineLogout className="text-xl" />
 					<span className={` text-sm  font-bold capitalize  `}>Logout</span>
