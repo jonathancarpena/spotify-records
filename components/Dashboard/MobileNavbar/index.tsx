@@ -9,16 +9,16 @@ function MobileNavbar({}: Props) {
 	const toggleLightMode = useToggleLightMode();
 	const lightMode = useLightMode();
 	return (
-		<nav className="z-[60] flex item-center justify-between fixed top-0 w-screen   p-3 md:hidden ">
-			<h1 className="  select-none   text-black dark:text-white  space-x-2 items-center flex">
+		<nav className="drop-shadow-sm z-[60] flex items-center justify-between fixed top-0 w-screen   p-3 md:hidden ">
+			<h1 className="  select-none    text-white  space-x-2 items-center flex">
 				<BsSpotify className="text-3xl " />
 				<span className="text-lg font-bold tracking-tight">Swaddle</span>
 			</h1>
 			<button
 				onClick={toggleLightMode}
 				className={` select-none cursor-pointer p-1  items-center space-x-3 transition-colors duration-200 ${
-					lightMode ? 'text-black' : 'text-dark-secondary hover:text-white '
-				}`}
+					lightMode ? 'text-white' : 'text-dark-secondary'
+				} `}
 			>
 				{lightMode ? (
 					<BsSunFill className="text-3xl" />
