@@ -36,9 +36,9 @@ function Tracks({ tracks, loading }: Props) {
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className="flex flex-col h-full overflow-hidden z-50">
+					<div className="  flex flex-col h-full overflow-hidden z-50 ">
 						{/* Table Header */}
-						<div className=" sticky top-0 w-full pt-2   flex-col  z-50">
+						<div className="w-full pt-2   flex-col ">
 							<div className=" text-light-secondary  dark:text-dark-secondary  pl-5 pr-7 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase   ">
 								<div className="flex">
 									<span className="flex w-[55px] justify-center items-center">
@@ -53,7 +53,7 @@ function Tracks({ tracks, loading }: Props) {
 							</div>
 						</div>
 
-						<div className=" flex-0  pt-6 pb-7 relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
+						<div className="backdrop-blur-md pt-2 pb-7 relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
 							{/* Tracks */}
 							<ul className="  flex flex-col text-secondary-light w-full pl-5 pr-7">
 								{tracks[term].map((item, idx) => (

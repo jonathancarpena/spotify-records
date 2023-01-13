@@ -73,7 +73,7 @@ function Header({ term, setTerm, title, banner }: Props) {
 		<header>
 			<div className=" flex flex-col justify-end h-[25.5rem] px-10 pt-10 pb-8 relative  bg-gradient-to-b from-accent-500">
 				<div
-					className={`absolute w-full h-[120%]  bg-cover bg-center left-0 top-0  z-10 ${banner}`}
+					className={`absolute w-full h-[125%]  bg-cover bg-center left-0 top-0  z-10 ${banner}`}
 				>
 					<div className=" -z-10 w-full h-[100px] dark:h-[200px]  absolute bottom-0 bg-gradient-to-b from-transparent dark:to-dark-main to-light-main"></div>
 				</div>

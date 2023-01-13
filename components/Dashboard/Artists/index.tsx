@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SpotifyArtist, Terms } from '../../../lib/interfaces';
-import Link from 'next/link';
 import Header from '../Header';
 import SingleArtist from './SingleArtist';
 
@@ -19,7 +18,7 @@ type State = {
 
 function Artists({ artists, loading }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
-	console.log(artists);
+
 	return (
 		<section className=" select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen overflow-hidden relative  ">
 			<Header

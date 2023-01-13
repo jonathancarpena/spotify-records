@@ -87,7 +87,7 @@ function SingleTrack({
 									>
 										<span
 											className={`${
-												hover ? 'text-white' : ''
+												hover ? 'dark:text-white text-black' : ''
 											} cursor-pointer hover:underline`}
 										>
 											{artist.name}
@@ -105,7 +105,7 @@ function SingleTrack({
 				<Link href={album.url} target="_blank" className=" w-full  ">
 					<p
 						className={`${
-							hover ? 'text-white' : ''
+							hover ? 'dark:text-white text-black' : ''
 						} truncate font-medium cursor-pointer hover:underline`}
 					>
 						{album.name}
