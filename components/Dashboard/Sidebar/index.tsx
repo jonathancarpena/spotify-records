@@ -38,8 +38,8 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<div className="z-[60] w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen md:px-5">
-			<div className="flex-1 md:w-52 md:pt-6 h-full ">
+		<div className="z-[60] w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen  md:px-5">
+			<div className="flex-1 md:w-52 md:pt-6 h-full  ">
 				<h1 className="hidden  select-none ml-1.5 mb-7  text-black dark:text-white  space-x-2 items-center md:flex">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
@@ -89,7 +89,10 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 				</ul>
 			</div>
 
-			<Link href="/" className="hidden md:inline">
+			<Link
+				href="/"
+				className="hidden md:inline absolute bottom-0 left-1/2 -translate-x-1/2 w-10/12"
+			>
 				<button
 					className={` text-white bg-accent-500 hover:brightness-110 hover:scale-105 active:brightness-90 w-full mx-auto cursor-pointer px-2 py-3 flex items-center space-x-3  mb-[3.25rem] transition-all duration-200 rounded-md `}
 				>

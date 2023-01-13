@@ -28,6 +28,11 @@ module.exports = {
       fontFamily: {
         main: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui']
       },
+      fontSize: {
+        '2xs': ['0.65rem', {
+          lineHeight: '0.75rem',
+        }],
+      },
       colors: {
         dark: {
           main: '#121212',

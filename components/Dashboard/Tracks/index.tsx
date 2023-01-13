@@ -38,24 +38,24 @@ function Tracks({ tracks, loading }: Props) {
 				) : tracks && tracks[term].length > 0 ? (
 					<div className="  flex flex-col h-full overflow-hidden z-50 ">
 						{/* Table Header */}
-						<div className="w-full pt-2   flex-col ">
-							<div className=" text-light-secondary  dark:text-dark-secondary  pl-5 pr-7 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-sm  font-semibold uppercase   ">
+						<div className=" w-full pt-4 md:pt-2 flex-col ">
+							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5 pr-3.5 md:pl-5 md:pr-7 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-xs md:text-sm  font-semibold uppercase ">
 								<div className="flex">
-									<span className="flex w-[55px] justify-center items-center">
+									<span className="flex w-[35px] md:w-[55px] justify-center items-center">
 										#
 									</span>
 									<span>Title</span>
 								</div>
 
-								<span>Album</span>
+								<span className="hidden md:inline">Album</span>
 
-								<AiOutlineClockCircle className="text-lg justify-self-end mr-12" />
+								<AiOutlineClockCircle className="text-lg justify-self-end mr-4 md:mr-10 " />
 							</div>
 						</div>
 
-						<div className="backdrop-blur-md pt-2 pb-7 relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
+						<div className="backdrop-blur-md pt-2 pb-20 md:pb-7 relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
 							{/* Tracks */}
-							<ul className="  flex flex-col text-secondary-light w-full pl-5 pr-7">
+							<ul className="  flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
 								{tracks[term].map((item, idx) => (
 									<SingleTrack
 										key={`${term}-track-${idx}`}

@@ -39,12 +39,12 @@ function User({ user }: Props) {
 	return (
 		<div
 			onClick={handleMenuOpen}
-			className={`hidden z-50 cursor-pointer md:flex space-x-2 items-center w-max fixed top-5 right-5 text-black bg-light-menu dark:bg-dark-menu dark:text-white pr-2 pl-1 py-1 rounded-full ${
+			className={` z-50 cursor-pointer flex md:space-x-2 items-center justify-center md:justify-start w-max fixed top-3 right-3 md:top-5 md:right-5 text-black bg-light-menu dark:bg-dark-menu dark:text-white p-1 md:pr-2 md:pl-1 md:py-1 rounded-full ${
 				menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
 			}`}
 		>
 			{/* User Image */}
-			<div className="cursor-pointer  rounded-full flex items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
+			<div className="cursor-pointer  rounded-full flex md:flex-row items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
 				{user.image ? (
 					<Image
 						src={user.image.url}
@@ -57,9 +57,11 @@ function User({ user }: Props) {
 			</div>
 
 			{/* Menu Button */}
-			<h1 className=" lowercase  select-none">{user.name}</h1>
+			<h1 className=" hidden md:inline lowercase  select-none">{user.name}</h1>
 
-			{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
+			<span className="hidden md:inline">
+				{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
+			</span>
 
 			{/* Menu */}
 			{menuOpen && (
