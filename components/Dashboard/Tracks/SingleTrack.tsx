@@ -76,7 +76,7 @@ function SingleTrack({
 						</Link>
 						<div className="  truncate overflow-auto flex items-center text-sm md:text-base">
 							{explicit && (
-								<span className="mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5 text-white rounded-sm text-xs">
+								<span className="mr-1 md:mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5  text-white rounded-sm text-2xs md:text-xs">
 									E
 								</span>
 							)}

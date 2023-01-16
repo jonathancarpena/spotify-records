@@ -53,7 +53,7 @@ function Tracks({ tracks, loading }: Props) {
 							</div>
 						</div>
 
-						<div className="backdrop-blur-md pt-2 pb-20 md:pb-7 relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
+						<div className="backdrop-blur-md pt-2 md:pb-7 pb-20  relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
 							{/* Tracks */}
 							<ul className="  flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
 								{tracks[term].map((item, idx) => (

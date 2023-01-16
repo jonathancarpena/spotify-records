@@ -98,12 +98,12 @@ function User({ user }: Props) {
 		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-50">
 			<button
 				onClick={handleMenuOpen}
-				className={`flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 md:pr-2 md:pl-0.5 md:py-0.5 rounded-full ${
+				className={`active:scale-90 lg:active:scale-100 flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 md:pr-2 md:pl-0.5 md:py-0.5 rounded-full ${
 					menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
 				} outline-none`}
 			>
 				{/* User Image */}
-				<div className="cursor-pointer  rounded-full flex md:flex-row items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
+				<div className="relative cursor-pointer  rounded-full flex md:flex-row items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
 					{user.image ? (
 						<Image
 							src={user.image.url}
