@@ -10,7 +10,6 @@ import {
 	AiOutlinePoweroff,
 	AiOutlineLineChart,
 } from 'react-icons/ai';
-import { MdOutlineAlternateEmail } from 'react-icons/md';
 
 import { SlSocialSpotify } from 'react-icons/sl';
 import { BsSun, BsSunFill } from 'react-icons/bs';
@@ -36,8 +35,8 @@ type Props = {
 type MenuItemProps = {
 	icon: any;
 	placeholder: string;
-	mobile?: boolean;
 	onClick?: () => void;
+	sx?: string;
 };
 
 interface MenuLinkProps extends MenuItemProps {
@@ -46,11 +45,11 @@ interface MenuLinkProps extends MenuItemProps {
 }
 
 const menuItemStyles =
-	'text-sm md:text-base px-1.5 py-2 md:px-2 md:py-3 text-start hover:bg-light-menuHover active:bg-light-menuHover dark:active:bg-dark-menuHover  dark:hover:bg-dark-menuHover flex items-center  select-none w-full min-w-max';
+	'text-xs md:text-base p-3 md:p-4 text-start hover:bg-light-menuHover active:bg-light-menuHover dark:active:bg-dark-menuHover  dark:hover:bg-dark-menuHover flex items-center  select-none w-full min-w-max';
 
-function MenuLink({ href, menuOpen, icon, placeholder }: MenuLinkProps) {
+function MenuLink({ href, menuOpen, icon, placeholder, sx }: MenuLinkProps) {
 	return (
-		<li className={menuItemStyles}>
+		<li className={`${menuItemStyles} ${sx}`}>
 			{menuOpen ? (
 				<Link
 					href={href}
@@ -74,13 +73,11 @@ function MenuLink({ href, menuOpen, icon, placeholder }: MenuLinkProps) {
 		</li>
 	);
 }
-function MenuItem({ placeholder, icon, mobile, onClick }: MenuItemProps) {
+function MenuItem({ placeholder, icon, onClick, sx }: MenuItemProps) {
 	return (
 		<li
 			onClick={onClick}
-			className={`${menuItemStyles} ${mobile ? 'md:hidden' : ''} ${
-				onClick ? 'cursor-pointer' : ''
-			}  `}
+			className={`${menuItemStyles} ${sx} ${onClick ? 'cursor-pointer' : ''}  `}
 		>
 			{icon}
 			<span>{placeholder}</span>
@@ -101,9 +98,9 @@ function User({ user }: Props) {
 		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-50">
 			<button
 				onClick={handleMenuOpen}
-				className={`flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-light-menu dark:bg-dark-menu dark:text-white p-1 md:pr-2 md:pl-1 md:py-1 rounded-full ${
+				className={`flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 md:pr-2 md:pl-0.5 md:py-0.5 rounded-full ${
 					menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
-				}`}
+				} outline-none`}
 			>
 				{/* User Image */}
 				<div className="cursor-pointer  rounded-full flex md:flex-row items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
@@ -134,12 +131,12 @@ function User({ user }: Props) {
 					menuOpen
 						? 'opacity-100 translate-y-0 '
 						: 'opacity-0 -translate-y-6 cursor-default -z-50'
-				}  flex flex-col rounded-md p-1 drop-shadow-xl bg-light-menu  text-black dark:text-white dark:bg-dark-menu absolute top-[120%] right-0 min-w-full  transition-all duration-[400ms]`}
+				}  flex flex-col rounded-md p-1 drop-shadow-xl bg-white bg-opacity-95 text-black dark:text-white dark:bg-dark-menu absolute top-[120%] right-0 min-w-full  transition-all duration-[400ms] `}
 			>
 				<MenuItem
-					mobile
-					icon={<MdOutlineAlternateEmail className="inline mr-2.5" />}
+					icon={<SlSocialSpotify className="inline mr-2.5" />}
 					placeholder={user.name}
+					sx={'md:hidden'}
 				/>
 
 				<MenuItem
@@ -156,7 +153,6 @@ function User({ user }: Props) {
 					placeholder={`${user.premium ? 'Premium User' : 'Free User'}`}
 				/>
 				<MenuItem
-					mobile
 					onClick={toggleLightMode}
 					icon={
 						lightMode ? (
@@ -169,13 +165,16 @@ function User({ user }: Props) {
 				/>
 				<MenuLink
 					menuOpen={menuOpen}
+					sx={'hidden md:inline'}
 					href={user.url}
 					icon={<SlSocialSpotify className="inline mr-2.5" />}
 					placeholder={'View On Spotify'}
 				/>
+
 				<MenuLink
 					menuOpen={menuOpen}
 					href={'/'}
+					sx="border-t-[1px] border-t-neutral-600"
 					icon={<AiOutlinePoweroff className="inline mr-2.5" />}
 					placeholder={'Logout'}
 				/>
