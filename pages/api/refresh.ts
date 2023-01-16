@@ -25,9 +25,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 				expiresIn: data.body.expires_in,
 			});
 		})
-		.catch(() => {
+		.catch((err) => {
 			console.log('REFRESH TOKEN ERROR');
-			return res.send(400);
+			return res.status(400).json({ error: err });
 		});
 
 	// const basic = Buffer.from(

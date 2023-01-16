@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-import Link from 'next/link';
+
 import Tracks from './Tracks';
 import Artists from './Artists';
 import User from './User';
 import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
 import Sidebar from './Sidebar';
 import CreatePlaylist from './CreatePlaylist';
-import MobileNavbar from './MobileNavbar';
+import MobileHeader from './MobileHeader';
 
 type Props = {
 	code: string;
@@ -92,6 +92,7 @@ function Dashboard({ code }: Props) {
 
 	return (
 		<div className=" flex lg:px-0">
+			<MobileHeader />
 			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
 			{menu === 'tracks' && <Tracks tracks={tracks} loading={loading} />}
 			{menu === 'artists' && <Artists artists={artists} loading={loading} />}
@@ -103,8 +104,6 @@ function Dashboard({ code }: Props) {
 				/>
 			)}
 			{user && <User user={user} />}
-
-			<MobileNavbar />
 		</div>
 	);
 }
