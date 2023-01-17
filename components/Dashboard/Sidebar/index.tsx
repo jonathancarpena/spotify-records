@@ -38,7 +38,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<div className="z-[60] w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen  md:px-5">
+		<div className="z-40 w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen  md:px-5">
 			<div className="flex-1 md:w-52 md:pt-6 h-full  ">
 				<h1 className="hidden  select-none ml-1.5 mb-7  text-black dark:text-white  space-x-2 items-center md:flex">
 					<BsSpotify className="text-[2.4rem] leading-5 " />

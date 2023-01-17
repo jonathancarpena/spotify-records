@@ -95,7 +95,7 @@ function User({ user }: Props) {
 	}
 
 	return (
-		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-50">
+		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-30">
 			<button
 				onClick={handleMenuOpen}
 				className={`active:scale-90 lg:active:scale-100 flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 md:pr-2 md:pl-0.5 md:py-0.5 rounded-full ${

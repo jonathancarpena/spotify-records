@@ -36,7 +36,7 @@ function Tracks({ tracks, loading }: Props) {
 				{loading ? (
 					<h3>Loading..</h3>
 				) : tracks && tracks[term].length > 0 ? (
-					<div className="  flex flex-col h-full overflow-hidden z-50 ">
+					<div className="  flex flex-col h-full overflow-hidden z-20 ">
 						{/* Table Header */}
 						<div className=" w-full pt-4 md:pt-2 flex-col ">
 							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5 pr-3.5 md:pl-5 md:pr-7 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-xs md:text-sm  font-semibold uppercase ">
