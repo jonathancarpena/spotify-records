@@ -34,12 +34,14 @@ function SingleTrack({
 		<div
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
-			className={`${
-				hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''
-			} active:bg-light-mainActive grid grid-flow-col gap-3 md:gap-5 md:auto-cols-fr w-full  place-items-center justify-items-start py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
+			className={`${hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''} ${
+				album
+					? 'grid grid-flow-col gap-3 md:gap-5 md:auto-cols-fr place-items-center justify-items-start'
+					: 'flex justify-between'
+			} active:bg-light-mainActive      w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
 		>
 			{/* Index, Song Title*/}
-			<div className="flex h-full truncate w-full  ">
+			<div className="flex h-full truncate w-full   ">
 				{/* Index */}
 				<span className="flex justify-center items-center text-xs min-w-[35px]  md:min-w-[55px]  md:text-base ">
 					{previewUrl ? (
@@ -121,7 +123,11 @@ function SingleTrack({
 			)}
 
 			{/* Song Duration */}
-			<div className="flex  h-full  md:space-x-3  items-center w-full justify-end md:pr-5">
+			<div
+				className={`${
+					album ? 'w-full' : 'w-max'
+				} inline-flex  h-full  md:space-x-3  items-center  justify-end md:pr-5  `}
+			>
 				{/* External Link to Spotify */}
 				<Link
 					href={spotifyUrl}

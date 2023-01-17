@@ -46,7 +46,7 @@ function ListOfTerms({ term, setTerm }: ListOfTermsProps) {
 		setTerm(value);
 	}
 	return (
-		<ul className=" text-white z-50 w-max  flex items-center justify-center space-x-2 md:text-base text-sm">
+		<ul className=" text-white z-30 w-max  flex items-center justify-center space-x-2 md:text-base text-sm">
 			<button
 				disabled
 				className="font-semibold bg-white bg-opacity-25 rounded-sm md:rounded-md px-2"
