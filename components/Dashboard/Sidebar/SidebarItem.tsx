@@ -19,11 +19,11 @@ function SidebarItem({
 	return (
 		<li
 			onClick={() => handleMenuChange(value)}
-			className={`active:scale-90 select-none cursor-pointer py-1 flex flex-col   items-center  hover:text-black dark:hover:text-white transition-all duration-200 w-full ${
+			className={`active:scale-90 select-none cursor-pointer py-1 flex flex-col   items-center  hover:text-black dark:hover:text-white transition-all duration-200 w-full  ${
 				menu === value
 					? 'text-black dark:text-white'
 					: 'text-light-secondary dark:text-dark-secondary'
-			} md:flex-row md:space-x-3 md:w-max`}
+			} md:flex-row md:space-x-3 `}
 		>
 			{menu === value ? active : inactive}
 

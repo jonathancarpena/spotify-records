@@ -1,4 +1,4 @@
-export default {
+const ENDPOINTS = {
 	TOKEN: `https://accounts.spotify.com/api/token`,
 	GET_USERS_PROFILE: `https://api.spotify.com/v1/me`,
 	GET_USERS_TRACKS: `https://api.spotify.com/v1/me/tracks?limit=5`,
@@ -8,3 +8,5 @@ export default {
 	GET_PLAYLIST: `https://api.spotify.com/v1/playlists/`,
 	PUT_LIKE_SONG: `https://api.spotify.com/v1/me/tracks?ids=`,
 };
+
+export default ENDPOINTS;

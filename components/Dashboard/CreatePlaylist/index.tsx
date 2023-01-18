@@ -93,7 +93,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				setDuration(generatePlaylistDuration(tracks[term]));
 			}
 		}
-	}, [term]);
+	}, [term, today, tracks]);
 
 	return (
 		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  min-h-screen md:max-h-screen overflow-hidden">
@@ -129,7 +129,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 							className={` mx-0 md:mx-4 lg:mx-5 mt-2 md:pt-0  pb-4 lg:pb-6  flex-0 lg:flex-row lg:space-x-5 flex relative h-full  overflow-hidden`}
 						>
 							{/* Form */}
-							<div className="z-20 w-full  text-black dark:text-white pt-7 px-10 pb-10 lg:p-7 border-t-[1px] border-t-light-secondary dark:border-t-neutral-900 backdrop-blur-md md:bg-white md:dark:bg-[#181818]  md:rounded-lg md:drop-shadow-md  lg:w-max lg:min-w-[400px]">
+							<div className="z-20 w-full  text-black dark:text-white pt-7 px-10 pb-10 lg:p-7 lg:border-t-[1px] lg:border-t-light-secondary lg:dark:border-t-neutral-900 backdrop-blur-md md:bg-white md:dark:bg-[#181818]  md:rounded-lg md:drop-shadow-md  lg:w-max lg:min-w-[400px]">
 								<form
 									onSubmit={handleSubmit}
 									className="flex flex-col h-5/6 md:h-full items-center md:justify-between  "
@@ -154,9 +154,11 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 									{/* Playlist Cover */}
 									<div className="flex-1 grid grid-cols-2 my-5   aspect-square  bg-blue-500">
 										{tracks[term].slice(0, 4).map((item, idx) => (
-											<div className="relative w-full h-full  aspect-square">
+											<div
+												key={`playlist-cover-${term}-${idx}`}
+												className="relative w-full h-full  aspect-square"
+											>
 												<Image
-													key={`playlist-cover-${term}-${idx}`}
 													src={item.album.images[0].url}
 													fill
 													alt={`top-track-${item.name}-${idx}`}

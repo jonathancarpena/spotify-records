@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import SpotifyWebApi from 'spotify-web-api-node';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	const refreshToken = req.body;
 
 	const spotifyApi = new SpotifyWebApi({
@@ -54,3 +54,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	// 	return res.status(400);
 	// }
 };
+
+export default handler;

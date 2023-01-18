@@ -1,11 +1,14 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-function error() {
+function Error() {
 	const router = useRouter();
-	setTimeout(() => {
-		router.push('/');
-	}, 3000);
+
+	useEffect(() => {
+		setTimeout(() => {
+			router.push('/');
+		}, 3000);
+	});
 
 	return (
 		<div>
@@ -15,4 +18,4 @@ function error() {
 	);
 }
 
-export default error;
+export default Error;

@@ -71,7 +71,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					{/* Light Mode Toggle */}
 					<li
 						onClick={toggleLightMode}
-						className={`hidden md:flex select-none cursor-pointer py-1  items-center space-x-3 transition-all duration-200 active:scale-90 ${
+						className={`hidden md:flex select-none cursor-pointer py-1  items-center space-x-3 transition-all duration-200 active:scale-90 w-full ${
 							lightMode ? 'text-black' : 'text-dark-secondary hover:text-white '
 						}`}
 					>
