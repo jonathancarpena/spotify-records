@@ -195,10 +195,20 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 										: 'top-full duration-300 text-transparent '
 								}   left-1/2 -translate-x-1/2 w-11/12 transition-all  `}
 							>
-								<h2 className="text-2xl  w-full font-black  flex flex-col items-center text-center  fixed left-1/2 -translate-x-1/2 -top-20 ">
-									<span>{name.substring(0, 14)}</span>
-									<span>{name.substring(14)}</span>
-								</h2>
+								<div className="md:hidden fixed left-1/2 -translate-x-1/2 -top-[6.5rem] w-max flex flex-col items-center space-y-1">
+									<h2 className="text-2xl  w-full font-black  flex flex-col items-center text-center   ">
+										<span>{name.substring(0, 14)}</span>
+										<span>{name.substring(14)}</span>
+									</h2>
+
+									<div className="flex space-x-1.5 text-xs bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 px-3 py-1 rounded-md ">
+										<span className="font-semibold">
+											{tracks[term].length} songs,
+										</span>
+										<span className="">{duration}</span>
+									</div>
+								</div>
+
 								<div className="pr-4  md:h-full h-[500px] overflow-y-auto  scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 									{tracks[term].map((item, idx) => (
 										<SingleTrack

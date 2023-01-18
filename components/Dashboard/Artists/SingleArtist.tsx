@@ -25,12 +25,12 @@ function SingleArtist({
 				external_urls.hasOwnProperty('spotify') ? external_urls.spotify : ''
 			}
 			target="_blank"
-			className="md:drop-shadow-md"
+			className="md:drop-shadow-md  md:aspect-[3/4] "
 		>
 			<div
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
-				className={`bg-white dark:bg-[#181818] flex items-center  md:inline-block transition-all duration-200   md:rounded-lg h-max md:h-full md:pt-5 md:px-5 md:pb-10  relative overflow-hidden  dark:border-b-neutral-800 border-b-2  `}
+				className={`w-full bg-white dark:bg-[#181818] flex items-center  md:inline-block transition-all duration-200   md:rounded-lg h-max md:h-full md:pt-5 md:px-5 md:pb-10  relative overflow-hidden  dark:border-b-neutral-800 border-b-2  `}
 			>
 				{/* Animation Expanding Div */}
 				<div
@@ -77,14 +77,14 @@ function SingleArtist({
 				{/* Name, Followers, Genre */}
 				<div className="flex flex-col space-y-1 z-20 relative md:pl-0 pl-2  w-full md:mr-0 mr-20  ">
 					<p
-						className={`font-black text-sm md:text-lg md:mt-5 text-start transition-all duration-300 ${
-							hover ? 'md:text-white ' : 'text-black dark:text-white'
+						className={`font-black text-sm md:text-lg md:mt-5 text-start transition-all duration-300 text-black dark:text-white ${
+							hover ? ' md:text-white ' : 'text-black dark:text-white'
 						} `}
 					>
 						{name}
 					</p>
 					<p
-						className={`${
+						className={`text-light-secondary dark:text-dark-secondary ${
 							hover
 								? 'text-transparent'
 								: 'text-light-secondary dark:text-dark-secondary'
@@ -94,9 +94,9 @@ function SingleArtist({
 					</p>
 					{genres.length > 0 && (
 						<p
-							className={`capitalize text-2xs md:text-xs italic transition-colors duration-100 ${
+							className={`text-light-secondary dark:text-dark-secondary capitalize text-2xs md:text-xs italic transition-colors duration-100 ${
 								hover
-									? 'text-transparent'
+									? 'md:text-transparent'
 									: 'text-light-secondary dark:text-dark-secondary'
 							}`}
 						>
@@ -111,7 +111,7 @@ function SingleArtist({
 						hover
 							? '-translate-y-[100%] text-white delay-300'
 							: 'text-transparent'
-					}  absolute -bottom-[10px] right-2 rounded-full justify-center items-center drop-shadow-md transition-all ease-out duration-200 md:flex `}
+					}  absolute -bottom-[10px] right-2 rounded-full justify-center items-center drop-shadow-md transition-all ease-out duration-200 hidden md:flex `}
 				>
 					<span className=" text-9xl font-black  ">{idx}</span>
 				</div>

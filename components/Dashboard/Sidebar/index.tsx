@@ -70,7 +70,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					{/* Light Mode Toggle */}
 					<li
 						onClick={toggleLightMode}
-						className={`hidden md:flex select-none cursor-pointer p-1  items-center space-x-3 transition-colors duration-200 ${
+						className={`hidden md:flex select-none cursor-pointer p-1  items-center space-x-3 transition-all duration-200 active:scale-90 ${
 							lightMode ? 'text-black' : 'text-dark-secondary hover:text-white '
 						}`}
 					>
