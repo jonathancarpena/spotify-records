@@ -42,11 +42,11 @@ function SingleArtist({
 				></div>
 
 				{/* Image */}
-				<div className="md:drop-shadow-xl md:inline-block ">
+				<div className="md:drop-shadow-xl md:inline-block md:w-full ">
 					<div
 						className={`${!images[0] ? 'bg-neutral-300' : ''} ${
 							hover ? 'md:scale-110 ' : ' '
-						}  relative w-[90px] h-[90px] md:rounded-full  overflow-hidden md:h-[200px] md:w-[200px] mx-auto  flex justify-center items-center transition-all duration-200`}
+						}  relative w-[90px] h-[90px] md:rounded-full  overflow-hidden md:h-auto md:w-[95%] md:aspect-square mx-auto  flex justify-center items-center transition-all duration-200`}
 					>
 						{images[0] ? (
 							<Image

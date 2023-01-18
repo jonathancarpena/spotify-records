@@ -115,7 +115,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 								playlistOpen
 									? ' backdrop-blur-xl backdrop-brightness-90 dark:backdrop-brightness-100 text-black dark:text-white z-40'
 									: '-z-0 text-transparent '
-							} inset-0 w-screen fixed h-screen transition-all duration-300 block md:hidden`}
+							} inset-0 w-screen fixed h-screen transition-all duration-300 block lg:hidden`}
 						>
 							<button
 								disabled={!playlistOpen}
@@ -126,16 +126,16 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 							</button>
 						</div>
 						<div
-							className={` md:mx-5 mt-2 md:pt-0  md:pb-6  flex-0   md:flex-row md:space-x-5 flex relative h-full  overflow-hidden`}
+							className={` mx-0 md:mx-4 lg:mx-5 mt-2 md:pt-0  pb-4 lg:pb-6  flex-0 lg:flex-row lg:space-x-5 flex relative h-full  overflow-hidden`}
 						>
 							{/* Form */}
-							<div className="z-20 w-full  text-black dark:text-white pt-7 px-10 pb-10 md:p-7 border-t-[1px] border-t-light-secondary dark:border-t-neutral-900 backdrop-blur-md md:bg-white md:dark:bg-[#181818]  md:rounded-lg md:drop-shadow-md  md:w-max md:min-w-[400px] ">
+							<div className="z-20 w-full  text-black dark:text-white pt-7 px-10 pb-10 lg:p-7 border-t-[1px] border-t-light-secondary dark:border-t-neutral-900 backdrop-blur-md md:bg-white md:dark:bg-[#181818]  md:rounded-lg md:drop-shadow-md  lg:w-max lg:min-w-[400px]">
 								<form
 									onSubmit={handleSubmit}
-									className="flex flex-col md:h-full items-center md:justify-between "
+									className="flex flex-col h-5/6 md:h-full items-center md:justify-between  "
 								>
 									{/* Playlist Name */}
-									<div className="  flex flex-col items-center ">
+									<div className="flex flex-col items-center ">
 										<h2 className="text-2xl font-black  flex flex-col items-center text-center  tracking-tight">
 											<span>{name.substring(0, 14)}</span>
 											<span>{name.substring(14)}</span>
@@ -152,7 +152,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 									</div>
 
 									{/* Playlist Cover */}
-									<div className="grid grid-cols-2 my-5 w-11/12 md:w-full h-auto aspect-square  bg-blue-500">
+									<div className="flex-1 grid grid-cols-2 my-5   aspect-square  bg-blue-500">
 										{tracks[term].slice(0, 4).map((item, idx) => (
 											<div className="relative w-full h-full  aspect-square">
 												<Image
@@ -165,16 +165,17 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 										))}
 									</div>
 
-									<div className="flex w-full space-x-2 ">
+									{/* Create Button */}
+									<div className="flex w-full max-w-[400px] space-x-2 ">
 										<button
 											onClick={() => setPlaylistOpen(!playlistOpen)}
 											type="button"
-											className="w-full md:hidden py-2.5 bg-neutral-400 rounded-md text-sm font-bold text-white drop-shadow-md"
+											className="w-full lg:hidden active:brightness-90 py-2.5 bg-neutral-400 rounded-md text-sm font-bold text-white drop-shadow-md"
 										>
 											View
 										</button>
 										<button
-											className=" bg-accent-500 w-full  text-white py-2.5 rounded-md md:hover:brightness-110 md:hover:scale-105 md:active:brightness-90 transition-all duration-200   drop-shadow-md "
+											className=" bg-accent-500 w-full  text-white py-2.5 rounded-md lg:hover:brightness-110 lg:hover:scale-105 active:brightness-90 transition-all duration-200   drop-shadow-md "
 											type="submit"
 										>
 											{createLoading ? (
@@ -189,27 +190,27 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 
 							{/* Tracklist */}
 							<div
-								className={`bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 md:h-full  md:top-0 md:translate-y-0 md:left-0 md:translate-x-0 md:static py-2 md:py-3 md:px-2 md:bg-white md:dark:bg-[#181818] md:drop-shadow-md rounded-lg  fixed md:z-30 ${
+								className={`bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 lg:h-full  lg:top-0 lg:translate-y-0 lg:left-0 lg:translate-x-0 lg:static py-2 lg:py-3 lg:px-2 lg:bg-white lg:dark:bg-[#181818] lg:drop-shadow-md rounded-lg  fixed lg:z-30 ${
 									playlistOpen
 										? 'top-1/2 -translate-y-1/2 duration-500 delay-75  dark:text-white text-black z-50'
-										: 'top-full duration-300 text-transparent '
+										: 'top-[110%] duration-[400ms] text-transparent '
 								}   left-1/2 -translate-x-1/2 w-11/12 transition-all  `}
 							>
-								<div className="md:hidden fixed left-1/2 -translate-x-1/2 -top-[6.5rem] w-max flex flex-col items-center space-y-1">
+								<div className="lg:hidden fixed left-1/2 -translate-x-1/2 -top-[6.5rem] w-max flex flex-col items-center space-y-1">
 									<h2 className="text-2xl  w-full font-black  flex flex-col items-center text-center   ">
 										<span>{name.substring(0, 14)}</span>
 										<span>{name.substring(14)}</span>
 									</h2>
 
-									<div className="flex space-x-1.5 text-xs bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 px-3 py-1 rounded-md ">
-										<span className="font-semibold">
+									<div className=" flex space-x-1.5 text-xs bg-white bg-opacity-25 dark:bg-white dark:bg-opacity-10 px-3 py-1 rounded-md lg:hidden ">
+										<span className="font-semibold ">
 											{tracks[term].length} songs,
 										</span>
 										<span className="">{duration}</span>
 									</div>
 								</div>
 
-								<div className="pr-4  md:h-full h-[500px] overflow-y-auto  scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
+								<div className="pr-4  lg:h-full h-[500px] md:h-[600px] overflow-y-auto  scrollbar-thumb-rounded-full lg:scrollbar-thumb-rounded-none scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 									{tracks[term].map((item, idx) => (
 										<SingleTrack
 											key={`${term}-track-${idx}`}
