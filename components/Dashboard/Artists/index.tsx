@@ -33,7 +33,7 @@ function Artists({ artists, loading }: Props) {
 				{loading ? (
 					<h3>Loading...</h3>
 				) : artists && artists[term].length > 0 ? (
-					<ul className=" mt-2 z-20 flex flex-col   md:bg-red-500 md:grid md:grid-flow-dense md:grid-cols-[repeat(auto-fill,_minmax(250px,1fr))] md:auto-rows-auto md:gap-5  md:px-5  md:pb-7 pb-20  relative h-full  overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
+					<ul className=" mt-2 z-20 flex flex-col    md:grid md:grid-flow-dense md:grid-cols-[repeat(auto-fill,_minmax(250px,1fr))] md:auto-rows-auto md:gap-5  md:px-4 lg:px-5   pb-20 md:pb-4 lg:pb-7  relative h-full  overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 						{artists[term].map((item, idx) => (
 							<SingleArtist
 								key={`${term}-artist-${idx}`}

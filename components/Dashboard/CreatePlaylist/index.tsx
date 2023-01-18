@@ -126,7 +126,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 							</button>
 						</div>
 						<div
-							className={` md:mx-5 mt-2 md:pt-0 md:mt-6 md:pb-6  flex-0   md:flex-row md:space-x-5 flex relative h-full  overflow-hidden`}
+							className={` md:mx-5 mt-2 md:pt-0  md:pb-6  flex-0   md:flex-row md:space-x-5 flex relative h-full  overflow-hidden`}
 						>
 							{/* Form */}
 							<div className="z-20 w-full  text-black dark:text-white pt-7 px-10 pb-10 md:p-7 border-t-[1px] border-t-light-secondary dark:border-t-neutral-900 backdrop-blur-md md:bg-white md:dark:bg-[#181818]  md:rounded-lg md:drop-shadow-md  md:w-max md:min-w-[400px] ">
