@@ -39,21 +39,21 @@ function Tracks({ tracks, loading }: Props) {
 					<div className="  flex flex-col h-full overflow-hidden z-20 ">
 						{/* Table Header */}
 						<div className=" w-full pt-4 md:pt-2 flex-col ">
-							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5 pr-3.5 md:pl-5 md:pr-7 grid grid-flow-col gap-5 auto-cols-fr  place-items-center justify-items-start pb-2 text-xs md:text-sm  font-semibold uppercase ">
-								<div className="flex">
-									<span className="flex w-[35px] md:w-[55px] justify-center items-center">
+							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5  md:pl-0 grid gap-4 grid-cols-5 place-items-center justify-items-start  md:mx-4 lg:mx-5 border-b-[1px] border-t-dark-secondary  pb-2 text-xs md:text-sm  font-semibold uppercase ">
+								<div className="flex col-span-4 lg:col-span-2">
+									<span className="flex w-[35px] md:w-[50px] lg:w-[55px] justify-center items-center">
 										#
 									</span>
 									<span>Title</span>
 								</div>
 
-								<span className="hidden md:inline">Album</span>
+								<span className="hidden lg:inline col-span-2">Album</span>
 
-								<AiOutlineClockCircle className="text-lg justify-self-end mr-4 md:mr-10 " />
+								<AiOutlineClockCircle className="text-lg justify-self-end mr-5 lg:mr-9   col-span-1 w-[45px] md:w-[55px]" />
 							</div>
 						</div>
 
-						<div className="backdrop-blur-md pt-2 md:pb-7 pb-20  relative h-full overflow-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent border-t-[1px] border-t-dark-secondary">
+						<div className="backdrop-blur-md pt-2  pb-20 md:pb-4 lg:pb-7 relative h-full overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent ">
 							{/* Tracks */}
 							<ul className="  flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
 								{tracks[term].map((item, idx) => (

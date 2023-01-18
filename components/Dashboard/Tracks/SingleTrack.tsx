@@ -7,7 +7,7 @@ import { AiFillCustomerService } from 'react-icons/ai';
 
 type Props = {
 	idx: number;
-	album?: { name: string; url: string };
+	album: { name: string; url: string };
 	artists: { name: string; url: string }[];
 	songTitle: string;
 	explicit: boolean;
@@ -29,25 +29,23 @@ function SingleTrack({
 	previewUrl,
 }: Props) {
 	const [hover, setHover] = useState(false);
-
+	// grid-flow-col gap-3 md:gap-5 md:auto-cols-fr
 	return (
 		<div
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
-			className={`${hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''} ${
-				album
-					? 'grid grid-flow-col gap-3 md:gap-5 md:auto-cols-fr place-items-center justify-items-start'
-					: 'flex justify-between'
-			} active:bg-light-mainActive      w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
+			className={`${
+				hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''
+			} grid gap-4 grid-cols-5 lg:grid-cols-5 place-items-center justify-items-start active:bg-light-mainActive w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
 		>
 			{/* Index, Song Title*/}
-			<div className="flex h-full truncate w-full   ">
+			<div className="flex h-full truncate w-full col-span-4 lg:col-span-2   ">
 				{/* Index */}
-				<span className="flex justify-center items-center text-xs min-w-[35px]  md:min-w-[55px]  md:text-base ">
+				<span className="flex justify-center items-center text-xs min-w-[35px]  md:min-w-[45px] md:text-sm lg:min-w-[55px]  lg:text-base ">
 					{previewUrl ? (
 						hover ? (
 							<Link href={previewUrl} target="_blank">
-								<BsPlayFill className="text-lg hover:text-xl active:text-lg md:text-2xl text-black dark:text-white md:hover:text-3xl md:active:text-2xl transition-all duration-150" />
+								<BsPlayFill className="text-lg  md:text-xl lg:text-2xl text-black dark:text-white  transition-all duration-150 hover:scale-125 active:scale-90" />
 							</Link>
 						) : (
 							idx
@@ -57,9 +55,9 @@ function SingleTrack({
 					)}
 				</span>
 
-				<div className="flex items-center flex-1 overflow-auto">
+				<div className="flex h-full  flex-1 overflow-auto ">
 					{/* Image */}
-					<div className="w-9 h-9 md:w-14 md:h-14  relative ">
+					<div className="w-10 h-10 md:w-11 md:h-11  aspect-square relative ">
 						{image ? (
 							<Image src={image} fill alt={`top-track-${songTitle}-${idx}`} />
 						) : (
@@ -72,61 +70,58 @@ function SingleTrack({
 					{/* Song Title */}
 					<div className="ml-3 md:ml-4 flex flex-col h-full justify-center md:justify-between flex-1 overflow-auto ">
 						<Link href={spotifyUrl} target="_blank">
-							<p className="cursor-pointer text-black dark:text-white md:font-semibold  truncate  text-xs md:text-lg ">
+							<p className="cursor-pointer text-black dark:text-white md:font-semibold  truncate text-sm ">
 								{songTitle}
 							</p>
 						</Link>
-						<div className="  truncate overflow-auto flex items-center text-sm md:text-base">
+						<div className=" truncate w-3/4 flex items-center text-xs">
 							{explicit && (
-								<span className="mr-1 md:mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1.5  text-white rounded-sm text-2xs md:text-xs">
+								<span className="mr-1 md:mr-2 select-none cursor-default bg-neutral-400 py-0.5 px-1  text-white rounded-sm text-2xs ">
 									E
 								</span>
 							)}
-							<ul className=" space-x-1 inline-flex  flex-1  truncate">
+							<p className=" space-x-1 flex  flex-1 truncate text-xs md:text-sm ">
 								{artists.map((artist, idx) => (
 									<Link
 										key={`${songTitle}-artist-${idx}`}
 										href={artist.url}
 										target="_blank"
-										className="after:content-[','] last:after:content-none  inline-block  truncate  "
+										className="after:content-[','] last:after:content-none "
 									>
 										<span
 											className={`${
 												hover ? 'dark:text-white text-black' : ''
-											} cursor-pointer hover:underline text-2xs md:text-base`}
+											} cursor-pointer hover:underline   `}
 										>
 											{artist.name}
 										</span>
 									</Link>
 								))}
-							</ul>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			{/* Album  */}
-			{album && (
-				<Link
-					href={album.url}
-					target="_blank"
-					className="w-full hidden md:inline "
+
+			<Link
+				href={album.url}
+				target="_blank"
+				className="w-full hidden  lg:inline col-span-2 "
+			>
+				<p
+					className={`${
+						hover ? 'dark:text-white text-black' : ''
+					} truncate  font-medium cursor-pointer hover:underline text-sm `}
 				>
-					<p
-						className={`${
-							hover ? 'dark:text-white text-black' : ''
-						} truncate font-medium cursor-pointer hover:underline`}
-					>
-						{album.name}
-					</p>
-				</Link>
-			)}
+					{album.name}
+				</p>
+			</Link>
 
 			{/* Song Duration */}
 			<div
-				className={`${
-					album ? 'w-full' : 'w-max'
-				} inline-flex  h-full  md:space-x-3  items-center  justify-end md:pr-5  `}
+				className={`place-self-end inline-flex  h-full  md:space-x-3  items-center  justify-end lg:pr-5  `}
 			>
 				{/* External Link to Spotify */}
 				<Link
@@ -134,12 +129,12 @@ function SingleTrack({
 					target="_blank"
 					className="  text-black dark:text-white hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
 				>
-					<button className=" md:px-3 md:py-1  md:bg-accent-500 w-full  font-semibold rounded-md md:rounded-lg flex md:space-x-2 items-center justify-center">
-						<SiSpotify className="text-xs md:text-base md:text-inherit text-accent-500" />
-						<span className="text-sm hidden md:inline">Open</span>
+					<button className=" lg:px-3 lg:py-1  lg:bg-accent-500 w-full  font-semibold rounded-md md:rounded-lg flex md:space-x-2 items-center justify-center">
+						<SiSpotify className="text-sm md:text-lg lg:text-base lg:text-inherit text-accent-500" />
+						<span className="text-sm hidden lg:inline">Open</span>
 					</button>
 				</Link>
-				<span className="w-[35px] md:w-[55px] md:text-base text-2xs ml-1 md:ml-0 text-center">
+				<span className="w-[45px] md:w-[55px] text-xs md:text-sm font-medium text-center">
 					{songDuration}
 				</span>
 			</div>

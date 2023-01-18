@@ -189,7 +189,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 
 							{/* Tracklist */}
 							<div
-								className={`bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 md:h-full md:max-w-4xl md:top-0 md:translate-y-0 md:left-0 md:translate-x-0 md:static py-2 md:py-3 md:px-2 md:bg-white md:dark:bg-[#181818] md:drop-shadow-md rounded-lg  fixed md:z-30 ${
+								className={`bg-white bg-opacity-25 dark:bg-white  dark:bg-opacity-10 md:h-full  md:top-0 md:translate-y-0 md:left-0 md:translate-x-0 md:static py-2 md:py-3 md:px-2 md:bg-white md:dark:bg-[#181818] md:drop-shadow-md rounded-lg  fixed md:z-30 ${
 									playlistOpen
 										? 'top-1/2 -translate-y-1/2 duration-500 delay-75  dark:text-white text-black z-50'
 										: 'top-full duration-300 text-transparent '
@@ -220,6 +220,10 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 													url: artist.external_urls.spotify,
 												};
 											})}
+											album={{
+												name: item.album.name,
+												url: item.album.external_urls.spotify,
+											}}
 											image={item.album.images[0].url}
 											songTitle={item.name}
 											songDuration={convertMsToMinutesSeconds(item.duration_ms)}
