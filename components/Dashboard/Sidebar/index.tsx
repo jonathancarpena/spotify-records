@@ -37,15 +37,15 @@ type Props = {
 function Sidebar({ menu, handleMenuChange, user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
-	// dark:text-white text-black
+
 	return (
-		<div className="z-40 w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen  md:px-4 lg:px-5">
+		<div className="z-40 w-screen h-20 fixed bottom-0 bg-gradient-to-b from-transparent to-white dark:to-black md:bg-white md:dark:bg-black   md:justify-between md:relative md:flex-col md:w-max md:h-screen  md:px-5">
 			<div className="flex-1 md:w-44 lg:w-52 md:pt-6 h-full  ">
-				<h1 className="hidden  select-none ml-1 mb-4 lg:mb-7    md:text-blue-500 lg:text-red-500  space-x-2 items-center md:flex">
+				<h1 className="hidden  select-none  mb-7  dark:text-white text-black  space-x-2 items-center md:flex">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
 				</h1>
-				<ul className="flex justify-around h-full items-center md:flex-col md:justify-start md:h-max md:items-start space-y-2 lg:space-y-1  md:border-b-[1px]  md:pb-3 md:border-b-light-secondary ">
+				<ul className="flex justify-around h-full items-center md:flex-col md:justify-start md:h-max md:items-start space-y-2 md:space-y-1  md:border-b-[1px]  md:pb-3 md:border-b-light-secondary ">
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}
@@ -82,7 +82,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 						)}
 
 						<span
-							className={` hidden md:inline text-xs lg:text-sm flex-1  font-bold capitalize `}
+							className={` hidden md:inline text-sm  flex-1  font-bold capitalize `}
 						>
 							Light Mode: {lightMode ? 'on' : 'off'}
 						</span>

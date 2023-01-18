@@ -120,7 +120,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 							<button
 								disabled={!playlistOpen}
 								onClick={() => setPlaylistOpen(!playlistOpen)}
-								className="fixed  bottom-14 left-1/2 -translate-x-1/2 "
+								className="fixed  bottom-14 left-1/2 -translate-x-1/2 font-medium"
 							>
 								Close
 							</button>
