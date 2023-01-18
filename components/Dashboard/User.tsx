@@ -45,7 +45,7 @@ interface MenuLinkProps extends MenuItemProps {
 }
 
 const menuItemStyles =
-	'text-xs md:text-base p-3 md:p-4 text-start hover:bg-light-menuHover active:bg-light-menuHover dark:active:bg-dark-menuHover  dark:hover:bg-dark-menuHover flex items-center  select-none w-full min-w-max';
+	'text-xs md:text-sm lg:text-base p-3 lg:p-4 text-start hover:bg-light-menuHover active:bg-light-menuHover dark:active:bg-dark-menuHover  dark:hover:bg-dark-menuHover flex items-center  select-none w-full min-w-max';
 
 function MenuLink({ href, menuOpen, icon, placeholder, sx }: MenuLinkProps) {
 	return (
@@ -95,12 +95,12 @@ function User({ user }: Props) {
 	}
 
 	return (
-		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-30">
+		<div className="fixed top-3 right-3 lg:top-5 lg:right-5 z-30">
 			<button
 				onClick={handleMenuOpen}
-				className={`active:scale-90 lg:active:scale-100 flex md:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 md:pr-2 md:pl-0.5 md:py-0.5 rounded-full ${
+				className={`active:scale-90 lg:active:scale-100 flex lg:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 lg:pr-2 lg:pl-0.5 lg:py-0.5 rounded-full ${
 					menuOpen ? '' : 'bg-opacity-80 hover:bg-opacity-100'
-				} outline-none`}
+				} outline-none transition-all`}
 			>
 				{/* User Image */}
 				<div className="relative cursor-pointer  rounded-full flex md:flex-row items-center justify-center overflow-hidden h-[30px] w-[30px]  bg-[#535353]">
@@ -116,11 +116,11 @@ function User({ user }: Props) {
 				</div>
 
 				{/* Menu Button */}
-				<h1 className=" hidden md:inline lowercase  select-none">
+				<h1 className=" hidden lg:inline lowercase  select-none">
 					{user.name}
 				</h1>
 
-				<span className="hidden md:inline">
+				<span className="hidden lg:inline">
 					{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
 				</span>
 			</button>
@@ -136,7 +136,7 @@ function User({ user }: Props) {
 				<MenuItem
 					icon={<SlSocialSpotify className="inline mr-2.5" />}
 					placeholder={user.name}
-					sx={'md:hidden'}
+					sx={'lg:hidden'}
 				/>
 
 				<MenuItem
