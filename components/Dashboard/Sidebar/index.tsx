@@ -49,21 +49,21 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}
-						value={'tracks'}
+						value={'Tracks'}
 						inactive={<AiOutlineCustomerService className="text-3xl" />}
 						active={<AiFillCustomerService className="text-3xl" />}
 					/>
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}
-						value={'artists'}
+						value={'Artists'}
 						inactive={<AiOutlineHeart className="text-3xl" />}
 						active={<AiFillHeart className="text-3xl" />}
 					/>
 					<SidebarItem
 						menu={menu}
 						handleMenuChange={handleMenuChange}
-						value={'create playlist'}
+						value={'Create Playlist'}
 						inactive={<AiOutlinePlusSquare className="text-3xl" />}
 						active={<AiFillPlusSquare className="text-3xl" />}
 					/>

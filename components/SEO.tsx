@@ -2,21 +2,31 @@ import React from 'react';
 import Head from 'next/head';
 
 type Props = {
-	title?: string;
-	description?: string;
-	keywords?: string;
+	title?: string | undefined | null;
+	description?: string | undefined | null;
+	keywords?: string | undefined | null;
 };
 
+const DEFAULT = {
+	title: 'Spotify Swaddle - Your Top Spotify Activity',
+	description:
+		'View your Top Spotify Tracks and Artists. Create personalized playlist based on your most listened tracks over the past year.',
+	keywords:
+		'Jonathan Carpena, Web Development, Front End Engineer, Spotify, Spotify Wrapped',
+};
 function SEO({
-	title = 'Spotify Swaddle - Your Top Spotify Activity',
-	description = 'View your Top Spotify Tracks and Artists. Create personalized playlist based on your most listened tracks over the past year.',
-	keywords = 'Jonathan Carpena, Web Development, Front End Engineer, Spotify, Spotify Wrapped',
+	title = DEFAULT.title,
+	description = DEFAULT.description,
+	keywords = DEFAULT.keywords,
 }: Props) {
 	return (
 		<Head>
-			<title>{title}</title>
-			<meta name="description" content={description} />
-			<meta name="keywords" content={keywords} />
+			<title>{title ? title : DEFAULT.title}</title>
+			<meta
+				name="description"
+				content={description ? description : DEFAULT.description}
+			/>
+			<meta name="keywords" content={keywords ? keywords : DEFAULT.keywords} />
 
 			{/* Default */}
 			<meta name="author" content="Jonathan Carpena"></meta>

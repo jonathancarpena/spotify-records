@@ -8,12 +8,13 @@ import { SpotifyTrack, SpotifyArtist } from '../../lib/interfaces';
 import Sidebar from './Sidebar';
 import CreatePlaylist from './CreatePlaylist';
 import MobileHeader from './MobileHeader';
+import SEO from '../SEO';
 
 type Props = {
 	code: string;
 };
 
-export type MenuOptions = 'tracks' | 'artists' | 'create playlist';
+export type MenuOptions = 'Tracks' | 'Artists' | 'Create Playlist';
 
 type State = {
 	user: {
@@ -47,7 +48,7 @@ function Dashboard({ code }: Props) {
 	const [tracks, setTracks] = useState<State['tracks']>(null);
 	const [artists, setArtists] = useState<State['artists']>(null);
 	const [loading, setLoading] = useState(true);
-	const [menu, setMenu] = useState<State['menuOptions']>('tracks');
+	const [menu, setMenu] = useState<State['menuOptions']>('Tracks');
 
 	// USER PROFILE
 	useEffect(() => {
@@ -91,20 +92,32 @@ function Dashboard({ code }: Props) {
 	}
 
 	return (
-		<div className=" flex lg:px-0">
-			<MobileHeader />
-			<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
-			{menu === 'tracks' && <Tracks tracks={tracks} loading={loading} />}
-			{menu === 'artists' && <Artists artists={artists} loading={loading} />}
-			{menu === 'create playlist' && (
-				<CreatePlaylist
-					tracks={tracks}
-					loading={loading}
-					accessToken={accessToken}
-				/>
-			)}
-			{user && <User user={user} />}
-		</div>
+		<>
+			<SEO
+				title={
+					user &&
+					`${
+						menu === 'Create Playlist'
+							? 'Spotify Swaddle - Create Playlist'
+							: `${user.name}'s Top ${menu}`
+					}`
+				}
+			/>
+			<div className=" flex lg:px-0">
+				<MobileHeader />
+				<Sidebar menu={menu} handleMenuChange={handleMenuChange} user={user} />
+				{menu === 'Tracks' && <Tracks tracks={tracks} loading={loading} />}
+				{menu === 'Artists' && <Artists artists={artists} loading={loading} />}
+				{menu === 'Create Playlist' && (
+					<CreatePlaylist
+						tracks={tracks}
+						loading={loading}
+						accessToken={accessToken}
+					/>
+				)}
+				{user && <User user={user} />}
+			</div>
+		</>
 	);
 }
 
