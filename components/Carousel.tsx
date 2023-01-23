@@ -26,7 +26,7 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 		} else if (active === 0 && index === lastChild) {
 			styles += left + inactive;
 		} else if (index === active) {
-			styles += 'translate-x-0 ';
+			styles += 'translate-x-0 hover:cursor-grab active:cursor-grabbing';
 		} else if (index < active) {
 			styles += left + inactive;
 		} else if (index > active) {
@@ -35,7 +35,7 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 
 		// No Other Slides Available
 		if (active === index && lastChild === index) {
-			styles = 'translate-x-0';
+			styles = 'translate-x-0 ';
 		}
 
 		return styles;
@@ -43,7 +43,7 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 
 	return (
 		<li
-			className={`${generateStyles()} list-none transition-all duration-500 m-1 `}
+			className={`${generateStyles()} list-none transition-all duration-500 m-1  select-none`}
 		>
 			{children}
 		</li>
@@ -105,15 +105,14 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 		setPointer(0);
 	}
 	return (
-		<div
-			// onMouseUp={() => alert('Mouse UP')}
-			onPointerUp={handlePointerUp}
-			onPointerDown={handlePointerDown}
-			className={`flex flex-col relative hover:cursor-grab active:cursor-grabbing ${sx}`}
-		>
+		<div className={`flex flex-col relative   ${sx}`}>
 			{Array.isArray(children) ? (
-				<div className="relative">
-					<ul className="flex select-none">
+				<div className="relative ">
+					<ul
+						onPointerUp={handlePointerUp}
+						onPointerDown={handlePointerDown}
+						className="flex  "
+					>
 						{children.map((item, index) => (
 							<Slide
 								active={active}
