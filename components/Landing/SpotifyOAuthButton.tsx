@@ -28,7 +28,10 @@ function SpotifyOAuthButton({ children }: Props) {
 	const LOGIN_LINK = `${ENDPOINT}?client_id=${clientId}&redirect_uri=${redirectURI}&scope=${SCOPE_PARAM}&response_type=code&show_dialog=true`;
 	return (
 		<Link href={LOGIN_LINK} className="mx-auto w-full  md:max-w-sm ">
-			<Button sx="relative text-2xl w-full font-bold" color="bg-neutral-600">
+			<Button
+				sx="relative text-xl md:text-2xl w-full font-bold"
+				color="bg-neutral-600"
+			>
 				<BsSpotify className="mr-2 text-accent-500" />
 				<span>LOGIN</span>
 			</Button>

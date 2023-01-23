@@ -53,6 +53,7 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 function Carousel({ children, auto = false, sx = '' }: Props) {
 	const [active, setActive] = useState(0);
 	const [autoSlide, setAutoSlide] = useState(auto);
+	const [pointer, setPointer] = useState(0);
 
 	function handleActiveChange(input: boolean, mouseClick: boolean = false) {
 		if (Array.isArray(children)) {
@@ -86,11 +87,33 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 		return () => clearInterval(interval);
 	});
 
+	function handlePointerDown(e: any) {
+		setPointer(e.clientX);
+	}
+
+	function handlePointerUp(e: any) {
+		const up = e.clientX;
+		const pointerMove = pointer - up;
+		if (pointerMove < 0) {
+			// Swipe Left
+			handleActiveChange(false, true);
+		} else {
+			// Swipe Right
+			handleActiveChange(true, true);
+		}
+
+		setPointer(0);
+	}
 	return (
-		<div className={`flex flex-col relative  ${sx}`}>
+		<div
+			// onMouseUp={() => alert('Mouse UP')}
+			onPointerUp={handlePointerUp}
+			onPointerDown={handlePointerDown}
+			className={`flex flex-col relative hover:cursor-grab active:cursor-grabbing ${sx}`}
+		>
 			{Array.isArray(children) ? (
 				<div className="relative">
-					<ul className="flex">
+					<ul className="flex select-none">
 						{children.map((item, index) => (
 							<Slide
 								active={active}
