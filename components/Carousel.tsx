@@ -4,6 +4,7 @@ import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 type Props = {
 	children?: JSX.Element[] | JSX.Element;
 	auto?: boolean;
+	sx?: string;
 };
 
 type SlideProps = {
@@ -17,8 +18,8 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 	function generateStyles() {
 		let styles = '';
 		const inactive = 'absolute opacity-0 -translate-y-10 ';
-		const left = '-translate-x-full ';
-		const right = 'translate-x-full ';
+		const left = '-translate-x-3/4 ';
+		const right = 'translate-x-3/4 ';
 
 		if (active === lastChild && index === 0) {
 			styles += right + inactive;
@@ -42,14 +43,14 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 
 	return (
 		<li
-			className={`${generateStyles()} list-none transition-all duration-500 m-1`}
+			className={`${generateStyles()} list-none transition-all duration-500 m-1 `}
 		>
 			{children}
 		</li>
 	);
 }
 
-function Carousel({ children, auto = false }: Props) {
+function Carousel({ children, auto = false, sx = '' }: Props) {
 	const [active, setActive] = useState(0);
 	const [autoSlide, setAutoSlide] = useState(auto);
 
@@ -80,13 +81,13 @@ function Carousel({ children, auto = false }: Props) {
 		if (autoSlide) {
 			interval = setInterval(() => {
 				handleActiveChange(true);
-			}, 1000);
+			}, 3000);
 		}
 		return () => clearInterval(interval);
 	});
 
 	return (
-		<div className="flex flex-col relative h-full ">
+		<div className={`flex flex-col relative  ${sx}`}>
 			{Array.isArray(children) ? (
 				<div className="relative">
 					<ul className="flex">
@@ -126,7 +127,7 @@ function Carousel({ children, auto = false }: Props) {
 
 			{/* Pagination */}
 			{Array.isArray(children) && (
-				<div className="flex justify-center my-4 space-x-2 w-full mx-auto">
+				<div className="flex justify-center mt-5 space-x-2 w-full mx-auto">
 					{children.map((item, idx) => (
 						<span
 							key={`pageination-${idx}`}

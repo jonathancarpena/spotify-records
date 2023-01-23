@@ -7,7 +7,10 @@ function LightModeButton() {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 	return (
-		<Button sx="fixed top-5 right-5 text-3xl " onClick={toggleLightMode}>
+		<Button
+			sx="absolute text-2xl top-3 right-0 md:fixed md:top-5 md:right-5 md:text-3xl "
+			onClick={toggleLightMode}
+		>
 			{lightMode ? <BsSunFill /> : <BsSun />}
 		</Button>
 	);

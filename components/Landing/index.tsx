@@ -8,8 +8,8 @@ function Landing() {
 		<>
 			<SEO />
 
-			<div className="relative min-h-screen min-w-screen overflow-hidden dark:bg-dark-mainHover bg-light-main text-black dark:text-white   flex flex-col justify-center items-center ">
-				<h1 className="font-black text-6xl text-center mb-5 ">
+			<div className="relative min-h-screen max-h-screen  overflow-hidden md:max-w-7xl md:mx-auto text-black dark:text-white  h-full  justify-center flex flex-col md:w-full mx-5 ">
+				<h1 className="font-black text-5xl md:text-6xl text-center tracking-tight ">
 					Spotify Swaddle
 				</h1>
 				<Cards />

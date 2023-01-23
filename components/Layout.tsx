@@ -7,7 +7,7 @@ type Props = {
 function Layout({ children }: Props) {
 	return (
 		<>
-			<div className=" bg-white">
+			<div className=" bg-light-main dark:bg-dark-mainHover">
 				{/* <Navbar /> */}
 				<main className="relative font-main">{children}</main>
 				{/* <Footer /> */}

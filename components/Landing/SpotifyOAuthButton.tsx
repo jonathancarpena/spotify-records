@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Button from '../Button';
+import { BsSpotify } from 'react-icons/bs';
 
 type Props = {
 	children?: JSX.Element | JSX.Element[] | React.ReactNode;
@@ -26,8 +27,11 @@ function SpotifyOAuthButton({ children }: Props) {
 	let SCOPE_PARAM = SCOPES.join('%20');
 	const LOGIN_LINK = `${ENDPOINT}?client_id=${clientId}&redirect_uri=${redirectURI}&scope=${SCOPE_PARAM}&response_type=code&show_dialog=true`;
 	return (
-		<Link href={LOGIN_LINK}>
-			<Button sx="relative text-2xl">Login</Button>
+		<Link href={LOGIN_LINK} className="mx-auto w-full  md:max-w-sm ">
+			<Button sx="relative text-2xl w-full font-bold" color="bg-neutral-600">
+				<BsSpotify className="mr-2 text-accent-500" />
+				<span>LOGIN</span>
+			</Button>
 		</Link>
 	);
 }

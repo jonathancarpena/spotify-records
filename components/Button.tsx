@@ -2,25 +2,34 @@ import React from 'react';
 
 type Props = {
 	children?: JSX.Element | React.ReactNode | JSX.Element[];
+	color?: string;
 	onClick?: () => void;
 	disabled?: boolean;
 	sx?: string;
 };
 
-function Button({ children, onClick, disabled = false, sx }: Props) {
+function Button({
+	children,
+	onClick,
+	disabled = false,
+	color = 'bg-accent-500',
+	sx,
+}: Props) {
 	return (
 		<button
 			disabled={disabled}
-			className={`text-white outline-none z-10 ${sx}`}
+			className={`text-white outline-none z-10  ${sx}`}
 		>
 			<div
 				onClick={onClick}
-				className="p-2 bg-accent-500 rounded-lg hover:brightness-105 active:translate-y-[10px] transition-transform ease-in-out duration-200 border-2 border-[#19ba51] "
+				className={`flex justify-center items-center p-1.5 md:p-2 w-full h-full rounded-lg hover:brightness-105 active:translate-y-[10px] transition-transform ease-in-out duration-200  select-none ${color}`}
 			>
 				{children}
 			</div>
 
-			<div className="w-full h-full bg-[#149140] absolute left-0 top-[10px] rounded-md -z-10"></div>
+			<div
+				className={`w-full h-full ${color} brightness-75 absolute left-0 top-[10px] rounded-md -z-10`}
+			></div>
 		</button>
 	);
 }
