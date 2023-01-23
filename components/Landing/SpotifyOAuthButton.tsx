@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from './Button';
 
 type Props = {
 	children?: JSX.Element | JSX.Element[] | React.ReactNode;
@@ -24,7 +25,11 @@ function SpotifyOAuthButton({ children }: Props) {
 
 	let SCOPE_PARAM = SCOPES.join('%20');
 	const LOGIN_LINK = `${ENDPOINT}?client_id=${clientId}&redirect_uri=${redirectURI}&scope=${SCOPE_PARAM}&response_type=code&show_dialog=true`;
-	return <Link href={LOGIN_LINK}>{children}</Link>;
+	return (
+		<Link href={LOGIN_LINK}>
+			<Button sx="relative text-2xl">Login</Button>
+		</Link>
+	);
 }
 
 export default SpotifyOAuthButton;

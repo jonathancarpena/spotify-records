@@ -40,7 +40,9 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 	}
 
 	return (
-		<li className={`${generateStyles()} list-none transition-all duration-500`}>
+		<li
+			className={`${generateStyles()} list-none transition-all duration-500 m-1`}
+		>
 			{children}
 		</li>
 	);
