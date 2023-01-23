@@ -1,7 +1,7 @@
 import useLightMode from '../../hooks/useLightMode';
 import useToggleLightMode from '../../hooks/useToggleLightMode';
 import { BsSun, BsSunFill } from 'react-icons/bs';
-import Button from './Button';
+import Button from '../Button';
 // drop-shadow-[0px_5px_0px_#000]
 function LightModeButton() {
 	const lightMode = useLightMode();

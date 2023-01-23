@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Button from './Button';
+import Button from '../Button';
 
 type Props = {
 	children?: JSX.Element | JSX.Element[] | React.ReactNode;

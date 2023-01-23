@@ -2,7 +2,6 @@ import SpotifyOAuthButton from './SpotifyOAuthButton';
 import Cards from './Cards';
 import SEO from '../SEO';
 import LightModeButton from './LightModeButton';
-import Button from './Button';
 
 function Landing() {
 	return (
@@ -14,7 +13,6 @@ function Landing() {
 					Spotify Swaddle
 				</h1>
 				<Cards />
-
 				<LightModeButton />
 				<SpotifyOAuthButton />
 			</div>
