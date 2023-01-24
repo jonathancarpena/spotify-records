@@ -17,9 +17,9 @@ type SlideProps = {
 function Slide({ active, index, lastChild, children }: SlideProps) {
 	function generateStyles() {
 		let styles = '';
-		const inactive = 'absolute opacity-0 -translate-y-10 ';
-		const left = '-translate-x-3/4 ';
-		const right = 'translate-x-3/4 ';
+		const inactive = 'absolute opacity-0 -translate-y-14 ';
+		const left = '-translate-x-2/3 ';
+		const right = 'translate-x-2/3 ';
 
 		if (active === lastChild && index === 0) {
 			styles += right + inactive;
@@ -43,7 +43,7 @@ function Slide({ active, index, lastChild, children }: SlideProps) {
 
 	return (
 		<li
-			className={`${generateStyles()} list-none transition-all duration-500 m-1  select-none`}
+			className={`${generateStyles()} list-none transition-all duration-500 m-1  select-none   `}
 		>
 			{children}
 		</li>
@@ -97,7 +97,7 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 		if (pointerMove < 0) {
 			// Swipe Left
 			handleActiveChange(false, true);
-		} else {
+		} else if (pointerMove > 0) {
 			// Swipe Right
 			handleActiveChange(true, true);
 		}
@@ -105,13 +105,13 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 		setPointer(0);
 	}
 	return (
-		<div className={`flex flex-col relative   ${sx}`}>
+		<div className={`flex flex-col relative ${sx}`}>
 			{Array.isArray(children) ? (
-				<div className="relative ">
+				<div className="relative   ">
 					<ul
 						onPointerUp={handlePointerUp}
 						onPointerDown={handlePointerDown}
-						className="flex  "
+						className="flex"
 					>
 						{children.map((item, index) => (
 							<Slide
@@ -126,7 +126,7 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 					</ul>
 
 					{/* Navigation Buttons */}
-					<div className="flex justify-between w-[130%] absolute  top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-5xl z-30 text-neutral-600">
+					<div className="hidden md:flex justify-between w-[130%] absolute  top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-5xl z-30 text-neutral-700 dark:text-neutral-300">
 						<button
 							onClick={() => handleActiveChange(false, true)}
 							className=" active:scale-90 hover:scale-110 transition-all duration-200  outline-none"

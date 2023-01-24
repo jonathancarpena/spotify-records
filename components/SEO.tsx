@@ -7,7 +7,7 @@ type Props = {
 	keywords?: string | undefined | null;
 };
 
-const DEFAULT = {
+export const DEFAULT = {
 	title: 'Spotify Swaddle - Your Top Spotify Activity',
 	description:
 		'View your Top Spotify Tracks and Artists. Create personalized playlist based on your most listened tracks over the past year.',

@@ -15,7 +15,7 @@ function useAuth(code: string) {
 				setAccessToken(data.accessToken);
 				setRefreshToken(data.refreshToken);
 				setExpiresIn(data.expiresIn);
-				router.replace(router.asPath, '/');
+				router.replace(router.asPath, '/dashboard');
 			})
 			.catch(() => {
 				router.push('/');

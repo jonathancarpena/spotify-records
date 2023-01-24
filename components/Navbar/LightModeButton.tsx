@@ -8,7 +8,7 @@ function LightModeButton() {
 	const toggleLightMode = useToggleLightMode();
 	return (
 		<Button
-			sx="absolute text-2xl top-3 right-0 md:fixed md:top-5 md:right-5 md:text-3xl "
+			sx=" text-2xl md:text-3xl drop-shadow-sm  dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]"
 			onClick={toggleLightMode}
 		>
 			{lightMode ? <BsSunFill /> : <BsSun />}

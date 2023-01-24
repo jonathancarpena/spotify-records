@@ -2,11 +2,7 @@ import Link from 'next/link';
 import Button from '../Button';
 import { BsSpotify } from 'react-icons/bs';
 
-type Props = {
-	children?: JSX.Element | JSX.Element[] | React.ReactNode;
-};
-
-function SpotifyOAuthButton({ children }: Props) {
+function SpotifyOAuthButton() {
 	const ENDPOINT = 'https://accounts.spotify.com/authorize';
 	const SCOPES = [
 		'playlist-read-private',
@@ -27,12 +23,12 @@ function SpotifyOAuthButton({ children }: Props) {
 	let SCOPE_PARAM = SCOPES.join('%20');
 	const LOGIN_LINK = `${ENDPOINT}?client_id=${clientId}&redirect_uri=${redirectURI}&scope=${SCOPE_PARAM}&response_type=code&show_dialog=true`;
 	return (
-		<Link href={LOGIN_LINK} className="mx-auto w-full  md:max-w-sm ">
+		<Link href={LOGIN_LINK} className="mx-auto w-full max-w-sm  ">
 			<Button
-				sx="relative text-xl md:text-2xl w-full font-bold"
+				sx="relative text-xl md:text-2xl w-full font-bold drop-shadow-lg dark:drop-shadow-[0_10px_8px_rgba(0,0,0,0.5)]"
 				color="bg-neutral-600"
 			>
-				<BsSpotify className="mr-2 text-accent-500" />
+				<BsSpotify className="mr-2 text-accent-500 " />
 				<span>LOGIN</span>
 			</Button>
 		</Link>

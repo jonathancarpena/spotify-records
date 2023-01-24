@@ -18,7 +18,7 @@ function Button({
 	return (
 		<button
 			disabled={disabled}
-			className={`text-white outline-none z-10  ${sx}`}
+			className={`text-white outline-none z-10 relative  ${sx}`}
 		>
 			<div
 				onClick={onClick}
