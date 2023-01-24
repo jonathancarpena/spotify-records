@@ -7,11 +7,11 @@ import { BsHouseFill } from 'react-icons/bs';
 function Error() {
 	const router = useRouter();
 
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		router.push('/');
-	// 	}, 3000);
-	// });
+	useEffect(() => {
+		setTimeout(() => {
+			router.push('/');
+		}, 7000);
+	});
 
 	return (
 		<div className=" absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2  flex flex-col justify-center items-center max-w-sm text-center">

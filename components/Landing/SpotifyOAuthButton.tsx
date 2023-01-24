@@ -26,10 +26,10 @@ function SpotifyOAuthButton() {
 		<Link href={LOGIN_LINK} className="mx-auto w-full max-w-sm  ">
 			<Button
 				sx="relative text-xl md:text-2xl w-full font-bold drop-shadow-lg dark:drop-shadow-[0_10px_8px_rgba(0,0,0,0.5)]"
-				color="bg-neutral-600"
+				color="bg-neutral-200 dark:bg-neutral-600 border-[1px] border-light-mainHover dark:border-0"
 			>
 				<BsSpotify className="mr-2 text-accent-500 " />
-				<span>LOGIN</span>
+				<span className="dark:text-white text-dark-mainHover">LOGIN</span>
 			</Button>
 		</Link>
 	);
