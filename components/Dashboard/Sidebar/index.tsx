@@ -43,7 +43,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 			<div className="flex-1 md:w-44 lg:w-52 md:pt-6 h-full  ">
 				<h1 className="hidden  select-none  mb-7  dark:text-white text-black  space-x-2 items-center md:flex">
 					<BsSpotify className="text-[2.4rem] leading-5 " />
-					<span className="text-2xl font-bold tracking-tight">Swaddle</span>
+					<span className="text-2xl font-bold tracking-tight">Records</span>
 				</h1>
 				<ul className="flex justify-around h-full items-center md:flex-col md:justify-start md:h-max md:items-start space-y-2 md:space-y-1  md:border-b-[1px]  md:pb-3 md:border-b-light-secondary ">
 					<SidebarItem

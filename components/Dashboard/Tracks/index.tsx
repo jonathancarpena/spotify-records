@@ -3,7 +3,7 @@ import { SpotifyTrack, Terms } from '../../../lib/interfaces';
 import { convertMsToMinutesSeconds } from '../../../lib/utils';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import SingleTrack from './SingleTrack';
-import Image from 'next/image';
+import Loading from '../../Loading';
 import Header from '../Header';
 
 type Props = {
@@ -32,11 +32,11 @@ function Tracks({ tracks, loading }: Props) {
 			/>
 
 			{/* Track Data */}
-			<>
+			<div className="  relative flex flex-col h-full overflow-hidden z-20 ">
 				{loading ? (
-					<h3>Loading..</h3>
+					<Loading sx="mt-10" />
 				) : tracks && tracks[term].length > 0 ? (
-					<div className="  flex flex-col h-full overflow-hidden z-20 ">
+					<>
 						{/* Table Header */}
 						<div className=" w-full pt-4 md:pt-2 flex-col ">
 							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5  md:pl-0 grid gap-4 grid-cols-5 place-items-center justify-items-start  md:mx-4 lg:mx-5 border-b-[1px] border-t-dark-secondary  pb-2 text-xs md:text-sm  font-semibold uppercase ">
@@ -80,11 +80,13 @@ function Tracks({ tracks, loading }: Props) {
 								))}
 							</ul>
 						</div>
-					</div>
+					</>
 				) : (
-					<h3>No Track Data</h3>
+					<h3 className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-5xl font-bold text-light-secondary dark:text-dark-mainActive mt-10 w-max">
+						No Track Data
+					</h3>
 				)}
-			</>
+			</div>
 		</section>
 	);
 }

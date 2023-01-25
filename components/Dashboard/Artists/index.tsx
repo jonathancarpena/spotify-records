@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SpotifyArtist, Terms } from '../../../lib/interfaces';
 import Header from '../Header';
 import SingleArtist from './SingleArtist';
+import Loading from '../../Loading';
 
 type Props = {
 	artists: {
@@ -31,9 +32,11 @@ function Artists({ artists, loading }: Props) {
 			{/* Artist Data */}
 			<>
 				{loading ? (
-					<h3>Loading...</h3>
+					<div className="relative flex flex-col h-full overflow-hidden z-20">
+						<Loading sx="mt-10" />
+					</div>
 				) : artists && artists[term].length > 0 ? (
-					<ul className=" mt-2 z-20 flex flex-col    md:grid md:grid-flow-dense md:grid-cols-[repeat(auto-fill,_minmax(250px,1fr))] md:auto-rows-auto md:gap-5  md:px-4 lg:px-5   pb-20 md:pb-4 lg:pb-7  relative h-full  overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
+					<ul className=" z-20 mt-2  flex flex-col    md:grid md:grid-flow-dense md:grid-cols-[repeat(auto-fill,_minmax(250px,1fr))] md:auto-rows-auto md:gap-5  md:px-4 lg:px-5   pb-20 md:pb-4 lg:pb-7  relative h-full  overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 						{artists[term].map((item, idx) => (
 							<SingleArtist
 								key={`${term}-artist-${idx}`}
@@ -49,7 +52,9 @@ function Artists({ artists, loading }: Props) {
 						))}
 					</ul>
 				) : (
-					<span>No Artist Data</span>
+					<h3 className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-5xl font-bold text-light-secondary dark:text-dark-mainActive mt-10 w-max">
+						No Track Data
+					</h3>
 				)}
 			</>
 		</section>

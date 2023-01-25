@@ -62,7 +62,7 @@ function Demo() {
 
 	return (
 		<>
-			<SEO title={'Spotify Swaddle - 🎥 Live Demo '} />
+			<SEO title={'Spotify Records - 🎥 Live Demo '} />
 
 			<h1 className="font-black text-5xl md:text-6xl text-center tracking-tight flex flex-col space-y-2 items-center justify-center ">
 				🎥 Live Demo

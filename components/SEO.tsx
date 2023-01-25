@@ -8,11 +8,11 @@ type Props = {
 };
 
 export const DEFAULT = {
-	title: 'Spotify Swaddle - Your Top Spotify Activity',
+	title: 'Spotify Records - View your Top Spotify Activity',
 	description:
 		'View your Top Spotify Tracks and Artists. Create personalized playlist based on your most listened tracks over the past year.',
 	keywords:
-		'Jonathan Carpena, Web Development, Front End Engineer, Spotify, Spotify Wrapped',
+		'Spotify, Spotify Wrapped, Jonathan Carpena, Web Development, Front End Engineer',
 };
 function SEO({
 	title = DEFAULT.title,

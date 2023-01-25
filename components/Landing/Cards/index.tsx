@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from './Card';
 import Carousel from '../../Carousel';
-import Image from 'next/image';
 
 interface Card {
 	title: string;
@@ -11,7 +10,7 @@ interface Card {
 function Cards() {
 	const cards: Card[] = [
 		{
-			title: 'sign in with spotify',
+			title: 'spotify users',
 			description:
 				'Only works with Spotify. (Sorry to the Apple Music listeners 😅) ',
 			image: 'login.png',
@@ -28,9 +27,8 @@ function Cards() {
 			image: 'top-artists.png',
 		},
 		{
-			title: 'tailored playlist',
-			description:
-				'We create a custom playlist tailored to your music taste. 🎶',
+			title: 'delicious playlist',
+			description: 'Create a custom playlist catered to your music taste. 🎶',
 			image: 'tailor-playlist.png',
 		},
 	];
