@@ -10,7 +10,7 @@ type Props = {
 export const DEFAULT = {
 	title: 'Spotify Records - View your Top Spotify Activity',
 	description:
-		'View your Top Spotify Tracks and Artists. Create personalized playlist based on your most listened tracks over the past year.',
+		'View your Top Spotify Tracks and Artists. Create a personalized playlist based on your most listened-to tracks over the past year.',
 	keywords:
 		'Spotify, Spotify Wrapped, Jonathan Carpena, Web Development, Front End Engineer',
 };
