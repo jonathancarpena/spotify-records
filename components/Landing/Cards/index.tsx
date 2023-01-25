@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import Carousel from '../../Carousel';
+import Image from 'next/image';
 
 interface Card {
 	title: string;
@@ -13,24 +14,24 @@ function Cards() {
 			title: 'sign in with spotify',
 			description:
 				'Only works with Spotify. (Sorry to the Apple Music listeners 😅) ',
-			image: 'image',
+			image: 'login.png',
 		},
 		{
 			title: 'top tracks',
 			description:
 				"Discover what tracks you've been playing on repeat forever. 🎧",
-			image: 'image',
+			image: 'top-tracks.png',
 		},
 		{
 			title: 'top artists',
 			description: 'Find out who is your most loved Spotify artist. 💖',
-			image: 'image',
+			image: 'top-artists.png',
 		},
 		{
 			title: 'tailored playlist',
 			description:
 				'We create a custom playlist tailored to your music taste. 🎶',
-			image: 'image',
+			image: 'tailor-playlist.png',
 		},
 	];
 

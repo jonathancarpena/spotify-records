@@ -26,7 +26,7 @@ function Popover({ children, message, direction = 'left' }: Props) {
 			<span
 				className={`${
 					hover ? ' right-[125%]' : 'right-0 opacity-0 scale-0'
-				} absolute z-50 px-2 py-1 dark:text-white dark:bg-dark-mainActive text-black bg-white drop-shadow-md dark:drop-shadow-[0_4px_3px_rgba(0,0,0,0.5)] top-1/2  -translate-y-1/2 w-max rounded-md transition-all duration-300 delay-200`}
+				} hidden lg:inline-block absolute z-50 px-2 py-1 dark:text-white dark:bg-dark-mainActive text-black bg-white drop-shadow-md dark:drop-shadow-[0_4px_3px_rgba(0,0,0,0.5)] top-1/2  -translate-y-1/2 w-max rounded-md transition-all duration-300 delay-200`}
 			>
 				{message}
 			</span>

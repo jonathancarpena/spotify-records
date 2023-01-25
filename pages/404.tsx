@@ -4,17 +4,9 @@ import Button from '../components/Button';
 import Link from 'next/link';
 import { BsHouseFill } from 'react-icons/bs';
 
-function Error() {
-	const router = useRouter();
-
-	useEffect(() => {
-		setTimeout(() => {
-			router.push('/');
-		}, 7000);
-	});
-
+export function Message() {
 	return (
-		<div className=" absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2  flex flex-col justify-center items-center max-w-sm text-center">
+		<div className=" absolute top-[40%] -translate-y-1/2 left-1/2 -translate-x-1/2  flex flex-col justify-center items-center max-w-sm text-center">
 			<h1 className="text-[15rem] font-black tracking-tighter text-neutral-500">
 				404
 			</h1>
@@ -34,6 +26,17 @@ function Error() {
 			</Button>
 		</div>
 	);
+}
+function Error() {
+	const router = useRouter();
+
+	useEffect(() => {
+		setTimeout(() => {
+			router.push('/');
+		}, 7000);
+	});
+
+	return <Message />;
 }
 
 export default Error;
