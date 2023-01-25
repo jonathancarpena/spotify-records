@@ -98,7 +98,7 @@ function Dashboard({ code }: Props) {
 					user &&
 					`${
 						menu === 'Create Playlist'
-							? 'Spotify Swaddle - Create Playlist 🎶'
+							? 'Spotify Records - Create Playlist 🎶'
 							: `${user.name}'s Top ${menu} ${menu === 'Tracks' ? '🎧' : '💖'}`
 					}`
 				}

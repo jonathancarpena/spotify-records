@@ -19,6 +19,11 @@ function SingleArtist({
 	idx,
 }: Props) {
 	const [hover, setHover] = useState(false);
+	/*
+	 `${!images[0] ? 'bg-neutral-300' : ''} ${
+		hover ? 'md:scale-110 ' : ' '
+	}  relative w-[90px] h-[90px] md:rounded-full  overflow-hidden md:h-auto md:w-[95%] md:aspect-square mx-auto  flex justify-center items-center transition-all duration-200`
+	*/
 	return (
 		<Link
 			href={
@@ -63,10 +68,10 @@ function SingleArtist({
 					{/* Ranking Top */}
 					<div
 						className={`${
-							hover ? 'md:-translate-y-[150%]' : ''
+							hover ? 'md:-translate-y-[150%]' : 'md:translate-y-0'
 						} md:bg-accent-500 absolute ${
 							idx > 9 ? 'right-5' : 'right-1'
-						}  top-1/2 -translate-y-[50%] md:translate-y-0 md:top-0 md:left-0 rounded-full p-4 h-[60px] w-[60px] flex justify-center items-center md:drop-shadow-md transition-all duration-200 delay-150 `}
+						}  top-1/2 -translate-y-[50%]  md:top-0 md:left-0 rounded-full p-4 h-[60px] w-[60px] flex justify-center items-center md:drop-shadow-md transition-all duration-200 delay-150 `}
 					>
 						<span className="text-6xl md:text-4xl font-black text-accent-500 md:text-white  ">
 							{idx}
@@ -77,8 +82,10 @@ function SingleArtist({
 				{/* Name, Followers, Genre */}
 				<div className="flex flex-col space-y-1 z-20 relative md:pl-0 pl-2  w-full md:mr-0 mr-20  ">
 					<p
-						className={`font-black text-sm md:text-lg md:mt-5 text-start transition-all duration-300 text-black dark:text-white ${
-							hover ? ' md:text-white ' : 'text-black dark:text-white'
+						className={`font-black text-sm md:mt-5 text-start transition-all duration-300 text-black dark:text-white  ${
+							hover
+								? ` md:text-white  md:text-2xl break-words`
+								: 'text-black dark:text-white md:text-lg '
 						} `}
 					>
 						{name}
@@ -86,7 +93,7 @@ function SingleArtist({
 					<p
 						className={`text-light-secondary dark:text-dark-secondary ${
 							hover
-								? 'text-transparent'
+								? 'md:hidden'
 								: 'text-light-secondary dark:text-dark-secondary'
 						} capitalize text-xs transition-colors duration-100 hidden md:inline`}
 					>
@@ -96,7 +103,7 @@ function SingleArtist({
 						<p
 							className={`text-light-secondary dark:text-dark-secondary capitalize text-2xs md:text-xs italic transition-colors duration-100 ${
 								hover
-									? 'md:text-transparent'
+									? 'md:hidden'
 									: 'text-light-secondary dark:text-dark-secondary'
 							}`}
 						>
@@ -108,10 +115,8 @@ function SingleArtist({
 				{/* Ranking Bottom */}
 				<div
 					className={`${
-						hover
-							? '-translate-y-[100%] text-white delay-300'
-							: 'text-transparent'
-					}  absolute -bottom-[10px] right-2 rounded-full justify-center items-center drop-shadow-md transition-all ease-out duration-200 hidden md:flex `}
+						hover ? '-translate-y-full text-white delay-300' : ''
+					}  absolute -bottom-[8rem] right-1 rounded-full justify-center items-center drop-shadow-md transition-all ease-out duration-200 hidden md:flex `}
 				>
 					<span className=" text-9xl font-black  ">{idx}</span>
 				</div>
