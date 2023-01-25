@@ -101,7 +101,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 				title="Create Playlist"
 				term={term}
 				setTerm={setTerm}
-				banner="bg-create-playlist"
+				img="create-playlist.jpg"
 			/>
 			{/* Track Data */}
 			<>

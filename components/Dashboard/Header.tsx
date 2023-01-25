@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Terms } from '../../lib/interfaces';
+import Image from 'next/image';
 
 type Props = {
 	term?: Terms;
 	setTerm?: React.Dispatch<React.SetStateAction<Terms>>;
 	title: string;
-	banner: string;
+	img: string;
 };
 type TermOptions = {
 	value: Terms;
@@ -68,13 +69,23 @@ function ListOfTerms({ term, setTerm }: ListOfTermsProps) {
 		</ul>
 	);
 }
-function Header({ term, setTerm, title, banner }: Props) {
+function Header({ term, setTerm, title, img }: Props) {
 	return (
 		<header>
 			<div className=" flex flex-col justify-end px-5 pb-2 h-[18.5rem] lg:h-[25.5rem] lg:px-10 lg:pt-10 md:pb-8 relative  bg-gradient-to-b from-accent-500">
 				<div
-					className={`absolute w-full h-[130%] md:h-[125%]  bg-cover bg-center left-0 top-0  z-20 ${banner}`}
+					className={`absolute w-full h-[130%] md:h-[125%]  bg-cover bg-center left-0 top-0  z-20 `}
 				>
+					<Image
+						src={`/images/banner/${img}`}
+						alt={title}
+						fill
+						style={{
+							objectFit: 'cover',
+							objectPosition: 'center',
+							zIndex: '-10',
+						}}
+					/>
 					<div className=" -z-10 w-full h-[100px] dark:h-[200px]  absolute bottom-0 bg-gradient-to-b from-transparent dark:to-dark-main to-light-main"></div>
 				</div>
 

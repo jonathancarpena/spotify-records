@@ -26,7 +26,7 @@ function Artists({ artists, loading }: Props) {
 				term={term}
 				setTerm={setTerm}
 				title="top artists"
-				banner="bg-artists"
+				img="artists.jpg"
 			/>
 
 			{/* Artist Data */}

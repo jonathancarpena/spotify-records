@@ -20,11 +20,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      backgroundImage: {
-        'tracks': "url('../public/images/tracks.jpg')",
-        'artists': "url('../public/images/artists.jpg')",
-        'create-playlist': "url('../public/images/create-playlist.jpg')",
-      },
+
       fontFamily: {
         main: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui']
       },

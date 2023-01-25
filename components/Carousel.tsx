@@ -17,7 +17,7 @@ type SlideProps = {
 function Slide({ active, index, lastChild, children }: SlideProps) {
 	function generateStyles() {
 		let styles = '';
-		const inactive = 'absolute opacity-0 -translate-y-14 ';
+		const inactive = 'absolute opacity-0 md:-translate-y-14 ';
 		const left = '-translate-x-2/3 ';
 		const right = 'translate-x-2/3 ';
 

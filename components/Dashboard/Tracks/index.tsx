@@ -28,7 +28,7 @@ function Tracks({ tracks, loading }: Props) {
 				term={term}
 				setTerm={setTerm}
 				title="top tracks"
-				banner="bg-tracks"
+				img="tracks.jpg"
 			/>
 
 			{/* Track Data */}
