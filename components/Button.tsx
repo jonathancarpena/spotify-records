@@ -22,7 +22,7 @@ function Button({
 		>
 			<div
 				onClick={onClick}
-				className={`flex justify-center items-center p-1.5 md:p-2 w-full h-full rounded-lg hover:brightness-105 active:translate-y-[10px] transition-transform ease-in-out duration-200  select-none ${color}`}
+				className={`flex justify-center items-center p-1.5 md:p-2 w-full h-full rounded-lg hover:brightness-105 active:translate-y-[10px] transition-transform ease-in duration-100 md:duration-200  select-none ${color}`}
 			>
 				{children}
 			</div>

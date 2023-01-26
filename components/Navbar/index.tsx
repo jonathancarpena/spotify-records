@@ -11,10 +11,10 @@ function Navbar() {
 
 	return (
 		<>
-			<nav className="fixed top-4 right-4 md:absolute md:right-3 md:top-3 flex flex-col md:space-y-5 z-50 w-max">
+			<nav className="md:hidden fixed top-4 right-4 md:absolute md:right-3 md:top-3 flex flex-col md:space-y-5 z-50 w-max">
 				<button
 					onClick={() => setMenuOpen(!menuOpen)}
-					className="bg-white dark:bg-dark-mainActive drop-shadow-md flex justify-center items-center p-1 rounded-full text-2xl"
+					className="active:scale-75 transition-all ease-in duration-100 bg-white dark:bg-dark-mainActive drop-shadow-md flex justify-center items-center p-1 rounded-full text-2xl"
 				>
 					<FiMoreVertical />
 				</button>

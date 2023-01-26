@@ -82,7 +82,7 @@ function Carousel({ children, auto = false, sx = '' }: Props) {
 		if (autoSlide) {
 			interval = setInterval(() => {
 				handleActiveChange(true);
-			}, 3000);
+			}, 3500);
 		}
 		return () => clearInterval(interval);
 	});
