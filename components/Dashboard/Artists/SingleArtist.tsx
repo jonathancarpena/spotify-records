@@ -59,6 +59,7 @@ function SingleArtist({
 								fill
 								alt={`top-artist-${name}-${idx}`}
 								style={{ objectFit: 'cover' }}
+								priority
 							/>
 						) : (
 							<IoMdMicrophone className="text-white text-8xl" />

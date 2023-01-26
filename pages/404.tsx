@@ -32,11 +32,11 @@ export function Message() {
 function Error() {
 	const router = useRouter();
 
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		router.push('/');
-	// 	}, 500);
-	// });
+	useEffect(() => {
+		setTimeout(() => {
+			router.push('/');
+		}, 3000);
+	});
 
 	return <Message />;
 }

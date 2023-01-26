@@ -14,13 +14,13 @@ function LightModeProvider({ children }: Props) {
 
 	useEffect(() => {
 		let storage = null;
-		if (localStorage.getItem('spotify-swaddle')) {
-			storage = JSON.parse(localStorage.getItem('spotify-swaddle') || '');
+		if (localStorage.getItem('spotify-records')) {
+			storage = JSON.parse(localStorage.getItem('spotify-records') || '');
 		}
 
 		if (!storage) {
 			localStorage.setItem(
-				'spotify-swaddle',
+				'spotify-records',
 				JSON.stringify({ LightMode: false })
 			);
 			storage = { LightMode: false };
@@ -45,7 +45,7 @@ function LightModeProvider({ children }: Props) {
 		}
 
 		localStorage.setItem(
-			'spotify-swaddle',
+			'spotify-records',
 			JSON.stringify({ LightMode: !isLight })
 		);
 		setIsLight((prevLightMode) => !prevLightMode);

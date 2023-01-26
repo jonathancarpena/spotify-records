@@ -162,6 +162,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 													src={item.album.images[0].url}
 													fill
 													alt={`top-track-${item.name}-${idx}`}
+													priority
 												/>
 											</div>
 										))}
