@@ -85,6 +85,7 @@ function Header({ term, setTerm, title, img }: Props) {
 							objectPosition: 'center',
 							zIndex: '-10',
 						}}
+						priority
 					/>
 					<div className=" -z-10 w-full h-[100px] dark:h-[200px]  absolute bottom-0 bg-gradient-to-b from-transparent dark:to-dark-main to-light-main"></div>
 				</div>

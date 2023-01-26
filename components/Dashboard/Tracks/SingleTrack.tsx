@@ -2,8 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SiSpotify } from 'react-icons/si';
-import { BsPlayFill } from 'react-icons/bs';
-import { AiFillCustomerService } from 'react-icons/ai';
+import { BsPlayFill, BsMusicNote } from 'react-icons/bs';
 
 type Props = {
 	idx: number;
@@ -29,17 +28,17 @@ function SingleTrack({
 	previewUrl,
 }: Props) {
 	const [hover, setHover] = useState(false);
-	// grid-flow-col gap-3 md:gap-5 md:auto-cols-fr
+
 	return (
 		<div
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			className={`${
 				hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''
-			} grid gap-4 grid-cols-5 lg:grid-cols-5 place-items-center justify-items-start active:bg-light-mainActive w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
+			} lg:grid lg:gap-4 flex items-center justify-between lg:grid-cols-5 lg:place-items-center lg:justify-items-start active:bg-light-mainActive dark:active:bg-dark-mainActive w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
 		>
 			{/* Index, Song Title*/}
-			<div className="flex h-full truncate w-full col-span-4 lg:col-span-2   ">
+			<div className="flex h-full truncate w-full  lg:col-span-2   ">
 				{/* Index */}
 				<span className="flex justify-center items-center text-xs min-w-[35px]  md:min-w-[45px] md:text-sm lg:min-w-[55px]  lg:text-base ">
 					{previewUrl ? (
@@ -55,14 +54,19 @@ function SingleTrack({
 					)}
 				</span>
 
-				<div className="flex h-full  flex-1 overflow-auto ">
+				<div className="flex h-full  flex-1  ">
 					{/* Image */}
-					<div className="w-10 h-10 md:w-11 md:h-11  aspect-square relative ">
+					<div className="w-12 h-12  aspect-square relative ">
 						{image ? (
-							<Image src={image} fill alt={`top-track-${songTitle}-${idx}`} />
+							<Image
+								src={image}
+								fill
+								alt={`top-track-${songTitle}-${idx}`}
+								priority
+							/>
 						) : (
 							<div className="bg-neutral-200 w-full h-full flex justify-center items-center">
-								<AiFillCustomerService />
+								<BsMusicNote className="text-2xl" />
 							</div>
 						)}
 					</div>
@@ -104,7 +108,6 @@ function SingleTrack({
 			</div>
 
 			{/* Album  */}
-
 			<Link
 				href={album.url}
 				target="_blank"
@@ -121,7 +124,7 @@ function SingleTrack({
 
 			{/* Song Duration */}
 			<div
-				className={`place-self-end inline-flex  h-full  md:space-x-3  items-center  justify-end lg:pr-5  `}
+				className={`lg:place-self-end inline-flex  h-full  md:space-x-3  items-center  justify-end lg:pr-5   `}
 			>
 				{/* External Link to Spotify */}
 				<Link
@@ -130,7 +133,7 @@ function SingleTrack({
 					className="  text-black dark:text-white hover:scale-105 hover:brightness-105 active:brightness-90 active:scale-95 transition-all duration-150"
 				>
 					<button className=" lg:px-3 lg:py-1  lg:bg-accent-500 w-full  font-semibold rounded-md md:rounded-lg flex md:space-x-2 items-center justify-center">
-						<SiSpotify className="text-sm md:text-lg lg:text-base lg:text-inherit text-accent-500" />
+						<SiSpotify className="text-lg lg:text-base lg:text-inherit text-accent-500" />
 						<span className="text-sm hidden lg:inline">Open</span>
 					</button>
 				</Link>

@@ -34,7 +34,7 @@ function Cards() {
 	];
 
 	return (
-		<Carousel auto={true} sx="my-10 md:mt-20 md:mb-10 mx-auto">
+		<Carousel auto={true} sx=" md:mt-20 md:mb-10 mx-auto">
 			{cards.map((item, idx) => (
 				<Card
 					key={`card-${idx}`}

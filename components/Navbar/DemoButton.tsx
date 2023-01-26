@@ -9,7 +9,7 @@ function DemoButton() {
 	return (
 		<Popover message="Live Demo">
 			<Link href="/demo">
-				<Button sx="text-2xl  md:text-3xl drop-shadow-sm  dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+				<Button sx="text-xl  md:text-3xl md:drop-shadow-sm  md:dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
 					{lightMode ? <BsPlayBtnFill /> : <BsPlayBtn />}
 				</Button>
 			</Link>

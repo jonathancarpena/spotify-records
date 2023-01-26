@@ -9,7 +9,7 @@ type Props = {
 function Layout({ children }: Props) {
 	const router = useRouter();
 	const nonDashboardStyles =
-		'relative min-h-screen max-h-screen overflow-y-auto overflow-x-hidden md:max-w-7xl md:mx-auto text-black dark:text-white justify-between flex flex-col md:w-full  px-5 py-12 md:py-20';
+		'relative min-h-screen max-h-screen overflow-y-auto overflow-x-hidden md:max-w-7xl md:mx-auto text-black dark:text-white justify-around flex flex-col md:w-full  px-5 py-12 md:py-20';
 
 	return (
 		<>

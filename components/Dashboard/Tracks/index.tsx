@@ -23,7 +23,7 @@ function Tracks({ tracks, loading }: Props) {
 	const [term, setTerm] = useState<State['term']>('shortTerm');
 
 	return (
-		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen overflow-hidden">
+		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen min-h-screen overflow-hidden">
 			<Header
 				term={term}
 				setTerm={setTerm}
@@ -32,7 +32,7 @@ function Tracks({ tracks, loading }: Props) {
 			/>
 
 			{/* Track Data */}
-			<div className="  relative flex flex-col h-full overflow-hidden z-20 ">
+			<div className="  relative flex flex-col overflow-hidden z-20 ">
 				{loading ? (
 					<Loading sx="mt-10" />
 				) : tracks && tracks[term].length > 0 ? (
@@ -55,7 +55,7 @@ function Tracks({ tracks, loading }: Props) {
 
 						<div className="backdrop-blur-md pt-2  pb-20 md:pb-4 lg:pb-7 relative h-full overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent ">
 							{/* Tracks */}
-							<ul className="  flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
+							<ul className="flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
 								{tracks[term].map((item, idx) => (
 									<SingleTrack
 										key={`${term}-track-${idx}`}
