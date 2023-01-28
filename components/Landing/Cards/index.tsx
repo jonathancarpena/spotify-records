@@ -2,10 +2,8 @@ import React from 'react';
 import Card from './Card';
 import Carousel from '../../Carousel';
 import { BsMusicPlayerFill, BsSpotify } from 'react-icons/bs';
-import { GiMusicalNotes, GiMusicalScore } from 'react-icons/gi';
 import { FaUsers } from 'react-icons/fa';
 import { RiPlayListFill } from 'react-icons/ri';
-import { CgPlayTrackNextR } from 'react-icons/cg';
 
 interface Card {
 	title: string;
