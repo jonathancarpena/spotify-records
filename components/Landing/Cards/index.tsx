@@ -1,11 +1,16 @@
 import React from 'react';
 import Card from './Card';
 import Carousel from '../../Carousel';
+import { BsMusicPlayerFill, BsSpotify } from 'react-icons/bs';
+import { GiMusicalNotes, GiMusicalScore } from 'react-icons/gi';
+import { FaUsers } from 'react-icons/fa';
+import { RiPlayListFill } from 'react-icons/ri';
+import { CgPlayTrackNextR } from 'react-icons/cg';
 
 interface Card {
 	title: string;
 	description: string;
-	image: string;
+	icon: any;
 }
 function Cards() {
 	const cards: Card[] = [
@@ -13,23 +18,23 @@ function Cards() {
 			title: 'spotify users',
 			description:
 				'Only works with Spotify. (Sorry to the Apple Music listeners 😅) ',
-			image: 'login.png',
+			icon: <BsSpotify className="text-accent-500" />,
 		},
 		{
 			title: 'top tracks',
 			description:
 				"Discover what tracks you've been playing on repeat forever. 🎧",
-			image: 'top-tracks.png',
+			icon: <BsMusicPlayerFill className="text-yellow-500" />,
 		},
 		{
 			title: 'top artists',
 			description: 'Find out who is your most loved Spotify artist. 💖',
-			image: 'top-artists.png',
+			icon: <FaUsers className="text-blue-500" />,
 		},
 		{
-			title: 'delicious playlist',
+			title: 'custom playlist',
 			description: 'Create a custom playlist catered to your music taste. 🎶',
-			image: 'tailor-playlist.png',
+			icon: <RiPlayListFill className="text-purple-500" />,
 		},
 	];
 
@@ -40,7 +45,7 @@ function Cards() {
 					key={`card-${idx}`}
 					title={item.title}
 					description={item.description}
-					image={item.image}
+					icon={item.icon}
 				/>
 			))}
 		</Carousel>

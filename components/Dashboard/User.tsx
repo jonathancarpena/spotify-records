@@ -129,8 +129,8 @@ function User({ user }: Props) {
 			<ul
 				className={`${
 					menuOpen
-						? 'opacity-100 translate-x-0 '
-						: 'opacity-0 translate-x-full cursor-default -z-50  '
+						? 'opacity-100 translate-x-0 lg:translate-y-0'
+						: 'opacity-0 translate-x-full md:translate-x-0 md:-translate-y-[20px] cursor-default -z-50  '
 				}  flex flex-col rounded-md p-1 drop-shadow-xl bg-white bg-opacity-95 text-black dark:text-white dark:bg-dark-menu absolute top-[120%] right-0 min-w-full  transition-all duration-[400ms] `}
 			>
 				<MenuItem

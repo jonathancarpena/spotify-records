@@ -39,7 +39,7 @@ function Tracks({ tracks, loading }: Props) {
 					<>
 						{/* Table Header */}
 						<div className=" w-full pt-4 md:pt-2 flex-col ">
-							<div className=" text-light-secondary  dark:text-dark-secondary  pl-1.5  md:pl-0 grid gap-4 grid-cols-5 place-items-center justify-items-start  md:mx-4 lg:mx-5 border-b-[1px] border-t-dark-secondary  pb-2 text-xs md:text-sm  font-semibold uppercase ">
+							<div className=" text-white dark:text-neutral-200 pl-1.5  md:pl-0 grid gap-4 grid-cols-5 place-items-center justify-items-start  md:mx-4 lg:mx-5 border-b-[1px] border-t-dark-secondary  pb-2 text-xs md:text-sm  font-semibold uppercase ">
 								<div className="flex col-span-4 lg:col-span-2">
 									<span className="flex w-[35px] md:w-[50px] lg:w-[55px] justify-center items-center">
 										#
