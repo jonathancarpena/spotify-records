@@ -23,7 +23,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 	// Create Playlist
 	try {
 		const createRes = await spotifyApi.createPlaylist(name, {
-			description: `${description} - Generated with Spotify Swaddle`,
+			description: `${description} - Generated with Spotify Records (on ${moment().format(
+				'MMMM DD, YYYY'
+			)})`,
 			public: true,
 		});
 
