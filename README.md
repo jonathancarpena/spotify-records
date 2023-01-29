@@ -17,7 +17,7 @@
 <img src="./screenshots/top-tracks.PNG" style="max-width:100%; max-height:375px;" alt="topTracks">
 <img src="./screenshots/top-artists.PNG" style="max-width:100%; max-height:375px;" alt="topArtists"> 
  <img src="./screenshots/create-a-playlist.PNG" style="max-width:100%; max-height:375px;" alt="createPlaylist"> 
- <img src="./screenshots/dem.PNG" style="max-width:100%; max-height:375px;" alt="demoPage">       
+ <img src="./screenshots/demo.PNG" style="max-width:100%; max-height:375px;" alt="demoPage">       
 </ul>
 
 ### Tablet/Mobile Design
