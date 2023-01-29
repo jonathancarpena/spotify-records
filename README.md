@@ -2,6 +2,9 @@
 
 > A Spotify web application that displays your top tracks/top artists and creates a playlist based on user's Spotify history.
 
+## 🎥 Live Demo
+> https://spotify-records.com/demo
+
 ## 🚀 Objective
 
 > To implement OAuth and work with a third-party API.
@@ -10,15 +13,16 @@
 
 <ul style="display:flex flex-direction:column">
 <img src="./screenshots/landing.PNG" style="max-width:100%; max-height:375px;" alt="landing"> 
-<img src="./screenshots/dateOnHover.PNG" style="max-width:100%; max-height:375px;" alt="dateOnHover">
-<img src="./screenshots/photoOpen.PNG" style="max-width:100%; max-height:375px;" alt="photoOpen">    
+<img src="./screenshots/top-tracks.PNG" style="max-width:100%; max-height:375px;" alt="topTracks">
+<img src="./screenshots/top-artists.PNG" style="max-width:100%; max-height:375px;" alt="topArtists"> 
+ <img src="./screenshots/create-a-playlist.PNG" style="max-width:100%; max-height:375px;" alt="createPlaylist">    
 </ul>
 
-### Mobile Design
+### Tablet/Mobile Design
 
 <ul style="display:flex">
-<img src="./screenshots/tablet.PNG" width="271" height="361" alt="tablet">  
-<img src="./screenshots/mobile.PNG" width="173" height="361" alt="mobile">  
+<img src="./screenshots/tablet-top-tracks.PNG" width="271" height="361" alt="tablet-top-tracks">  
+<img src="./screenshots/mobile.top-tracks" width="173" height="361" alt="mobile-top-tracks">  
 </ul>
 
 ## ⚙ Technologies
