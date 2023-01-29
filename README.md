@@ -40,6 +40,11 @@ $ git clone https://github.com/jonathancarpena/spotify-records.git
 ```
 
 1. Install project folder `npm install`
+2. Visit https://developer.spotify.com/dashboard/ and create a new app
+3. Input an Application Name and Description
+4. Website input "http://localhost:3000/"
+5. Redirect URIs input "http://localhost:3000/dashboard"
+6. (Important) Open "Users and Access", add a Spotify User (limit is 25)
 
 ### Environment Variables
 
