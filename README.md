@@ -3,6 +3,7 @@
 > A Spotify web application that displays your top tracks/top artists and creates a playlist based on user's Spotify history.
 
 ## 🎥 Live Demo
+
 > https://spotify-records.com/demo
 
 ## 🚀 Objective
@@ -15,7 +16,8 @@
 <img src="./screenshots/landing.PNG" style="max-width:100%; max-height:375px;" alt="landing"> 
 <img src="./screenshots/top-tracks.PNG" style="max-width:100%; max-height:375px;" alt="topTracks">
 <img src="./screenshots/top-artists.PNG" style="max-width:100%; max-height:375px;" alt="topArtists"> 
- <img src="./screenshots/create-a-playlist.PNG" style="max-width:100%; max-height:375px;" alt="createPlaylist">    
+ <img src="./screenshots/create-a-playlist.PNG" style="max-width:100%; max-height:375px;" alt="createPlaylist"> 
+ <img src="./screenshots/dem.PNG" style="max-width:100%; max-height:375px;" alt="demoPage">       
 </ul>
 
 ### Tablet/Mobile Design
@@ -27,12 +29,10 @@
 
 ## ⚙ Technologies
 
--  React
--  Typescript
--  Next.js
--  Spotify API
-
-
+- React
+- Typescript
+- Next.js
+- Spotify API
 
 ## 🛠 Installation and Setup
 
