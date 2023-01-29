@@ -22,7 +22,7 @@
 
 <ul style="display:flex">
 <img src="./screenshots/tablet-top-tracks.PNG" width="271" height="361" alt="tablet-top-tracks">  
-<img src="./screenshots/mobile.top-tracks" width="173" height="361" alt="mobile-top-tracks">  
+<img src="./screenshots/mobile-top-tracks" width="173" height="361" alt="mobile-top-tracks">  
 </ul>
 
 ## ⚙ Technologies
