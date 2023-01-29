@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spotify Records
 
-## Getting Started
+> A Spotify web application that displays your top tracks/top artists and creates a playlist based on user's Spotify history.
 
-First, run the development server:
+## 🚀 Objective
 
-```bash
-npm run dev
-# or
-yarn dev
+> To implement OAuth and work with a third-party API.
+
+## 📸 Screenshots
+
+<ul style="display:flex flex-direction:column">
+<img src="./screenshots/landing.PNG" style="max-width:100%; max-height:375px;" alt="landing"> 
+<img src="./screenshots/dateOnHover.PNG" style="max-width:100%; max-height:375px;" alt="dateOnHover">
+<img src="./screenshots/photoOpen.PNG" style="max-width:100%; max-height:375px;" alt="photoOpen">    
+</ul>
+
+### Mobile Design
+
+<ul style="display:flex">
+<img src="./screenshots/tablet.PNG" width="271" height="361" alt="tablet">  
+<img src="./screenshots/mobile.PNG" width="173" height="361" alt="mobile">  
+</ul>
+
+## ⚙ Technologies
+
+-  React
+-  Typescript
+-  Next.js
+-  Spotify API
+
+
+
+## 🛠 Installation and Setup
+
+Clone down this repository. You will need node and npm installed globally on
+your machine.
+
+```
+$ git clone https://github.com/jonathancarpena/spotify-records.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Install project folder `npm install`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Environment Variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+To run this project, you will need to add the following environment variables to
+your `.env` file inside the server folder.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+`NEXT_PUBLIC_CLIENT_ID`: Retrieve Client ID from your Spotify Dashboard
 
-## Learn More
+`NEXT_PUBLIC_CLIENT_SECRET`: Retrieve Client Secret from your Spotify Dashboard
 
-To learn more about Next.js, take a look at the following resources:
+`NEXT_PUBLIC_REDIRECT_URI`: Retrieve Redirect URI from your Spotify Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Development mode. Open http://localhost:3000 to view it in the browser.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+npm run start
+```
