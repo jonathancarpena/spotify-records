@@ -9,42 +9,92 @@ type TimeStamp = {
 };
 function Demo() {
 	const [timeStamp, setTimeStamp] = useState(0);
-	const youtubeID = 'https://youtu.be/8iLuK4VtANo'.split('/')[3];
+	const youtubeID = 'https://youtu.be/nS968h4e8Rs'.split('/')[3];
 	const timeStamps: TimeStamp[] = [
 		{
 			start: '0:00',
+			end: '0:15',
+			title: 'Landing Page',
+		},
+		{
+			start: '0:16',
 			end: '0:32',
-			title: 'Landing Screen',
+			title: 'Spotify User Dropdown',
 		},
 		{
 			start: '0:33',
-			end: '0:54',
-			title: 'Loading Screen',
+			end: '1:32',
+			title: 'Top Tracks',
 		},
 		{
-			start: '0:55',
-			end: '1:07',
-			title: 'Choose Difficulty',
+			start: '1:33',
+			end: '2:03',
+			title: 'Top Artists',
 		},
 		{
-			start: '1:08',
-			end: '2:02',
-			title: 'Instructions, Gameplay',
+			start: '2:04',
+			end: '2:35',
+			title: 'Create a Playlist',
 		},
 		{
-			start: '2:03',
-			end: '2:31',
-			title: 'Complete, New High Score',
+			start: '2:36',
+			end: '2:58',
+			title: 'Light Mode: Landing Page',
 		},
 		{
-			start: '2:32',
-			end: '2:52',
-			title: 'Ranking',
+			start: '2:59',
+			end: '3:21',
+			title: 'Light Mode: Top Tracks',
 		},
 		{
-			start: '2:53',
-			end: '3:12',
-			title: 'Give Up',
+			start: '3:22',
+			end: '3:36',
+			title: 'Light Mode: Top Artists',
+		},
+		{
+			start: '3:37',
+			end: '3:52',
+			title: 'Light Mode: Create a Playlist',
+		},
+		{
+			start: '3:53',
+			end: '4:11',
+			title: 'Tablet: Landing Page',
+		},
+		{
+			start: '4:12',
+			end: '4:44',
+			title: 'Tablet: Top Tracks',
+		},
+		{
+			start: '4:45',
+			end: '5:12',
+			title: 'Tablet: Top Artists',
+		},
+		{
+			start: '5:13',
+			end: '5:43',
+			title: 'Tablet: Create a Playlist',
+		},
+		{
+			start: '5:44',
+			end: '6:06',
+			title: 'Mobile: Landing Page',
+		},
+		{
+			start: '6:07',
+			end: '6:31',
+			title: 'Mobile: Top Tracks',
+		},
+		{
+			start: '6:32',
+			end: '6:55',
+			title: 'Mobile: Top Artists',
+		},
+		{
+			start: '6:56',
+			end: '7:28',
+			title: 'Mobile: Create a Playlist',
 		},
 	];
 
