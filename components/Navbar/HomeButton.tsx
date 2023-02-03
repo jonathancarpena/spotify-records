@@ -6,17 +6,17 @@ import Link from 'next/link';
 import Popover from '../Popover';
 
 function HomeButton() {
-	const lightMode = useLightMode();
+  const lightMode = useLightMode();
 
-	return (
-		<Popover message="Go Home">
-			<Link href="/">
-				<Button sx="text-xl md:text-3xl md:drop-shadow-sm md:dark:drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
-					{lightMode ? <BsHouseFill /> : <BsHouse />}
-				</Button>
-			</Link>
-		</Popover>
-	);
+  return (
+    <Popover message='Go Home'>
+      <Link href='/'>
+        <button className='bg-opacity-50 bg-neutral-500 rounded-xl p-2 text-xl md:text-3xl text-white'>
+          {lightMode ? <BsHouseFill /> : <BsHouse />}
+        </button>
+      </Link>
+    </Popover>
+  );
 }
 
 export default HomeButton;
