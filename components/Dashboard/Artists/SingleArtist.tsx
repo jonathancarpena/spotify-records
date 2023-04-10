@@ -53,7 +53,7 @@ function SingleArtist({
 					<div
 						className={`${!images[0] ? 'bg-neutral-300' : ''} ${
 							hover ? 'md:scale-110 ' : ' '
-						}  relative w-[90px] h-[90px] md:rounded-full  overflow-hidden md:h-auto md:w-[95%] md:aspect-square mx-auto  flex justify-center items-center transition-all duration-200`}
+						}  relative w-[90px]  h-[90px] md:rounded-full  overflow-hidden md:h-auto md:w-[95%] md:aspect-square mx-auto  flex justify-center items-center transition-all duration-200`}
 					>
 						{images[0] ? (
 							<Image
@@ -62,7 +62,8 @@ function SingleArtist({
 								alt={`top-artist-${name}-${idx}`}
 								style={{ objectFit: 'cover' }}
 								priority
-								sizes="(min-width: 768px) 95%,
+								sizes="(min-width: 1024px) 215px, 
+								(min-width: 768px) 200px,
 								90px
 								"
 							/>
