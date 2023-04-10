@@ -1,5 +1,8 @@
+// Utils
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+
+// Components
 import Button from '../components/Button';
 import Link from 'next/link';
 import { BsHouseFill } from 'react-icons/bs';

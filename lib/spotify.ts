@@ -1,3 +1,4 @@
+// Utils
 import { convertToFormBody } from './utils';
 import SpotifyWebApi from 'spotify-web-api-node';
 
@@ -58,36 +59,8 @@ const getAccessToken = async (code: string) => {
 	const response = await fetch(ENDPOINT.TOKEN, settings);
 	const data = await response.json();
 
-	/**
-	{
-  		access_token: 'BQBPx3vwoekZwgl6WSU3Yx2JrNAW4p02aYYeyir-o4LIoxHv3dbmffmUUUJ_pICLsH1GM7YmiGY9fpSmKJUK7ILjDkqdtSektGzO4Y9cCf6DsWXoJFOzXTWXD7WLJNtxzoZp8oth3gmM3NM0QAhQDomsttJqNAQghbFBucaQNqO3hC52kscK_bgxEygXEqqGF6_z4QmUJMkeyN-zyV6RfVPxLP-flzIMVSsJWArOL9d8DvaPGqYMowY12Mn9Br9jLfsPVUtAbusXgfiriKdEh7D5h-OlGhWnEjkNW2o2',
-  		token_type: 'Bearer',
-  		expires_in: 3600,
-  		refresh_token: 'AQDXKaZ3EYpN7lgd80_1RoB3EiQPrJOofph50ht8X7yAGhdHyeMaKZxJQG-JFuuzvVUOEWOnbm-Ep760SXYLc50ZG4ocHVP4MMyCnCl_BLTiJmzMBM-TBfn_OZHqZrUEyIg',
-  		scope: 'playlist-read-private user-library-read user-library-modify playlist-modify-private playlist-modify-public user-read-playback-state user-read-currently-playing user-read-recently-played user-read-email user-read-private user-top-read'
-}
-	 */
 	return data;
 };
-
-// const refreshAccessToken = async () => {
-// 	console.log('FETCHING REFRESH TOKEN');
-// 	const settings = {
-// 		method: 'POST',
-// 		headers: {
-// 			Authorization: `Basic ${basic}`,
-// 			'Content-Type': 'application/x-www-form-urlencoded',
-// 		},
-// 		body: convertToFormBody({
-// 			grant_type: 'authorization_code',
-// 			code: code,
-// 			redirect_uri: REDIRECT_URI,
-// 		}),
-// 	};
-
-// 	const response = await fetch(ENDPOINT.TOKEN, settings);
-// 	const data = await response.json();
-// };
 
 /** 
 	API Calls 
@@ -124,44 +97,3 @@ export const getUsersTracks = async (code: string) => {
 
 	return res;
 };
-
-// // Artist Information
-// export const getArtist = async (id) => {
-// 	const { access_token } = await getAccessToken();
-// 	return fetch(`${ENDPOINT.GET_ARTIST}${id}`, {
-// 		headers: {
-// 			Authorization: `Bearer ${access_token}`,
-// 		},
-// 	});
-// };
-
-// // Song Recommendations based on Genre
-// export const getNewSongs = async (genre) => {
-// 	const { access_token } = await getAccessToken();
-// 	return fetch(`${ENDPOINT.GET_NEW_SONGS}${genre}`, {
-// 		headers: {
-// 			Authorization: `Bearer ${access_token}`,
-// 		},
-// 	});
-// };
-
-// // Fetch Playlist by ID
-// export const getPlaylist = async (id) => {
-// 	const { access_token } = await getAccessToken();
-// 	return fetch(`${ENDPOINT.GET_PLAYLIST}${id}`, {
-// 		headers: {
-// 			Authorization: `Bearer ${access_token}`,
-// 		},
-// 	});
-// };
-
-// // Save Song
-// export const saveSong = async (id) => {
-// 	const { access_token } = await getAccessToken();
-// 	return fetch(`${ENDPOINT.PUT_LIKE_SONG}${id}`, {
-// 		method: 'PUT',
-// 		headers: {
-// 			Authorization: `Bearer ${access_token}`,
-// 		},
-// 	});
-// };

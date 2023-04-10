@@ -1,4 +1,7 @@
+// Utils
 import { useState } from 'react';
+
+// Components
 import Link from 'next/link';
 import Image from 'next/image';
 import { SiSpotify } from 'react-icons/si';
@@ -28,11 +31,12 @@ function SingleTrack({
 	previewUrl,
 }: Props) {
 	const [hover, setHover] = useState(false);
-
+	const handleMouseEnter = () => setHover(true);
+	const handleMouseLeave = () => setHover(false);
 	return (
 		<div
-			onMouseEnter={() => setHover(true)}
-			onMouseLeave={() => setHover(false)}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 			className={`${
 				hover ? 'bg-light-mainHover dark:bg-dark-mainHover' : ''
 			} lg:grid lg:gap-4 flex items-center justify-between lg:grid-cols-5 lg:place-items-center lg:justify-items-start active:bg-light-mainActive dark:active:bg-dark-mainActive w-full   py-1.5 md:py-2 rounded-md  select-none text-light-secondary dark:text-dark-secondary `}
@@ -61,6 +65,7 @@ function SingleTrack({
 							<Image
 								src={image}
 								fill
+								sizes="48px"
 								alt={`top-track-${songTitle}-${idx}`}
 								priority
 							/>
@@ -85,9 +90,9 @@ function SingleTrack({
 								</span>
 							)}
 							<p className=" space-x-1 flex  flex-1 truncate text-xs md:text-sm ">
-								{artists.map((artist, idx) => (
+								{artists.map((artist) => (
 									<Link
-										key={`${songTitle}-artist-${idx}`}
+										key={`${songTitle}-${artist.name}`}
 										href={artist.url}
 										target="_blank"
 										className="after:content-[','] last:after:content-none "

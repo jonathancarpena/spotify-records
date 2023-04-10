@@ -1,4 +1,7 @@
+// Utils
 import { useRouter } from 'next/router';
+
+// Components
 import Landing from '../components/Landing';
 
 function Home() {

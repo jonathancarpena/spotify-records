@@ -1,4 +1,4 @@
-import React from 'react';
+// Components
 import Head from 'next/head';
 
 type Props = {

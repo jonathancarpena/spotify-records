@@ -1,5 +1,9 @@
-import Link from 'next/link';
+// Utils
+import useLightMode from '../../../hooks/useLightMode';
+import useToggleLightMode from '../../../hooks/useToggleLightMode';
 
+// Components
+import Link from 'next/link';
 import {
 	AiOutlinePlusSquare,
 	AiFillPlusSquare,
@@ -10,11 +14,8 @@ import {
 	AiOutlineLogout,
 } from 'react-icons/ai';
 import { BsSun, BsSunFill, BsSpotify } from 'react-icons/bs';
-
 import { MenuOptions } from '..';
 import SidebarItem from './SidebarItem';
-import useLightMode from '../../../hooks/useLightMode';
-import useToggleLightMode from '../../../hooks/useToggleLightMode';
 
 type Props = {
 	menu: string;
@@ -45,6 +46,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 					<BsSpotify className="text-[2.4rem] leading-5 " />
 					<span className="text-2xl font-bold tracking-tight">Records</span>
 				</h1>
+				{/* Sidebar Links */}
 				<ul className="flex justify-around h-full items-center md:flex-col md:justify-start md:h-max md:items-start space-y-2 md:space-y-1  md:border-b-[1px]  md:pb-3 md:border-b-light-secondary ">
 					<SidebarItem
 						menu={menu}
@@ -90,6 +92,7 @@ function Sidebar({ menu, handleMenuChange, user }: Props) {
 				</ul>
 			</div>
 
+			{/* Logout Button */}
 			<Link
 				href="/"
 				className="hidden md:inline absolute bottom-0 left-1/2 -translate-x-1/2 w-10/12"

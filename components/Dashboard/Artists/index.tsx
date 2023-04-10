@@ -1,9 +1,13 @@
+// Utils
 import { useState } from 'react';
-import { SpotifyArtist, Terms } from '../../../lib/interfaces';
-import Header from '../Header';
+
+// Components
+import SectionHeader from '../SectionHeader';
 import SingleArtist from './SingleArtist';
 import Loading from '../../Loading';
 
+// Types
+import type { SpotifyArtist, Terms } from '../../../lib/interfaces';
 type Props = {
 	artists: {
 		shortTerm: SpotifyArtist[] | [];
@@ -22,7 +26,7 @@ function Artists({ artists, loading }: Props) {
 
 	return (
 		<section className=" select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen overflow-hidden relative  ">
-			<Header
+			<SectionHeader
 				term={term}
 				setTerm={setTerm}
 				title="top artists"
@@ -39,7 +43,7 @@ function Artists({ artists, loading }: Props) {
 					<ul className=" z-20 mt-2  flex flex-col    md:grid md:grid-flow-dense md:grid-cols-[repeat(auto-fill,_minmax(250px,1fr))] md:auto-rows-auto md:gap-5  md:px-4 lg:px-5   pb-20 md:pb-4 lg:pb-7  relative h-full  overflow-auto  scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 						{artists[term].map((item, idx) => (
 							<SingleArtist
-								key={`${term}-artist-${idx}`}
+								key={`${term}-artist-${item.id}`}
 								idx={idx + 1}
 								name={item.name}
 								external_urls={item.external_urls}

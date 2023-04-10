@@ -1,14 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { SpotifyTrack, Terms } from '../../../lib/interfaces';
-import Header from '../Header';
-import Image from 'next/image';
+// Utils
+import { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
-import SingleTrack from '../Tracks/SingleTrack';
 import {
 	convertMsToMinutesSeconds,
 	generatePlaylistDuration,
 } from '../../../lib/utils';
+
+// Components
+import SectionHeader from '../SectionHeader';
+import Image from 'next/image';
+import SingleTrack from '../Tracks/SingleTrack';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+
+// Types
+import type { SpotifyTrack, Terms } from '../../../lib/interfaces';
 
 type Props = {
 	tracks: {
@@ -95,9 +100,10 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 		}
 	}, [term, today, tracks]);
 
+	const handlePlaylistOpen = () => setPlaylistOpen(!playlistOpen);
 	return (
 		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  min-h-screen md:max-h-screen overflow-hidden">
-			<Header
+			<SectionHeader
 				title="Create Playlist"
 				term={term}
 				setTerm={setTerm}
@@ -119,7 +125,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 						>
 							<button
 								disabled={!playlistOpen}
-								onClick={() => setPlaylistOpen(!playlistOpen)}
+								onClick={handlePlaylistOpen}
 								className="fixed  bottom-14 left-1/2 -translate-x-1/2 font-medium"
 							>
 								Close
@@ -163,6 +169,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 													fill
 													alt={`top-track-${item.name}-${idx}`}
 													priority
+													sizes="100%"
 												/>
 											</div>
 										))}
@@ -171,7 +178,7 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 									{/* Create Button */}
 									<div className="flex w-full max-w-[400px] space-x-2 ">
 										<button
-											onClick={() => setPlaylistOpen(!playlistOpen)}
+											onClick={handlePlaylistOpen}
 											type="button"
 											className="w-full lg:hidden active:brightness-90 py-2.5 bg-neutral-400 rounded-md text-sm font-bold text-white drop-shadow-md"
 										>
@@ -209,14 +216,14 @@ function CreatePlaylist({ tracks, loading, accessToken }: Props) {
 										<span className="font-semibold ">
 											{tracks[term].length} songs,
 										</span>
-										<span className="">{duration}</span>
+										<span>{duration}</span>
 									</div>
 								</div>
 
 								<div className="pr-4  lg:h-full h-[500px] md:h-[600px] overflow-y-auto  scrollbar-thumb-rounded-full lg:scrollbar-thumb-rounded-none scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-light-menuHover  scrollbar-track-transparent">
 									{tracks[term].map((item, idx) => (
 										<SingleTrack
-											key={`${term}-track-${idx}`}
+											key={`${term}-track-${item.id}`}
 											idx={idx + 1}
 											artists={item.artists.map((artist: any) => {
 												return {

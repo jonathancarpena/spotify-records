@@ -1,6 +1,9 @@
+// Types
 import type { NextApiRequest, NextApiResponse } from 'next';
-import SpotifyWebApi from 'spotify-web-api-node';
 import { SpotifyTrack } from '../../lib/interfaces';
+
+// Utils
+import SpotifyWebApi from 'spotify-web-api-node';
 import moment from 'moment';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {

@@ -1,6 +1,11 @@
+// Utils
 import { useState } from 'react';
-import { Terms } from '../../lib/interfaces';
+
+// Components
 import Image from 'next/image';
+
+// Types
+import type { Terms } from '../../lib/interfaces';
 
 type Props = {
 	term?: Terms;
@@ -42,10 +47,10 @@ function ListOfTerms({ term, setTerm }: ListOfTermsProps) {
 		},
 	];
 
-	function handleButtonClick(value: Terms) {
+	const handleButtonClick = (value: Terms) => {
 		setActive(value);
 		setTerm(value);
-	}
+	};
 	return (
 		<ul className=" text-white z-30 w-max  flex items-center justify-center space-x-2 lg:text-base text-sm">
 			<button
@@ -69,7 +74,7 @@ function ListOfTerms({ term, setTerm }: ListOfTermsProps) {
 		</ul>
 	);
 }
-function Header({ term, setTerm, title, img }: Props) {
+function SectionHeader({ term, setTerm, title, img }: Props) {
 	return (
 		<header>
 			<div className=" flex flex-col justify-end px-5 pb-2 h-[18.5rem] lg:h-[25.5rem] lg:px-10 lg:pt-10 md:pb-8 relative  bg-gradient-to-b from-accent-500">
@@ -100,4 +105,4 @@ function Header({ term, setTerm, title, img }: Props) {
 	);
 }
 
-export default Header;
+export default SectionHeader;

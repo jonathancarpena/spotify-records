@@ -1,4 +1,3 @@
-import React from 'react';
 import { MenuOptions } from '..';
 
 type Props = {
@@ -16,9 +15,10 @@ function SidebarItem({
 	inactive,
 	active,
 }: Props) {
+	const handleClick = () => handleMenuChange(value);
 	return (
 		<li
-			onClick={() => handleMenuChange(value)}
+			onClick={handleClick}
 			className={`active:scale-90 select-none cursor-pointer py-1 flex flex-col   items-center  hover:text-black dark:hover:text-white transition-all duration-200 w-full  ${
 				menu === value
 					? 'text-black dark:text-white'

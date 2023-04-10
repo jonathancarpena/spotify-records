@@ -1,5 +1,7 @@
+// Types
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+// Utils
 import SpotifyWebApi from 'spotify-web-api-node';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -29,30 +31,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			console.log('REFRESH TOKEN ERROR');
 			return res.status(400).json({ error: err });
 		});
-
-	// const basic = Buffer.from(
-	// 	`${process.env.CLIENT_ID}:${process.env.CLIENT_SECRET}`
-	// ).toString('base64');
-	// const settings = {
-	// 	method: 'POST',
-	// 	headers: {
-	// 		Authorization: `Basic ${basic}`,
-	// 		'Content-Type': 'application/x-www-form-urlencoded',
-	// 	},
-	// 	body: convertToFormBody({
-	// 		grant_type: 'refresh_token',
-	// 		refresh_token: refreshToken,
-	// 	}),
-	// };
-
-	// try {
-	// 	const response = await fetch(ENDPOINT.TOKEN, settings);
-	// 	const data = await response.json();
-	// 	console.log('TOKEN REFRESH');
-	// 	return res.status(200).json(data);
-	// } catch (error) {
-	// 	return res.status(400);
-	// }
 };
 
 export default handler;

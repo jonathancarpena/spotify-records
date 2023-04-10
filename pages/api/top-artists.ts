@@ -1,4 +1,7 @@
+// Types
 import type { NextApiRequest, NextApiResponse } from 'next';
+
+// Utils
 import SpotifyWebApi from 'spotify-web-api-node';
 
 const LIMIT = 18;

@@ -1,10 +1,15 @@
+// Utils
 import { useState } from 'react';
-import { SpotifyTrack, Terms } from '../../../lib/interfaces';
 import { convertMsToMinutesSeconds } from '../../../lib/utils';
-import { AiOutlineClockCircle } from 'react-icons/ai';
+
+// Components
+import SectionHeader from '../SectionHeader';
 import SingleTrack from './SingleTrack';
 import Loading from '../../Loading';
-import Header from '../Header';
+import { AiOutlineClockCircle } from 'react-icons/ai';
+
+// Types
+import type { SpotifyTrack, Terms } from '../../../lib/interfaces';
 
 type Props = {
 	tracks: {
@@ -24,7 +29,7 @@ function Tracks({ tracks, loading }: Props) {
 
 	return (
 		<section className="select-none bg-light-main dark:bg-dark-main w-full flex flex-col  max-h-screen min-h-screen overflow-hidden">
-			<Header
+			<SectionHeader
 				term={term}
 				setTerm={setTerm}
 				title="top tracks"
@@ -37,7 +42,7 @@ function Tracks({ tracks, loading }: Props) {
 					<Loading sx="mt-10" />
 				) : tracks && tracks[term].length > 0 ? (
 					<>
-						{/* Table Header */}
+						{/* Table SectionHeader */}
 						<div className=" w-full pt-4 md:pt-2 flex-col ">
 							<div className=" text-white dark:text-neutral-200 pl-1.5  md:pl-0 grid gap-4 grid-cols-5 place-items-center justify-items-start  md:mx-4 lg:mx-5 border-b-[1px] border-t-dark-secondary  pb-2 text-xs md:text-sm  font-semibold uppercase ">
 								<div className="flex col-span-4 lg:col-span-2">
@@ -58,7 +63,7 @@ function Tracks({ tracks, loading }: Props) {
 							<ul className="flex flex-col text-secondary-light w-full pl-1.5 pr-3.5 md:pl-5 md:pr-7">
 								{tracks[term].map((item, idx) => (
 									<SingleTrack
-										key={`${term}-track-${idx}`}
+										key={`${term}-track-${item.id}`}
 										idx={idx + 1}
 										artists={item.artists.map((artist: any) => {
 											return {

@@ -1,4 +1,7 @@
+// Utils
 import { useState } from 'react';
+
+// Components
 import SEO from '../components/SEO';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
@@ -105,10 +108,10 @@ function Demo() {
 		return minutes + seconds;
 	}
 
-	function videoSeek(time: string) {
+	const videoSeek = (time: string) => {
 		const startTime = generateStart(time);
 		setTimeStamp(startTime);
-	}
+	};
 
 	return (
 		<>
@@ -128,8 +131,8 @@ function Demo() {
 
 				<div className="overflow-y-auto scrollbar-thumb-rounded-full scrollbar-thin  dark:scrollbar-thumb-dark-menuHover scrollbar-thumb-white  scrollbar-track-transparent w-full  py-2 px-1 bg-light-mainHover dark:bg-dark-main rounded-lg lg:drop-shadow-xl lg:dark:drop-shadow-[0_20px_13px_rgba(0,0,0,0.5)] lg:w-max lg:block lg:h-[30rem] ">
 					<ul className={` text-lighter space-y-2 pt-3 pb-4 pl-5 pr-6`}>
-						{timeStamps.map((time, idx) => (
-							<li key={`timestamp-${idx}`} className="drop-shadow-md">
+						{timeStamps.map((time) => (
+							<li key={`timestamp-${time.title}`} className="drop-shadow-md">
 								<button
 									onClick={() => videoSeek(time.start)}
 									className={` bg-white dark:bg-dark-mainHover text-start hover:scale-105 hover:bg-accent-500 dark:hover:bg-accent-500 hover:text-white active:bg-accent-600 active:scale-95 active:text-white transition-all duration-150 ease-in-out rounded-lg w-full flex flex-col items-start p-3`}

@@ -1,4 +1,9 @@
+// Utils
 import { useState } from 'react';
+import useToggleLightMode from '../../hooks/useToggleLightMode';
+import useLightMode from '../../hooks/useLightMode';
+
+// Components
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -10,11 +15,8 @@ import {
 	AiOutlinePoweroff,
 	AiOutlineLineChart,
 } from 'react-icons/ai';
-
 import { SlSocialSpotify } from 'react-icons/sl';
 import { BsSun, BsSunFill } from 'react-icons/bs';
-import useToggleLightMode from '../../hooks/useToggleLightMode';
-import useLightMode from '../../hooks/useLightMode';
 
 type Props = {
 	user: {
@@ -90,12 +92,11 @@ function User({ user }: Props) {
 	const lightMode = useLightMode();
 	const toggleLightMode = useToggleLightMode();
 
-	function handleMenuOpen() {
-		setMenuOpen(!menuOpen);
-	}
+	const handleMenuOpen = () => setMenuOpen(!menuOpen);
 
 	return (
 		<div className="fixed top-3 right-3 md:top-5 md:right-5 z-30">
+			{/* Menu Button */}
 			<button
 				onClick={handleMenuOpen}
 				className={`active:scale-90 lg:active:scale-100 flex lg:space-x-2 items-center justify-center text-sm md:justify-start w-max  text-black bg-white dark:bg-dark-menu dark:text-white p-0.5 lg:pr-2 lg:pl-0.5 lg:py-0.5 rounded-full ${
@@ -109,6 +110,7 @@ function User({ user }: Props) {
 							src={user.image.url}
 							fill={true}
 							alt={`spotify-profile-${user.name}-picture`}
+							sizes="30px"
 						/>
 					) : (
 						<AiOutlineUser className="text-white text-xl" />
@@ -119,13 +121,12 @@ function User({ user }: Props) {
 				<h1 className=" hidden lg:inline lowercase  select-none">
 					{user.name}
 				</h1>
-
 				<span className="hidden lg:inline">
 					{menuOpen ? <AiFillCaretUp /> : <AiFillCaretDown />}
 				</span>
 			</button>
 
-			{/* Menu */}
+			{/* Menu Items */}
 			<ul
 				className={`${
 					menuOpen

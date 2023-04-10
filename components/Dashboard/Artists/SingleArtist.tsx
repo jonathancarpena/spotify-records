@@ -1,8 +1,13 @@
+// Utils
 import { useState } from 'react';
-import { SpotifyArtist } from '../../../lib/interfaces';
+
+// Components
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMdMicrophone } from 'react-icons/io';
+
+// Type
+import type { SpotifyArtist } from '../../../lib/interfaces';
 
 interface Props extends SpotifyArtist {
 	idx: number;
@@ -19,11 +24,8 @@ function SingleArtist({
 	idx,
 }: Props) {
 	const [hover, setHover] = useState(false);
-	/*
-	 `${!images[0] ? 'bg-neutral-300' : ''} ${
-		hover ? 'md:scale-110 ' : ' '
-	}  relative w-[90px] h-[90px] md:rounded-full  overflow-hidden md:h-auto md:w-[95%] md:aspect-square mx-auto  flex justify-center items-center transition-all duration-200`
-	*/
+	const handleMouseEnter = () => setHover(true);
+	const handleMouseLeave = () => setHover(false);
 	return (
 		<Link
 			href={
@@ -33,8 +35,8 @@ function SingleArtist({
 			className="md:drop-shadow-md  md:aspect-[3/4] "
 		>
 			<div
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
 				className={`w-full bg-white dark:bg-[#181818] flex items-center  md:inline-block transition-all duration-200   md:rounded-lg h-max md:h-full md:pt-5 md:px-5 md:pb-10  relative overflow-hidden  dark:border-b-neutral-800 border-b-2  `}
 			>
 				{/* Animation Expanding Div */}
@@ -60,6 +62,9 @@ function SingleArtist({
 								alt={`top-artist-${name}-${idx}`}
 								style={{ objectFit: 'cover' }}
 								priority
+								sizes="(min-width: 768px) 95%,
+								90px
+								"
 							/>
 						) : (
 							<IoMdMicrophone className="text-white text-8xl" />

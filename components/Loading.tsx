@@ -1,4 +1,4 @@
-import React from 'react';
+// Components
 import Image from 'next/image';
 type Props = {
 	sx?: string;
@@ -13,6 +13,7 @@ function Loading({ sx = '' }: Props) {
 					src="/images/spotify-records.png"
 					alt="logo"
 					fill
+					sizes="56px"
 					style={{ objectFit: 'cover' }}
 					priority
 				/>
